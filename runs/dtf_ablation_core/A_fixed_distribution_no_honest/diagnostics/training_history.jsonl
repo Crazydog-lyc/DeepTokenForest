@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9a6c2eccd89bab91bffe04efe1f278270ca3eba624ecf880c6d3eeb1d8663da
-size 482
+{"global_tree": 1, "stage": 0, "tree_in_stage": 0, "representation_dim": 64, "train_logloss": 1.1585923433303833, "eval_logloss": 1.1600098609924316, "train_improvement": 0.22770226001739502, "eval_improvement": 0.22628474235534668, "transfer_ratio": 0.9937746877789441, "tree_depth": 6, "tree_leaves": 16, "tree_internal_nodes": 15, "sum_effective_gain": 132396.52009789873, "mean_effective_gain": 8826.434673193247, "mean_search_gain": 8826.434673193247, "mean_honest_gain": NaN}

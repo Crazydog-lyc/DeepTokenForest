@@ -1,3 +1,152 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:97f7abae12928e17249cf350818559531f8a996e43ef0fc199c750db3937e891
-size 4559
+[
+  {
+    "token_threshold": -0.10520828515291214,
+    "temperature": 0.5,
+    "feature_mean": 0.18722302835407392,
+    "feature_scale": 0.8343175327649959,
+    "stage": 7,
+    "tree": 3,
+    "node_id": 0,
+    "depth": 0,
+    "n_samples": 108000,
+    "search_gain": 66.51983902530867,
+    "honest_gain": 15.223100755512974,
+    "effective_gain": 78.25863414742197,
+    "doc_threshold": 0.634768009185791,
+    "doc_fraction_mean": 0.5951615571975708,
+    "doc_fraction_std": 0.10374411195516586,
+    "token_activation_mean": 0.18375999379830127,
+    "token_activation_std": 0.8348178981908608,
+    "class_doc_fraction_mean": {
+      "0": 0.5985158681869507,
+      "1": 0.6855472922325134,
+      "2": 0.5556033253669739,
+      "3": 0.5410311818122864
+    }
+  },
+  {
+    "token_threshold": 0.06286072731018066,
+    "temperature": 0.5,
+    "feature_mean": -0.008031906559249154,
+    "feature_scale": 0.7514250563554913,
+    "stage": 7,
+    "tree": 0,
+    "node_id": 1,
+    "depth": 1,
+    "n_samples": 81558,
+    "search_gain": 78.02775328148994,
+    "honest_gain": 10.524951132642013,
+    "effective_gain": 70.16462027758845,
+    "doc_threshold": 0.38266584277153015,
+    "doc_fraction_mean": 0.4940429627895355,
+    "doc_fraction_std": 0.10297385603189468,
+    "token_activation_mean": -0.007423731446953675,
+    "token_activation_std": 0.7512761792175034,
+    "class_doc_fraction_mean": {
+      "0": 0.5359448194503784,
+      "1": 0.49501311779022217,
+      "2": 0.4830372631549835,
+      "3": 0.46230247616767883
+    }
+  },
+  {
+    "token_threshold": -0.48764926195144653,
+    "temperature": 0.5,
+    "feature_mean": 0.19311588595989448,
+    "feature_scale": 0.7290092535155975,
+    "stage": 7,
+    "tree": 0,
+    "node_id": 0,
+    "depth": 0,
+    "n_samples": 108000,
+    "search_gain": 44.89760887178255,
+    "honest_gain": 10.63084522223027,
+    "effective_gain": 52.82071631974418,
+    "doc_threshold": 0.706389456987381,
+    "doc_fraction_mean": 0.6064991354942322,
+    "doc_fraction_std": 0.13272453844547272,
+    "token_activation_mean": 0.19503788125556318,
+    "token_activation_std": 0.7292013687779414,
+    "class_doc_fraction_mean": {
+      "0": 0.49362024664878845,
+      "1": 0.6037158370018005,
+      "2": 0.6204433441162109,
+      "3": 0.7078651785850525
+    }
+  },
+  {
+    "token_threshold": 1.6344082355499268,
+    "temperature": 0.5,
+    "feature_mean": -0.7859096222222356,
+    "feature_scale": 0.4964794423369816,
+    "stage": 7,
+    "tree": 1,
+    "node_id": 2,
+    "depth": 1,
+    "n_samples": 86318,
+    "search_gain": 48.33638223136057,
+    "honest_gain": 9.638479041068045,
+    "effective_gain": 56.86656455563011,
+    "doc_threshold": 0.03361582010984421,
+    "doc_fraction_mean": 0.09109847247600555,
+    "doc_fraction_std": 0.07912615686655045,
+    "token_activation_mean": -0.7879612782019889,
+    "token_activation_std": 0.49318255479059453,
+    "class_doc_fraction_mean": {
+      "0": 0.17268602550029755,
+      "1": 0.05074848234653473,
+      "2": 0.09006372094154358,
+      "3": 0.05112338066101074
+    }
+  },
+  {
+    "token_threshold": -0.5974302887916565,
+    "temperature": 0.5,
+    "feature_mean": 0.1981298399140047,
+    "feature_scale": 0.8181184106360901,
+    "stage": 7,
+    "tree": 1,
+    "node_id": 0,
+    "depth": 0,
+    "n_samples": 108000,
+    "search_gain": 51.30072290811814,
+    "honest_gain": 7.417953940932694,
+    "effective_gain": 49.45302627288463,
+    "doc_threshold": 0.514718621969223,
+    "doc_fraction_mean": 0.6070787310600281,
+    "doc_fraction_std": 0.12209450453519821,
+    "token_activation_mean": 0.20191464054909922,
+    "token_activation_std": 0.8174973877612615,
+    "class_doc_fraction_mean": {
+      "0": 0.6505928635597229,
+      "1": 0.4871934950351715,
+      "2": 0.6323388814926147,
+      "3": 0.6582531332969666
+    }
+  },
+  {
+    "token_threshold": 0.18259237706661224,
+    "temperature": 0.5,
+    "feature_mean": -0.18478928382171103,
+    "feature_scale": 0.7862960413728287,
+    "stage": 7,
+    "tree": 5,
+    "node_id": 0,
+    "depth": 0,
+    "n_samples": 108000,
+    "search_gain": 49.68173064707104,
+    "honest_gain": 6.991301886721223,
+    "effective_gain": 46.60867924480815,
+    "doc_threshold": 0.325834184885025,
+    "doc_fraction_mean": 0.4032708704471588,
+    "doc_fraction_std": 0.1431332677602768,
+    "token_activation_mean": -0.1843072188114391,
+    "token_activation_std": 0.7861819863204006,
+    "class_doc_fraction_mean": {
+      "0": 0.46961137652397156,
+      "1": 0.21905414760112762,
+      "2": 0.44759079813957214,
+      "3": 0.47692734003067017
+    }
+  }
+]
