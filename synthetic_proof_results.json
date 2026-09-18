@@ -1,0 +1,83 @@
+{
+  "topk_information_loss": {
+    "name": "topk_information_loss",
+    "topk_best_test_accuracy": 0.5144,
+    "topk_all": [
+      {
+        "w": 1.0,
+        "test_accuracy": 0.5022,
+        "threshold": 0.9305423851332304,
+        "orientation": -1
+      },
+      {
+        "w": -1.0,
+        "test_accuracy": 0.5144,
+        "threshold": 0.9311772166579018,
+        "orientation": -1
+      }
+    ],
+    "projection_survival_test_accuracy": 1.0,
+    "projection_survival_threshold": 0.5,
+    "projection_survival_orientation": 1,
+    "interpretation": "The label lives in a middle order statistic. Top-K and bottom-K are unchanged, whereas the empirical survival function at b=0 changes by exactly 1/T."
+  },
+  "feature_growth_strict_expansion": {
+    "name": "feature_growth_strict_expansion",
+    "raw_one_threshold_test_accuracy": 0.7526,
+    "raw_threshold": -1.101988706466286,
+    "raw_orientation": -1,
+    "augmented_one_threshold_test_accuracy": 0.9999,
+    "augmented_threshold": 0.5,
+    "augmented_orientation": 1,
+    "interpretation": "A raw half-line cannot represent two disjoint tails. After g1=1[x>1] and g2=1[x<-1] are appended, the single later split g1+g2>=0.5 represents their union."
+  },
+  "prefix_breaks_permutation_invariance": {
+    "name": "prefix_breaks_permutation_invariance",
+    "bag_best_accuracy": 0.5,
+    "prefix_concept_accuracy": 1.0,
+    "n_permutations": 24,
+    "interpretation": "Permutation-invariant pooling cannot distinguish order when the multiset is fixed. A causal prefix concept distinguishes A-before-B."
+  },
+  "candidate_multiplicity": {
+    "name": "candidate_multiplicity",
+    "settings": {
+      "seeds": 200,
+      "n_train": 2000,
+      "n_test": 5000,
+      "signal_mu": 0.1,
+      "honest_fraction": 0.3,
+      "shortlist": 16
+    },
+    "results": [
+      {
+        "candidate_count": 8,
+        "search_true_direction_rate": 0.95,
+        "honest_true_direction_rate": 0.925,
+        "search_test_accuracy": 0.538013,
+        "honest_test_accuracy": 0.5368210000000001
+      },
+      {
+        "candidate_count": 32,
+        "search_true_direction_rate": 0.875,
+        "honest_true_direction_rate": 0.925,
+        "search_test_accuracy": 0.533972,
+        "honest_test_accuracy": 0.5363969999999999
+      },
+      {
+        "candidate_count": 128,
+        "search_true_direction_rate": 0.825,
+        "honest_true_direction_rate": 0.835,
+        "search_test_accuracy": 0.53331,
+        "honest_test_accuracy": 0.533626
+      },
+      {
+        "candidate_count": 512,
+        "search_true_direction_rate": 0.66,
+        "honest_true_direction_rate": 0.755,
+        "search_test_accuracy": 0.526599,
+        "honest_test_accuracy": 0.529974
+      }
+    ],
+    "interpretation": "As candidate multiplicity grows, the maximum search-set statistic is increasingly likely to be a noise winner. Honest rechecking does not create signal, but reduces this selection bias."
+  }
+}

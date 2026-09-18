@@ -1,0 +1,11 @@
+{
+  "deep_token_forest.py": "aad53c0bdc47df71166e011b75d13bec1ff284b4b1669b89b69e9767e3af8b24",
+  "train_agnews_deep_token_forest.py": "1c782ad3439a1bb9a33a6528fba2ba1dc2859b9593161c798c296b1323620b4d",
+  "synthetic_proofs_experiments.py": "854d5107474f7a4ab2768ac1e149e3468ff26b486f05c263fa0a1cd357059640",
+  "synthetic_proof_results.json": "17a654e2e22941e5bc513e87f100831a64bceb68c085f954532a3a7db60f952a",
+  "run_agnews_ablation.py": "1a7a6d55f44b1842cbd09eac1dcb726d6f06e210c1df86cab6a5ef6ecfac1f7a",
+  "analyze_deep_token_forest_run.py": "93686dd3133810b581affb7351f460e9183d407ea1037e4748468f5c3f250bd9",
+  "test_deep_token_forest.py": "f64e090b186cda78082e2ddc8fdb76a499856332dcd82044ead30a04fd5642de",
+  "README_DEEP_TOKEN_FOREST.md": "3812eae6d01db39ff47bdbb112c4dc832a4fb5bfcf15839af93ed2d473f3efa9",
+  "PATCH_NOTES.md": "6370854af06458f9f5b894e50e1449eea879aa8bdf83699a62810cb840c90287"
+}
