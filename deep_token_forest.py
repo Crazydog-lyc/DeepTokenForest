@@ -44,6 +44,7 @@ The implementation is NumPy-first and intentionally independent of autograd.
 from __future__ import annotations
 
 from dataclasses import dataclass, asdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple, Union
 import heapq
@@ -52,6 +53,7 @@ import math
 import os
 
 import numpy as np
+import torch
 
 Array = np.ndarray
 
@@ -254,6 +256,8 @@ class ProjectionDistributionNewtonTree:
         min_honest_gain_per_sample: float = 0.0,
         score_block_rows: int = 1024,
         direction_chunk_size: int = 8,
+        tree_device: str = "auto",
+        threshold_n_jobs: int = 0,
         random_state: int = 42,
         stage_index: int = 0,
         tree_index: int = 0,
@@ -305,6 +309,27 @@ class ProjectionDistributionNewtonTree:
         self.min_honest_gain_per_sample = float(min_honest_gain_per_sample)
         self.score_block_rows = int(score_block_rows)
         self.direction_chunk_size = max(1, int(direction_chunk_size))
+
+        tree_device = str(tree_device).lower()
+        if tree_device == "auto":
+            tree_device = "cuda" if torch.cuda.is_available() else "cpu"
+        if tree_device not in ("cpu", "cuda"):
+            raise ValueError("tree_device must be one of: auto, cpu, cuda")
+        if tree_device == "cuda" and not torch.cuda.is_available():
+            raise RuntimeError(
+                "tree_device='cuda' requested, but torch.cuda.is_available() is False"
+            )
+        self.tree_device = tree_device
+        self._torch_device = torch.device(tree_device)
+
+        # 0 = conservative auto. Each worker still calls the exact same
+        # _best_threshold() routine; only independent candidates run in parallel.
+        self.threshold_n_jobs = int(threshold_n_jobs)
+        if self.threshold_n_jobs <= 0:
+            self.threshold_n_jobs = max(
+                1, min(8, int(os.cpu_count() or 1))
+            )
+
         self.random_state = int(random_state)
         self.stage_index = int(stage_index)
         self.tree_index = int(tree_index)
@@ -322,6 +347,10 @@ class ProjectionDistributionNewtonTree:
         self._g = None
         self._h = None
         self._doc_mean = None
+        # Optional stage-level CUDA cache. It is owned by the classifier and
+        # shared across all trees in a stage; this tree never serializes it.
+        self._stage_gpu_cache = None
+        self._threshold_executor = None
 
     # ----------------------------- Newton objective -------------------------
 
@@ -527,17 +556,103 @@ class ProjectionDistributionNewtonTree:
             return rows
         return self._rng.choice(rows, size=k, replace=False).astype(np.int64)
 
+    def _gpu_rows(
+        self,
+        rows: Array,
+        *,
+        X_cpu: Optional[Array] = None,
+        mask_cpu: Optional[Array] = None,
+        gpu_cache: Optional[dict] = None,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Return selected token rows and mask on CUDA.
+
+        If a stage cache is supplied, values are gathered directly on the GPU.
+        Otherwise the exact source rows are copied from CPU as before. In both
+        cases token values are converted to float32 before matmul, matching the
+        existing CUDA execution path.
+        """
+        if self._torch_device.type != "cuda":
+            raise RuntimeError("_gpu_rows is CUDA-only")
+
+        cache = self._stage_gpu_cache if gpu_cache is None else gpu_cache
+        rows = np.asarray(rows, dtype=np.int64)
+
+        if cache is not None:
+            idxg = torch.as_tensor(
+                rows,
+                device=self._torch_device,
+                dtype=torch.long,
+            )
+            xg = cache["X"].index_select(0, idxg)
+            if xg.dtype != torch.float32:
+                xg = xg.to(torch.float32)
+            mg = cache["mask"].index_select(0, idxg)
+            if mg.dtype != torch.bool:
+                mg = mg.to(torch.bool)
+            return xg, mg
+
+        if X_cpu is None or mask_cpu is None:
+            raise ValueError("CPU arrays are required when no GPU cache is available")
+
+        xb = np.asarray(X_cpu[rows], dtype=np.float32)
+        mb = np.asarray(mask_cpu[rows], dtype=bool)
+        xg = torch.from_numpy(
+            np.ascontiguousarray(xb)
+        ).to(
+            self._torch_device,
+            dtype=torch.float32,
+        )
+        mg = torch.from_numpy(
+            np.ascontiguousarray(mb)
+        ).to(
+            self._torch_device,
+            dtype=torch.bool,
+        )
+        return xg, mg
+
     def _projection_bank(
         self,
         rows: Array,
         W: Array,
     ) -> Tuple[Array, Array]:
-        """Return projection [N,T,M] and bool mask [N,T] for modest row sets."""
+        """
+        Return projection [N,T,M] and bool mask [N,T].
+
+        CUDA path changes only the backend of H @ W. The returned values remain
+        NumPy float32 so token-threshold quantiles and the rest of tree search
+        keep exactly the same semantics as the CPU implementation.
+        """
         rows = np.asarray(rows, dtype=np.int64)
         W = _normalize_rows(W)
-        xb = np.asarray(self._X[rows], dtype=np.float32)
         mb = np.asarray(self._mask[rows], dtype=bool)
-        N, T, D = xb.shape
+        N = len(rows)
+        T = int(self._X.shape[1])
+        D = int(self._X.shape[2])
+
+        if self._torch_device.type == "cuda":
+            with torch.inference_mode():
+                xg, _ = self._gpu_rows(
+                    rows,
+                    X_cpu=self._X,
+                    mask_cpu=self._mask,
+                )
+                wg = torch.from_numpy(
+                    np.ascontiguousarray(W)
+                ).to(
+                    self._torch_device,
+                    dtype=torch.float32,
+                )
+                proj_g = torch.matmul(
+                    xg.reshape(N * T, D),
+                    wg.T,
+                ).reshape(N, T, len(W))
+                proj = (
+                    proj_g.cpu().numpy().astype(np.float32, copy=False)
+                )
+            return proj, mb
+
+        xb = np.asarray(self._X[rows], dtype=np.float32)
         proj = (xb.reshape(N * T, D) @ W.T).reshape(N, T, len(W))
         return proj.astype(np.float32, copy=False), mb
 
@@ -571,16 +686,91 @@ class ProjectionDistributionNewtonTree:
 
         Soft mode:
             mean_t 0.5 * (1 + tanh((h_t @ w_m - b_mq) / temperature))
+
+        On CUDA, directions M and token thresholds Q are evaluated together.
+        Only the projection/distribution statistic is moved to CUDA; Newton gain
+        calculation and threshold selection remain unchanged on CPU.
         """
         rows = np.asarray(rows, dtype=np.int64)
         W = _normalize_rows(W)
         Bmat = np.asarray(token_thresholds, dtype=np.float32)
+
         n = len(rows)
         m = len(W)
         q = Bmat.shape[1]
         T = int(self._X.shape[1])
         out = np.empty((n, m, q), dtype=np.float32)
 
+        if self._torch_device.type == "cuda":
+            with torch.inference_mode():
+                Wg = torch.from_numpy(
+                    np.ascontiguousarray(W)
+                ).to(
+                    self._torch_device,
+                    dtype=torch.float32,
+                )
+                Bg = torch.from_numpy(
+                    np.ascontiguousarray(Bmat)
+                ).to(
+                    self._torch_device,
+                    dtype=torch.float32,
+                )
+
+                for start in range(0, n, self.score_block_rows):
+                    end = min(n, start + self.score_block_rows)
+                    rr = rows[start:end]
+
+                    nb = len(rr)
+                    xg, mg = self._gpu_rows(
+                        rr,
+                        X_cpu=self._X,
+                        mask_cpu=self._mask,
+                    )
+
+                    # [B*T,D] @ [D,M] -> [B,T,M]
+                    proj = torch.matmul(
+                        xg.reshape(nb * T, self.token_dim),
+                        Wg.T,
+                    ).reshape(nb, T, m)
+
+                    denom = (
+                        mg.sum(dim=1)
+                        .clamp_min(1)
+                        .to(torch.float32)
+                    )
+
+                    # Broadcast to [B,T,M,Q].
+                    if self.distribution_activation == "hard":
+                        hits = (
+                            proj.unsqueeze(-1)
+                            >= Bg[None, None, :, :]
+                        )
+                        hits = hits & mg[:, :, None, None]
+                        scores = (
+                            hits.sum(dim=1).to(torch.float32)
+                            / denom[:, None, None]
+                        )
+                    else:
+                        z = (
+                            proj.unsqueeze(-1)
+                            - Bg[None, None, :, :]
+                        ) / float(self.distribution_temperature)
+                        values = 0.5 * (1.0 + torch.tanh(z))
+                        values = (
+                            values
+                            * mg[:, :, None, None].to(torch.float32)
+                        )
+                        scores = (
+                            values.sum(dim=1)
+                            / denom[:, None, None]
+                        )
+
+                    out[start:end] = (
+                        scores.cpu().numpy().astype(np.float32, copy=False)
+                    )
+            return out
+
+        # CPU fallback: original exact implementation.
         for start in range(0, n, self.score_block_rows):
             end = min(n, start + self.score_block_rows)
             rr = rows[start:end]
@@ -667,15 +857,38 @@ class ProjectionDistributionNewtonTree:
             token_bs = self._estimate_token_thresholds(search_rows, Wc)
             S = self._score_distribution_bank(search_rows, Wc, token_bs)
 
+            # Every (direction, token-threshold) candidate is independent.
+            # We call the *same* _best_threshold() function in parallel and
+            # collect results in j-major/k-major order. ThreadPoolExecutor.map
+            # preserves input order, so tie behavior remains identical.
+            tasks = [
+                (j, k)
+                for j in range(len(Wc))
+                for k in range(token_bs.shape[1])
+            ]
+
+            def eval_threshold(task):
+                j, k = task
+                return self._best_threshold(
+                    search_rows,
+                    S[:, j, k],
+                    parent,
+                    min_leaf=self.min_samples_leaf,
+                )
+
+            if self._threshold_executor is not None and len(tasks) > 1:
+                results = list(
+                    self._threshold_executor.map(eval_threshold, tasks)
+                )
+            else:
+                results = [eval_threshold(task) for task in tasks]
+
+            result_idx = 0
             for j in range(len(Wc)):
                 best = None
                 for k in range(token_bs.shape[1]):
-                    rho, gain = self._best_threshold(
-                        search_rows,
-                        S[:, j, k],
-                        parent,
-                        min_leaf=self.min_samples_leaf,
-                    )
+                    rho, gain = results[result_idx]
+                    result_idx += 1
                     if rho is None:
                         continue
                     if best is None or gain > best.search_gain:
@@ -830,6 +1043,7 @@ class ProjectionDistributionNewtonTree:
         hessians: Array,
         doc_mean: Optional[Array] = None,
         sample_weight: Optional[Array] = None,
+        stage_gpu_cache: Optional[dict] = None,
     ):
         X = X_tokens
         mask = np.asarray(attention_mask)
@@ -862,6 +1076,12 @@ class ProjectionDistributionNewtonTree:
         self._mask = mask
         self._g = g
         self._h = h
+        self._stage_gpu_cache = stage_gpu_cache
+        self._threshold_executor = (
+            ThreadPoolExecutor(max_workers=self.threshold_n_jobs)
+            if self.threshold_n_jobs > 1
+            else None
+        )
         self._doc_mean = (
             masked_mean_tokens(X, mask, block_rows=self.score_block_rows)
             if doc_mean is None
@@ -940,6 +1160,10 @@ class ProjectionDistributionNewtonTree:
         self._g = None
         self._h = None
         self._doc_mean = None
+        self._stage_gpu_cache = None
+        if self._threshold_executor is not None:
+            self._threshold_executor.shutdown(wait=True)
+            self._threshold_executor = None
         return self
 
     # ------------------------------ Inference ------------------------------
@@ -951,7 +1175,14 @@ class ProjectionDistributionNewtonTree:
         rows: Array,
         w: Array,
         token_threshold: float,
+        gpu_cache: Optional[dict] = None,
     ) -> Array:
+        """
+        Score one already-selected node rule for routing/prediction.
+
+        CUDA path is used during train/eval prediction after each fitted tree,
+        which avoids leaving the GPU idle between candidate-search phases.
+        """
         X = X_tokens
         mask = np.asarray(attention_mask)
         rows = np.asarray(rows, dtype=np.int64)
@@ -960,6 +1191,58 @@ class ProjectionDistributionNewtonTree:
         T = int(X.shape[1])
         out = np.empty(n, dtype=np.float32)
 
+        if self._torch_device.type == "cuda":
+            with torch.inference_mode():
+                wg = torch.from_numpy(
+                    np.ascontiguousarray(w)
+                ).to(
+                    self._torch_device,
+                    dtype=torch.float32,
+                )
+
+                for start in range(0, n, self.score_block_rows):
+                    end = min(n, start + self.score_block_rows)
+                    rr = rows[start:end]
+                    nb = len(rr)
+                    xg, mg = self._gpu_rows(
+                        rr,
+                        X_cpu=X,
+                        mask_cpu=mask,
+                        gpu_cache=gpu_cache,
+                    )
+
+                    pg = torch.matmul(
+                        xg.reshape(nb * T, self.token_dim),
+                        wg,
+                    ).reshape(nb, T)
+
+                    denom = (
+                        mg.sum(dim=1)
+                        .clamp_min(1)
+                        .to(torch.float32)
+                    )
+
+                    if self.distribution_activation == "hard":
+                        scores = (
+                            ((pg >= float(token_threshold)) & mg)
+                            .sum(dim=1)
+                            .to(torch.float32)
+                            / denom
+                        )
+                    else:
+                        z = (
+                            pg - float(token_threshold)
+                        ) / float(self.distribution_temperature)
+                        a = 0.5 * (1.0 + torch.tanh(z))
+                        a = a * mg.to(torch.float32)
+                        scores = a.sum(dim=1) / denom
+
+                    out[start:end] = (
+                        scores.cpu().numpy().astype(np.float32, copy=False)
+                    )
+            return out
+
+        # CPU fallback.
         for start in range(0, n, self.score_block_rows):
             end = min(n, start + self.score_block_rows)
             rr = rows[start:end]
@@ -984,6 +1267,7 @@ class ProjectionDistributionNewtonTree:
         self,
         X_tokens: Array,
         attention_mask: Array,
+        gpu_cache: Optional[dict] = None,
     ) -> Array:
         X = X_tokens
         mask = np.asarray(attention_mask)
@@ -1010,6 +1294,7 @@ class ProjectionDistributionNewtonTree:
                 rows,
                 node["w"],
                 node["token_threshold"],
+                gpu_cache=gpu_cache,
             )
             right = scores >= node["doc_threshold"]
             stack.append((node["left"], rows[~right]))
@@ -1335,6 +1620,10 @@ class DeepTokenForestClassifier:
         feature_dtype: str = "float16",
         score_block_rows: int = 1024,
         direction_chunk_size: int = 8,
+        tree_device: str = "auto",
+        threshold_n_jobs: int = 0,
+        cache_stage_on_gpu: bool = True,
+        gpu_cache_fraction: float = 0.55,
         transform_block_rows: int = 512,
         early_stopping_rounds: Optional[int] = None,
         early_stopping_min_delta: float = 0.0,
@@ -1379,6 +1668,22 @@ class DeepTokenForestClassifier:
         self.feature_dtype = str(feature_dtype)
         self.score_block_rows = int(score_block_rows)
         self.direction_chunk_size = max(1, int(direction_chunk_size))
+        self.tree_device = str(tree_device).lower()
+        if self.tree_device == "auto":
+            self.tree_device = "cuda" if torch.cuda.is_available() else "cpu"
+        if self.tree_device not in ("cpu", "cuda"):
+            raise ValueError("tree_device must be one of: auto, cpu, cuda")
+        if self.tree_device == "cuda" and not torch.cuda.is_available():
+            raise RuntimeError(
+                "tree_device='cuda' requested, but torch.cuda.is_available() is False"
+            )
+        self.threshold_n_jobs = int(threshold_n_jobs)
+        if self.threshold_n_jobs <= 0:
+            self.threshold_n_jobs = max(1, min(8, int(os.cpu_count() or 1)))
+        self.cache_stage_on_gpu = bool(cache_stage_on_gpu)
+        self.gpu_cache_fraction = float(gpu_cache_fraction)
+        if not (0.0 < self.gpu_cache_fraction < 0.90):
+            raise ValueError("gpu_cache_fraction must lie in (0, 0.90)")
         self.transform_block_rows = int(transform_block_rows)
         self.early_stopping_rounds = early_stopping_rounds
         self.early_stopping_min_delta = float(early_stopping_min_delta)
@@ -1438,6 +1743,8 @@ class DeepTokenForestClassifier:
             "min_honest_gain_per_sample": self.min_honest_gain_per_sample,
             "score_block_rows": self.score_block_rows,
             "direction_chunk_size": self.direction_chunk_size,
+            "tree_device": self.tree_device,
+            "threshold_n_jobs": self.threshold_n_jobs,
             "random_state": self.random_state + 100003 * stage + 1009 * tree,
             "stage_index": stage,
             "tree_index": tree,
@@ -1477,6 +1784,90 @@ class DeepTokenForestClassifier:
 
         candidates.sort(key=utility, reverse=True)
         return candidates[: self.concepts_per_stage]
+
+    def _build_stage_gpu_cache(
+        self,
+        X_tokens: Array,
+        attention_mask: Array,
+        *,
+        label: str,
+        budget_bytes: Optional[int] = None,
+    ) -> Optional[dict]:
+        """
+        Copy one representation stage to CUDA exactly once.
+
+        Source dtype is preserved in the cache (normally float16). Each scoring
+        block is cast to float32 immediately before matmul, exactly as in the
+        uncached CUDA path. This removes repeated PCIe transfers without changing
+        candidate directions, thresholds, gains, or tree-growing order.
+        """
+        if self.tree_device != "cuda" or not self.cache_stage_on_gpu:
+            return None
+
+        X = X_tokens
+        M = np.asarray(attention_mask)
+        x_bytes = int(np.prod(X.shape)) * int(np.dtype(X.dtype).itemsize)
+        mask_bytes = int(np.prod(M.shape))  # cached as bool/uint8: one byte
+        needed = x_bytes + mask_bytes
+
+        free_bytes, _ = torch.cuda.mem_get_info()
+        if budget_bytes is None:
+            budget_bytes = int(free_bytes * self.gpu_cache_fraction)
+
+        if needed > min(int(free_bytes * 0.85), int(budget_bytes)):
+            print(
+                f"[GPU cache] {label}: skip; need={needed/2**30:.2f} GiB, "
+                f"free={free_bytes/2**30:.2f} GiB, "
+                f"budget={budget_bytes/2**30:.2f} GiB",
+                flush=True,
+            )
+            return None
+
+        if np.dtype(X.dtype) == np.float16:
+            tdtype = torch.float16
+        elif np.dtype(X.dtype) == np.float32:
+            tdtype = torch.float32
+        else:
+            # Preserve values via float32 for uncommon source dtypes.
+            tdtype = torch.float32
+
+        Xg = torch.empty(
+            tuple(X.shape),
+            device="cuda",
+            dtype=tdtype,
+        )
+        Mg = torch.empty(
+            tuple(M.shape),
+            device="cuda",
+            dtype=torch.bool,
+        )
+
+        block = max(64, self.transform_block_rows)
+        with torch.inference_mode():
+            for start in range(0, len(X), block):
+                end = min(len(X), start + block)
+                xb = np.asarray(X[start:end])
+                mb = np.asarray(M[start:end], dtype=bool)
+                xt = torch.from_numpy(np.ascontiguousarray(xb))
+                mt = torch.from_numpy(np.ascontiguousarray(mb))
+                Xg[start:end].copy_(
+                    xt.to(device="cuda", dtype=tdtype)
+                )
+                Mg[start:end].copy_(
+                    mt.to(device="cuda", dtype=torch.bool)
+                )
+
+        print(
+            f"[GPU cache] {label}: cached {needed/2**30:.2f} GiB "
+            f"shape={tuple(X.shape)} dtype={X.dtype}",
+            flush=True,
+        )
+        return {
+            "X": Xg,
+            "mask": Mg,
+            "bytes": needed,
+            "label": label,
+        }
 
     def _write_json(self, path: Path, obj) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -1559,6 +1950,31 @@ class DeepTokenForestClassifier:
             )
             stage_trees: List[ProjectionDistributionNewtonTree] = []
 
+            stage_train_gpu_cache = None
+            stage_eval_gpu_cache = None
+            if self.tree_device == "cuda" and self.cache_stage_on_gpu:
+                free0, _ = torch.cuda.mem_get_info()
+                stage_budget = int(free0 * self.gpu_cache_fraction)
+                stage_train_gpu_cache = self._build_stage_gpu_cache(
+                    Xcur,
+                    Mcur,
+                    label=f"stage-{stage}-train",
+                    budget_bytes=stage_budget,
+                )
+                used = (
+                    0
+                    if stage_train_gpu_cache is None
+                    else int(stage_train_gpu_cache["bytes"])
+                )
+                remaining_budget = max(0, stage_budget - used)
+                if eval_set is not None and remaining_budget > 0:
+                    stage_eval_gpu_cache = self._build_stage_gpu_cache(
+                        Xvcur,
+                        Mvcur,
+                        label=f"stage-{stage}-val",
+                        budget_bytes=remaining_budget,
+                    )
+
             for tree_idx in range(self.trees_per_stage):
                 global_tree += 1
                 before_train = _logloss(y, train_logits)
@@ -1577,15 +1993,24 @@ class DeepTokenForestClassifier:
                     h,
                     doc_mean=doc_mean,
                     sample_weight=sample_weight,
+                    stage_gpu_cache=stage_train_gpu_cache,
                 )
 
-                train_delta = tree.predict_values(Xcur, Mcur)
+                train_delta = tree.predict_values(
+                    Xcur,
+                    Mcur,
+                    gpu_cache=stage_train_gpu_cache,
+                )
                 train_logits += np.float32(self.learning_rate) * train_delta
                 after_train = _logloss(y, train_logits)
 
                 after_eval = None
                 if eval_set is not None:
-                    eval_delta = tree.predict_values(Xvcur, Mvcur)
+                    eval_delta = tree.predict_values(
+                        Xvcur,
+                        Mvcur,
+                        gpu_cache=stage_eval_gpu_cache,
+                    )
                     eval_logits += np.float32(self.learning_rate) * eval_delta
                     after_eval = _logloss(yv, eval_logits)
 
@@ -1748,6 +2173,13 @@ class DeepTokenForestClassifier:
                 }
             )
 
+            # Drop stage CUDA tensors before constructing H^(s+1). All model
+            # parameters are already stored as NumPy arrays inside the trees.
+            stage_train_gpu_cache = None
+            stage_eval_gpu_cache = None
+            if self.tree_device == "cuda":
+                torch.cuda.empty_cache()
+
             if stop_all:
                 break
 
@@ -1866,6 +2298,10 @@ class DeepTokenForestClassifier:
             "trees_per_stage": self.trees_per_stage,
             "feature_growth": self.feature_growth,
             "prefix_mixing": self.prefix_mixing,
+            "tree_device": self.tree_device,
+            "threshold_n_jobs": self.threshold_n_jobs,
+            "cache_stage_on_gpu": self.cache_stage_on_gpu,
+            "gpu_cache_fraction": self.gpu_cache_fraction,
             "base_logits": (
                 None
                 if self.base_logits_ is None

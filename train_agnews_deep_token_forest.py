@@ -173,7 +173,42 @@ def parse_args():
         "--direction-chunk-size",
         type=int,
         default=8,
-        help="Number of candidate directions expanded at once; affects memory, not objective.",
+        help=(
+            "Candidate directions evaluated together. On CUDA, larger values "
+            "increase GPU parallelism but also GPU/host memory usage."
+        ),
+    )
+    p.add_argument(
+        "--tree-device",
+        choices=["auto", "cpu", "cuda"],
+        default="auto",
+        help=(
+            "Backend for tree projection/distribution scoring. 'auto' uses CUDA "
+            "when available; Newton gain/threshold search remains on CPU."
+        ),
+    )
+    p.add_argument(
+        "--threshold-n-jobs",
+        type=int,
+        default=0,
+        help=(
+            "CPU threads for independent exact document-threshold searches. "
+            "0 selects up to 8 workers automatically."
+        ),
+    )
+    p.add_argument(
+        "--no-stage-gpu-cache",
+        action="store_true",
+        help=(
+            "Disable exact stage-level CUDA feature caching. By default, training "
+            "and validation H^(s) are cached when GPU memory permits."
+        ),
+    )
+    p.add_argument(
+        "--gpu-cache-fraction",
+        type=float,
+        default=0.55,
+        help="Maximum fraction of currently free CUDA memory used for stage caches.",
     )
     p.add_argument("--transform-block-rows", type=int, default=512)
     p.add_argument("--early-stopping-rounds", type=int, default=0)
@@ -818,6 +853,19 @@ def main():
     print("X_val  ", Xv.shape, Xv.dtype)
     print("X_test ", Xte.shape, Xte.dtype)
 
+    # Feature extraction is complete. Keep only metadata/tokenizer needed for
+    # diagnostics and move the frozen LM off CUDA so the tree stage can use the
+    # freed VRAM. This cannot change tree inputs because Xtr/Xv/Xte are already
+    # materialized and immutable.
+    concept_tokenizer = extractor.tokenizer
+    original_hidden_dim = int(extractor.hidden_size)
+    if torch.cuda.is_available():
+        try:
+            extractor.model.to("cpu")
+        except Exception as exc:
+            print("Warning: could not move frozen LM to CPU:", exc)
+        torch.cuda.empty_cache()
+
     print("\n" + "=" * 90)
     print("5) Train Deep Token Forest")
     print("=" * 90)
@@ -853,6 +901,10 @@ def main():
         feature_dtype=args.feature_dtype,
         score_block_rows=args.score_block_rows,
         direction_chunk_size=args.direction_chunk_size,
+        tree_device=args.tree_device,
+        threshold_n_jobs=args.threshold_n_jobs,
+        cache_stage_on_gpu=not args.no_stage_gpu_cache,
+        gpu_cache_fraction=args.gpu_cache_fraction,
         transform_block_rows=args.transform_block_rows,
         early_stopping_rounds=(
             None
@@ -862,6 +914,19 @@ def main():
         early_stopping_min_delta=args.early_stopping_min_delta,
         diagnostics_dir=diagnostics_dir,
         random_state=args.random_state,
+    )
+
+    print(
+        "Tree projection backend:",
+        model.tree_device,
+        "| direction_chunk_size:",
+        model.direction_chunk_size,
+        "| score_block_rows:",
+        model.score_block_rows,
+        "| threshold_n_jobs:",
+        model.threshold_n_jobs,
+        "| stage_gpu_cache:",
+        model.cache_stage_on_gpu,
     )
 
     train_t0 = time.perf_counter()
@@ -910,7 +975,7 @@ def main():
         Xtr,
         Mtr,
         Itr,
-        extractor.tokenizer,
+        concept_tokenizer,
         max_docs=args.concept_example_docs,
         top_n=args.concept_top_tokens,
         random_state=args.random_state + 999,
@@ -959,12 +1024,13 @@ def main():
             "checkpoint_fingerprint": checkpoint_fp,
             "hidden_state_index": args.hidden_state_index,
             "max_length": args.max_length,
-            "original_hidden_dim": int(extractor.hidden_size),
+            "original_hidden_dim": original_hidden_dim,
             "base_token_dim": int(Xtr.shape[2]),
             "final_token_dim": int(model.final_token_dim_),
             "pca_explained_variance_ratio": pca["explained_variance_ratio"],
             "feature_growth": not args.disable_feature_growth,
             "prefix_mixing": args.prefix_mixing,
+            "tree_device": model.tree_device,
         },
         "protocol": {
             "train_rows": int(len(y_train)),

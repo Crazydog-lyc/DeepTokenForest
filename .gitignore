@@ -1,0 +1,16 @@
+# 不上传的数据与缓存
+checkpoints/
+feature_cache/
+data/
+__pycache__/
+.hf_cache/
+
+# Python 环境
+.venv/
+venv/
+.env
+
+# 编辑器和系统文件
+.vscode/
+.idea/
+.DS_Store
