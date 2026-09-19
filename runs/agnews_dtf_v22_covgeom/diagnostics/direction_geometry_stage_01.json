@@ -1,0 +1,10 @@
+{
+  "mode": "covariance",
+  "dimension": 134,
+  "effective_rank": 134,
+  "rcond": 1e-05,
+  "condition_number": 851.0624494942581,
+  "sample_rows": 108000,
+  "eigenvalue_max": 0.8445931626801046,
+  "eigenvalue_min_active": 0.0009923985756650434
+}

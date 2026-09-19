@@ -1,0 +1,15 @@
+{
+  "train_agnews_deep_token_forest.py": "d58e49da08b9bceaf33e6046ddb057024cef2a717d0171e7c3ccffad5e2b1557",
+  "selector_math_experiments.py": "3cd521cf9aae60ecf3d7fc9d349ea8a4b4052948f40b640ec40a3592d8d73409",
+  "README_SELECTOR_V2.md": "cb920eb4c0380687b68592dabcc156b7ed035ef5766e819c0ba03114ba978f40",
+  "test_deep_token_forest.py": "f64e090b186cda78082e2ddc8fdb76a499856332dcd82044ead30a04fd5642de",
+  "deep_token_forest.py": "6cc910532b4b8e6e285b5a3633e7a498d221c79c1922f3446b08ed18e8d9c7ba",
+  "selector_experiment_results/summary.json": "890fb48a03cb801a1242b06d5d4eacffebc8ac1beb9a6f9deea237656f916e11",
+  "selector_experiment_results/real_offline_selector_aggregate.csv": "b8be01051bc11e91eec64686496507e2de57c3766e026d7769b16dbc4a4b829b",
+  "selector_experiment_results/synthetic_scale.csv": "02b6b8d3870068ca29fbd71e3c7a192f7fc4893ed51e5da57354dc5a8a6739a4",
+  "selector_experiment_results/synthetic_redundancy.csv": "96e8f5aa033fb7150489e8df13e4fc10f9fc4bac003dee9df3f4ff7347a58065",
+  "selector_experiment_results/real_offline_selector_by_stage.csv": "780afa9ce5c7478d0f4575107e8e40b1cfbcc046b55c5b364f4da2489aa2090f",
+  "__pycache__/train_agnews_deep_token_forest.cpython-313.pyc": "c48a1c415840d4a908c3eaaa556cf5d3d728390ae073b3a82091101c2dd43234",
+  "__pycache__/deep_token_forest.cpython-313.pyc": "3f29e00bfbb4977c425fdede491aa4f1fd830ee1995e7fd94dea8ec6100570ab",
+  "__pycache__/test_deep_token_forest.cpython-313.pyc": "b8fa1ba522945d9a60b378b4fa9b9277aa6a1472cfb9d66a6617df3cf5c3495f"
+}

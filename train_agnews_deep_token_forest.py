@@ -135,6 +135,25 @@ def parse_args():
     p.add_argument("--n-local-perturbations", type=int, default=4)
     p.add_argument("--local-sigmas", default="0.10,0.25")
     p.add_argument("--beam-width", type=int, default=4)
+    p.add_argument(
+        "--direction-geometry",
+        choices=["euclidean", "covariance"],
+        default="covariance",
+        help=(
+            "Candidate-direction metric. V2.2 uses covariance geometry: "
+            "all residual/random/prototype/local proposals are generated in "
+            "whitened TRAIN document-mean coordinates."
+        ),
+    )
+    p.add_argument(
+        "--direction-geometry-rcond",
+        type=float,
+        default=1e-5,
+        help=(
+            "Numerical Moore-Penrose cutoff for stage covariance eigenvalues. "
+            "Keep fixed for the V2.2 A/B run; this is not a selector parameter."
+        ),
+    )
 
     # Generalization-aware in-training split selection.
     p.add_argument(
@@ -153,6 +172,30 @@ def parse_args():
     # Representation growth.
     p.add_argument("--concepts-per-stage", type=int, default=16)
     p.add_argument("--concept-temperature", type=float, default=0.5)
+    p.add_argument(
+        "--concept-selector",
+        choices=[
+            "legacy",
+            "gain_only",
+            "activation_logdet",
+        ],
+        default="legacy",
+    )
+    p.add_argument(
+        "--concept-min-coverage",
+        type=float,
+        default=0.10,
+    )
+    p.add_argument(
+        "--concept-selector-sample-tokens",
+        type=int,
+        default=4096,
+    )
+    p.add_argument(
+        "--concept-logdet-gamma",
+        type=float,
+        default=3.0,
+    )
     p.add_argument(
         "--disable-feature-growth",
         action="store_true",
@@ -896,6 +939,10 @@ def main():
         min_honest_gain_per_sample=args.min_honest_gain_per_sample,
         concepts_per_stage=args.concepts_per_stage,
         concept_temperature=args.concept_temperature,
+        concept_selector=args.concept_selector,
+        concept_min_coverage=args.concept_min_coverage,
+        concept_selector_sample_tokens=args.concept_selector_sample_tokens,
+        concept_logdet_gamma=args.concept_logdet_gamma,
         feature_growth=not args.disable_feature_growth,
         prefix_mixing=args.prefix_mixing,
         feature_dtype=args.feature_dtype,
@@ -905,6 +952,8 @@ def main():
         threshold_n_jobs=args.threshold_n_jobs,
         cache_stage_on_gpu=not args.no_stage_gpu_cache,
         gpu_cache_fraction=args.gpu_cache_fraction,
+        direction_geometry=args.direction_geometry,
+        direction_geometry_rcond=args.direction_geometry_rcond,
         transform_block_rows=args.transform_block_rows,
         early_stopping_rounds=(
             None
@@ -917,6 +966,16 @@ def main():
     )
 
     print(
+        "Concept selector:",
+        model.concept_selector,
+        "| min_coverage:",
+        model.concept_min_coverage,
+        "| sample_tokens:",
+        model.concept_selector_sample_tokens,
+        "| logdet_gamma:",
+        model.concept_logdet_gamma,
+    )
+    print(
         "Tree projection backend:",
         model.tree_device,
         "| direction_chunk_size:",
@@ -927,6 +986,10 @@ def main():
         model.threshold_n_jobs,
         "| stage_gpu_cache:",
         model.cache_stage_on_gpu,
+        "| direction_geometry:",
+        model.direction_geometry,
+        "| geometry_rcond:",
+        model.direction_geometry_rcond,
     )
 
     train_t0 = time.perf_counter()

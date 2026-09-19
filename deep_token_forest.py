@@ -25,7 +25,21 @@ Main ideas
 
 3. Learn token-dependent concept features between stages.
 
-       g_j(h) = tanh((w_j^T h - b_j) / tau)
+       g_j(h) = tanh((w_j^T h - b_j) / (tau * sigma_j))
+
+   where sigma_j is the TRAIN-token standard deviation of the selected
+   projection. This makes concept growth invariant to positive rescaling of
+   an otherwise identical split direction.
+
+4. Search directions in a stage-level covariance geometry.
+
+   Let z be the current document-mean representation and Sigma its TRAIN
+   covariance.  Candidate directions are proposed in whitened coordinates
+   and mapped back with Sigma^{-1/2}.  Residual-guided proposals therefore
+   become proportional to Sigma^+ Cov(z, residual), while random, prototype,
+   and local-perturbation proposals use the same geometry.  This removes the
+   accidental dependence of finite direction search on feature scale and
+   duplicated coordinates.
 
    High-value internal nodes from stage s are reused as token channels:
 
@@ -34,7 +48,7 @@ Main ideas
    Because H^(s) is retained, feature growth cannot reduce representational
    capacity: a later direction can always put zero weight on all new channels.
 
-4. Optional honest split selection. Candidate directions/thresholds are searched
+5. Optional honest split selection. Candidate directions/thresholds are searched
    on one subset of the node samples and the best few candidates are checked on
    a disjoint in-training holdout. This is intended to reduce winner's-curse
    overfitting when many weak candidate splits are compared.
@@ -145,6 +159,167 @@ def masked_mean_tokens(
     return out
 
 
+
+@dataclass
+class DirectionGeometry:
+    """
+    Stage-level metric used only to generate candidate directions.
+
+    For centered row-vectors z, whitened coordinates are
+
+        z_white = z @ whitener
+
+    and a whitened direction v is mapped to the original representation as
+
+        w = whitener @ v.
+
+    With a full-rank covariance this is exactly Sigma^{-1/2}; with redundant
+    coordinates, the Moore-Penrose/truncated spectral inverse is used.
+    """
+    mode: str
+    mean: Array
+    whitener: Array
+    colorizer: Array
+    eigenvalues: Array
+    effective_rank: int
+    rcond: float
+    condition_number: float
+    sample_rows: int
+
+    def metadata(self) -> dict:
+        ev = np.asarray(self.eigenvalues, dtype=np.float64)
+        positive = ev[ev > 0]
+        return {
+            "mode": self.mode,
+            "dimension": int(len(self.mean)),
+            "effective_rank": int(self.effective_rank),
+            "rcond": float(self.rcond),
+            "condition_number": float(self.condition_number),
+            "sample_rows": int(self.sample_rows),
+            "eigenvalue_max": (
+                float(np.max(positive)) if len(positive) else 0.0
+            ),
+            "eigenvalue_min_active": (
+                float(
+                    np.sort(positive)[-self.effective_rank]
+                )
+                if len(positive) and self.effective_rank > 0
+                else 0.0
+            ),
+        }
+
+
+def fit_direction_geometry_from_doc_mean(
+    doc_mean: Array,
+    *,
+    mode: str = "covariance",
+    rcond: float = 1e-5,
+    device: str = "cpu",
+) -> DirectionGeometry:
+    """
+    Fit one geometry per stage from TRAIN document means.
+
+    The covariance is computed from all training document means, not from
+    validation/test data.  `rcond` is a numerical pseudoinverse cutoff, not a
+    task-selection threshold: eigenvalues <= rcond * lambda_max are treated as
+    null directions.  Exact duplicate coordinates therefore do not receive
+    extra search weight.
+    """
+    Z = np.asarray(doc_mean, dtype=np.float32)
+    if Z.ndim != 2 or len(Z) == 0:
+        raise ValueError("doc_mean must have shape [N,D] with N>0")
+    mode = str(mode).lower()
+    if mode not in ("euclidean", "covariance"):
+        raise ValueError("direction geometry must be 'euclidean' or 'covariance'")
+    if rcond < 0:
+        raise ValueError("direction_geometry_rcond must be >= 0")
+
+    n, d = Z.shape
+    mean = np.mean(Z, axis=0, dtype=np.float64).astype(np.float32)
+
+    if mode == "euclidean":
+        I = np.eye(d, dtype=np.float32)
+        return DirectionGeometry(
+            mode="euclidean",
+            mean=mean,
+            whitener=I,
+            colorizer=I,
+            eigenvalues=np.ones(d, dtype=np.float64),
+            effective_rank=d,
+            rcond=float(rcond),
+            condition_number=1.0,
+            sample_rows=n,
+        )
+
+    # Center in FP32 exactly as the tree proposal path consumes the features.
+    Zc = np.asarray(Z - mean[None, :], dtype=np.float32)
+
+    # On CUDA, the only expensive operation is the D x D covariance product.
+    # The eigendecomposition remains on CPU in float64 for stable pseudoinverse
+    # construction.  This is a once-per-stage operation.
+    if str(device).lower() == "cuda" and torch.cuda.is_available():
+        with torch.inference_mode():
+            zg = torch.from_numpy(np.ascontiguousarray(Zc)).to(
+                torch.device("cuda"), dtype=torch.float32
+            )
+            covg = (zg.T @ zg) / float(max(n - 1, 1))
+            cov = covg.cpu().numpy().astype(np.float64, copy=False)
+            del zg, covg
+            # Do not let the one-off covariance product reduce the subsequent
+            # stage-cache budget through PyTorch's reserved CUDA allocator.
+            torch.cuda.empty_cache()
+    else:
+        cov = (
+            Zc.astype(np.float64, copy=False).T
+            @ Zc.astype(np.float64, copy=False)
+        ) / float(max(n - 1, 1))
+
+    cov = 0.5 * (cov + cov.T)
+    evals, U = np.linalg.eigh(cov)
+    evals = np.maximum(evals, 0.0)
+    lam_max = float(np.max(evals)) if len(evals) else 0.0
+
+    if lam_max <= 0.0:
+        I = np.eye(d, dtype=np.float32)
+        return DirectionGeometry(
+            mode="covariance",
+            mean=mean,
+            whitener=I,
+            colorizer=I,
+            eigenvalues=evals,
+            effective_rank=d,
+            rcond=float(rcond),
+            condition_number=1.0,
+            sample_rows=n,
+        )
+
+    active = evals > max(float(rcond) * lam_max, 0.0)
+    if not np.any(active):
+        active[int(np.argmax(evals))] = True
+
+    inv_sqrt = np.zeros_like(evals)
+    sqrt = np.zeros_like(evals)
+    inv_sqrt[active] = 1.0 / np.sqrt(evals[active])
+    sqrt[active] = np.sqrt(evals[active])
+
+    whitener = (U * inv_sqrt[None, :]) @ U.T
+    colorizer = (U * sqrt[None, :]) @ U.T
+
+    active_vals = evals[active]
+    cond = float(np.max(active_vals) / max(np.min(active_vals), 1e-300))
+    return DirectionGeometry(
+        mode="covariance",
+        mean=mean,
+        whitener=np.asarray(whitener, dtype=np.float32),
+        colorizer=np.asarray(colorizer, dtype=np.float32),
+        eigenvalues=np.asarray(evals, dtype=np.float64),
+        effective_rank=int(np.sum(active)),
+        rcond=float(rcond),
+        condition_number=cond,
+        sample_rows=n,
+    )
+
+
 def _jsonify(x):
     if isinstance(x, np.ndarray):
         return x.tolist()
@@ -170,6 +345,9 @@ class TokenConcept:
     w: Array
     token_threshold: float
     temperature: float
+    # TRAIN-token std of h@w.  The concept margin is divided by this value,
+    # making g(h) invariant to positive rescaling of (w, token_threshold).
+    projection_scale: float = 1.0
     feature_mean: float = 0.0
     feature_scale: float = 1.0
     stage: int = -1
@@ -181,6 +359,10 @@ class TokenConcept:
     honest_gain: float = float("nan")
     effective_gain: float = 0.0
     doc_threshold: float = 0.0
+    # Concept-selector diagnostics only; they do not change tree fitting.
+    selector_quality: float = float("nan")
+    selector_base_novelty: float = float("nan")
+    selector_marginal: float = float("nan")
 
     def metadata(self, include_w: bool = True) -> dict:
         d = asdict(self)
@@ -258,6 +440,7 @@ class ProjectionDistributionNewtonTree:
         direction_chunk_size: int = 8,
         tree_device: str = "auto",
         threshold_n_jobs: int = 0,
+        direction_geometry: Optional[DirectionGeometry] = None,
         random_state: int = 42,
         stage_index: int = 0,
         tree_index: int = 0,
@@ -324,6 +507,23 @@ class ProjectionDistributionNewtonTree:
 
         # 0 = conservative auto. Each worker still calls the exact same
         # _best_threshold() routine; only independent candidates run in parallel.
+        self.direction_geometry = direction_geometry
+        if self.direction_geometry is None:
+            I = np.eye(self.token_dim, dtype=np.float32)
+            self.direction_geometry = DirectionGeometry(
+                mode="euclidean",
+                mean=np.zeros(self.token_dim, dtype=np.float32),
+                whitener=I,
+                colorizer=I,
+                eigenvalues=np.ones(self.token_dim, dtype=np.float64),
+                effective_rank=self.token_dim,
+                rcond=0.0,
+                condition_number=1.0,
+                sample_rows=0,
+            )
+        if len(self.direction_geometry.mean) != self.token_dim:
+            raise ValueError("direction geometry dimension mismatch")
+
         self.threshold_n_jobs = int(threshold_n_jobs)
         if self.threshold_n_jobs <= 0:
             self.threshold_n_jobs = max(
@@ -447,16 +647,58 @@ class ProjectionDistributionNewtonTree:
 
     # -------------------------- Direction proposals ------------------------
 
+    def _geometry_to_original(self, V: Array) -> Array:
+        """
+        Map whitened-coordinate directions to original feature coordinates.
+
+        Multiplying the resulting w by any positive scalar leaves hard CDF
+        routing unchanged because token thresholds are searched along h@w.
+        We nevertheless Euclidean-normalize for numerical stability.
+        """
+        V = _normalize_rows(V)
+        if len(V) == 0:
+            return np.empty((0, self.token_dim), dtype=np.float32)
+        B = np.asarray(
+            self.direction_geometry.whitener, dtype=np.float32
+        )
+        W = V @ B.T
+        return _deduplicate_directions(W)
+
+    def _original_to_geometry(self, W: Array) -> Array:
+        """
+        Canonical whitened coordinates for already-mapped directions.
+
+        The colorizer is the Moore-Penrose inverse of the whitener on the
+        active covariance subspace.  This is used only to perturb selected
+        seeds isotropically in the stage geometry.
+        """
+        W = _normalize_rows(W)
+        if len(W) == 0:
+            return np.empty((0, self.token_dim), dtype=np.float32)
+        C = np.asarray(
+            self.direction_geometry.colorizer, dtype=np.float32
+        )
+        return _normalize_rows(W @ C.T)
+
+    def _whiten_doc_rows(self, rows: Array) -> Array:
+        Z = np.asarray(self._doc_mean[rows], dtype=np.float32)
+        mu = np.asarray(
+            self.direction_geometry.mean, dtype=np.float32
+        )
+        B = np.asarray(
+            self.direction_geometry.whitener, dtype=np.float32
+        )
+        return np.asarray((Z - mu[None, :]) @ B, dtype=np.float32)
+
     def _residual_guided_directions(self, rows: Array) -> Array:
         residual = -np.asarray(self._g[rows], dtype=np.float32)
-        Z = np.asarray(self._doc_mean[rows], dtype=np.float32)
+        Z = self._whiten_doc_rows(rows)
 
         banks = []
-        # Standard residual-weighted mean direction.
+        # In covariance geometry this maps to Sigma^+ Cov(z,residual).
         banks.append(residual.T @ Z)
 
-        # Positive-vs-negative residual prototypes.  This is not identical to
-        # the first moment when residual magnitudes are highly non-uniform.
+        # Positive-vs-negative residual prototypes in the same whitened metric.
         for c in range(self.output_dim):
             r = residual[:, c]
             pos = r > 0
@@ -468,22 +710,25 @@ class ProjectionDistributionNewtonTree:
                 mu_n = np.average(Z[neg], axis=0, weights=wn)
                 banks.append((mu_p - mu_n)[None, :])
 
-        return _normalize_rows(np.concatenate(banks, axis=0))
+        V = _normalize_rows(np.concatenate(banks, axis=0))
+        return self._geometry_to_original(V)
 
     def _random_directions(self, count: int) -> Array:
         if count <= 0:
             return np.empty((0, self.token_dim), dtype=np.float32)
-        return _normalize_rows(
-            self._rng.normal(size=(count, self.token_dim)).astype(np.float32)
-        )
+        # Isotropic in whitened coordinates, not in the arbitrary raw basis.
+        V = self._rng.normal(
+            size=(count, self.token_dim)
+        ).astype(np.float32)
+        return self._geometry_to_original(V)
 
     def _token_prototype_directions(self, rows: Array, count: int) -> Array:
         """
-        Sample actual token vectors from high-residual documents.
+        Sample token prototypes and express them in the same stage geometry.
 
-        These proposals do not assume that the useful token direction is visible
-        in the document mean, which is important for sparse or multimodal token
-        evidence.
+        Both a token-vs-document deviation and a globally centered token are
+        proposed.  Translation by a global feature offset therefore cannot
+        change the direction distribution.
         """
         if count <= 0 or len(rows) == 0:
             return np.empty((0, self.token_dim), dtype=np.float32)
@@ -497,24 +742,35 @@ class ProjectionDistributionNewtonTree:
         chosen_local = self._rng.choice(
             len(rows), size=count, replace=replace, p=p
         )
-        dirs = []
+
+        B = np.asarray(
+            self.direction_geometry.whitener, dtype=np.float32
+        )
+        mu = np.asarray(
+            self.direction_geometry.mean, dtype=np.float32
+        )
+        V = []
         for j in chosen_local:
             r = int(rows[int(j)])
             valid = np.flatnonzero(np.asarray(self._mask[r], dtype=bool))
             if len(valid) == 0:
                 continue
             t = int(self._rng.choice(valid))
-            v = np.asarray(self._X[r, t], dtype=np.float32)
-            # Center using the current document mean to emphasize a token
-            # deviation rather than merely the global embedding offset.
-            v_centered = v - np.asarray(self._doc_mean[r], dtype=np.float32)
-            if np.linalg.norm(v_centered) > 1e-8:
-                dirs.append(v_centered)
-            if np.linalg.norm(v) > 1e-8:
-                dirs.append(v)
-        if not dirs:
+            token = np.asarray(self._X[r, t], dtype=np.float32)
+            doc = np.asarray(self._doc_mean[r], dtype=np.float32)
+
+            dev_white = (token - doc) @ B
+            global_white = (token - mu) @ B
+            if np.linalg.norm(dev_white) > 1e-8:
+                V.append(dev_white)
+            if np.linalg.norm(global_white) > 1e-8:
+                V.append(global_white)
+
+        if not V:
             return np.empty((0, self.token_dim), dtype=np.float32)
-        return _normalize_rows(np.asarray(dirs, dtype=np.float32))
+        return self._geometry_to_original(
+            np.asarray(V, dtype=np.float32)
+        )
 
     def _initial_direction_bank(self, rows: Array) -> Array:
         parts = [
@@ -525,27 +781,35 @@ class ProjectionDistributionNewtonTree:
             ),
         ]
         W = np.concatenate([x for x in parts if len(x)], axis=0)
-        # Explicitly include both signs. Distribution thresholds make +w and -w
-        # genuinely different tail queries.
+        # +w and -w remain distinct tail queries for empirical survival.
         W = np.concatenate([W, -W], axis=0)
         return _deduplicate_directions(W)
 
     def _local_bank(self, seeds: Array) -> Array:
+        """
+        Local exploration is isotropic in whitened coordinates.
+
+        This matters: perturbing raw coordinates would reintroduce the exact
+        scale/duplicate dependence that covariance geometry is intended to
+        remove.
+        """
         seeds = _normalize_rows(seeds)
         if len(seeds) == 0 or self.n_local_perturbations <= 0:
             return np.empty((0, self.token_dim), dtype=np.float32)
+
+        Vseeds = self._original_to_geometry(seeds)
         out = []
-        for w in seeds:
-            out.append(w)
+        for v in Vseeds:
+            out.append(v)
             for sigma in self.local_sigmas:
                 noise = self._rng.normal(
                     size=(self.n_local_perturbations, self.token_dim)
                 ).astype(np.float32)
-                cand = w[None, :] + np.float32(sigma) * noise
-                out.extend(cand)
-        W = _normalize_rows(np.asarray(out, dtype=np.float32))
-        W = np.concatenate([W, -W], axis=0)
-        return _deduplicate_directions(W)
+                out.extend(v[None, :] + np.float32(sigma) * noise)
+
+        V = _normalize_rows(np.asarray(out, dtype=np.float32))
+        V = np.concatenate([V, -V], axis=0)
+        return self._geometry_to_original(V)
 
     # --------------------- Projection-distribution scoring -----------------
 
@@ -1018,6 +1282,10 @@ class ProjectionDistributionNewtonTree:
                 "effective_gain": float(best.effective_gain),
                 "token_threshold": float(best.token_threshold),
                 "doc_threshold": float(best.doc_threshold),
+                "direction_geometry": self.direction_geometry.mode,
+                "direction_geometry_rank": int(
+                    self.direction_geometry.effective_rank
+                ),
             }
         )
         return best
@@ -1362,6 +1630,7 @@ class ProjectionDistributionNewtonTree:
             "leaves": self.get_n_leaves(),
             "internal_nodes": self.get_n_internal_nodes(),
             "distribution_activation": self.distribution_activation,
+            "direction_geometry": self.direction_geometry.metadata(),
             "root": self._node_to_dict(self.root_, include_w=include_w),
             "search_stats": _jsonify(self.search_stats_),
         }
@@ -1381,12 +1650,17 @@ def _concept_activation_block(
     W = np.stack([np.asarray(c.w, dtype=np.float32) for c in concepts], axis=0)
     b = np.asarray([c.token_threshold for c in concepts], dtype=np.float32)
     temp = np.asarray([c.temperature for c in concepts], dtype=np.float32)
+    proj_scale = np.asarray(
+        [max(c.projection_scale, 1e-6) for c in concepts],
+        dtype=np.float32,
+    )
     mean = np.asarray([c.feature_mean for c in concepts], dtype=np.float32)
     scale = np.asarray([max(c.feature_scale, 1e-6) for c in concepts], dtype=np.float32)
     B, T, D = xb.shape
     proj = (xb.reshape(B * T, D) @ W.T).reshape(B, T, len(concepts))
     act = np.tanh(
-        (proj - b[None, None, :]) / temp[None, None, :]
+        (proj - b[None, None, :])
+        / (temp * proj_scale)[None, None, :]
     ).astype(np.float32)
     act = (act - mean[None, None, :]) / scale[None, None, :]
     act *= mb[:, :, None].astype(np.float32)
@@ -1457,6 +1731,15 @@ def fit_concept_standardization(
     block_rows: int = 512,
     random_state: int = 42,
 ) -> None:
+    """
+    Fit concept projection scales and activation standardization on TRAIN only.
+
+    Pass 1 estimates sigma_j = Std(h@w_j) over valid train tokens.
+    Pass 2 standardizes tanh((h@w-b)/(tau*sigma_j)).
+
+    If (w,b) is positively rescaled by c, sigma is rescaled by c as well, so
+    the generated concept channel is unchanged up to floating-point error.
+    """
     if not concepts:
         return
     rng = np.random.default_rng(random_state)
@@ -1469,11 +1752,40 @@ def fit_concept_standardization(
     W = np.stack([np.asarray(c.w, dtype=np.float32) for c in concepts], axis=0)
     b = np.asarray([c.token_threshold for c in concepts], dtype=np.float32)
     temp = np.asarray([c.temperature for c in concepts], dtype=np.float32)
+    T = int(X_tokens.shape[1])
+
+    # Pass 1: projection scale.
+    psum = np.zeros(len(concepts), dtype=np.float64)
+    psum2 = np.zeros(len(concepts), dtype=np.float64)
+    pcount = np.zeros(len(concepts), dtype=np.float64)
+    for start in range(0, len(rows), block_rows):
+        end = min(len(rows), start + block_rows)
+        rr = rows[start:end]
+        xb = np.asarray(X_tokens[rr], dtype=np.float32)
+        mb = np.asarray(attention_mask[rr], dtype=bool)
+        B, _, D = xb.shape
+        proj = (xb.reshape(B * T, D) @ W.T).reshape(B, T, len(concepts))
+        valid = mb[:, :, None]
+        psum += np.sum(np.where(valid, proj, 0.0), axis=(0, 1), dtype=np.float64)
+        psum2 += np.sum(
+            np.where(valid, proj * proj, 0.0),
+            axis=(0, 1),
+            dtype=np.float64,
+        )
+        pcount += np.sum(valid, axis=(0, 1), dtype=np.float64)
+
+    pmean = psum / np.maximum(pcount, 1.0)
+    pvar = psum2 / np.maximum(pcount, 1.0) - pmean * pmean
+    pstd = np.sqrt(np.maximum(pvar, 1e-12))
+    pstd = np.maximum(pstd, 1e-6)
+    for j, c in enumerate(concepts):
+        c.projection_scale = float(pstd[j])
+
+    # Pass 2: activation standardization.
     sums = np.zeros(len(concepts), dtype=np.float64)
     sums2 = np.zeros(len(concepts), dtype=np.float64)
     counts = np.zeros(len(concepts), dtype=np.float64)
-
-    T = int(X_tokens.shape[1])
+    denom = (temp * pstd.astype(np.float32))[None, None, :]
     for start in range(0, len(rows), block_rows):
         end = min(len(rows), start + block_rows)
         rr = rows[start:end]
@@ -1482,7 +1794,7 @@ def fit_concept_standardization(
         B, _, D = xb.shape
         proj = (xb.reshape(B * T, D) @ W.T).reshape(B, T, len(concepts))
         a = np.tanh(
-            (proj - b[None, None, :]) / temp[None, None, :]
+            (proj - b[None, None, :]) / denom
         ).astype(np.float32)
         valid = mb[:, :, None]
         sums += np.sum(np.where(valid, a, 0.0), axis=(0, 1), dtype=np.float64)
@@ -1538,7 +1850,10 @@ def concept_statistics(
             hard = (p >= c.token_threshold) & mb
             denom = np.maximum(mb.sum(axis=1), 1)
             doc_scores[start:end] = hard.sum(axis=1) / denom
-            a = np.tanh((p - c.token_threshold) / c.temperature)
+            a = np.tanh(
+                (p - c.token_threshold)
+                / (c.temperature * max(c.projection_scale, 1e-6))
+            )
             vals = a[mb]
             token_sum += float(vals.sum(dtype=np.float64))
             token_sum2 += float((vals.astype(np.float64) ** 2).sum())
@@ -1615,6 +1930,10 @@ class DeepTokenForestClassifier:
         min_honest_gain_per_sample: float = 0.0,
         concepts_per_stage: int = 16,
         concept_temperature: float = 0.5,
+        concept_selector: str = "legacy",
+        concept_min_coverage: float = 0.10,
+        concept_selector_sample_tokens: int = 4096,
+        concept_logdet_gamma: float = 3.0,
         feature_growth: bool = True,
         prefix_mixing: bool = False,
         feature_dtype: str = "float16",
@@ -1624,6 +1943,8 @@ class DeepTokenForestClassifier:
         threshold_n_jobs: int = 0,
         cache_stage_on_gpu: bool = True,
         gpu_cache_fraction: float = 0.55,
+        direction_geometry: str = "covariance",
+        direction_geometry_rcond: float = 1e-5,
         transform_block_rows: int = 512,
         early_stopping_rounds: Optional[int] = None,
         early_stopping_min_delta: float = 0.0,
@@ -1663,6 +1984,20 @@ class DeepTokenForestClassifier:
         self.min_honest_gain_per_sample = float(min_honest_gain_per_sample)
         self.concepts_per_stage = int(concepts_per_stage)
         self.concept_temperature = float(concept_temperature)
+        self.concept_selector = str(concept_selector)
+        if self.concept_selector not in ("legacy", "gain_only", "activation_logdet"):
+            raise ValueError(
+                "concept_selector must be one of: legacy, gain_only, activation_logdet"
+            )
+        self.concept_min_coverage = float(concept_min_coverage)
+        if not (0.0 <= self.concept_min_coverage < 1.0):
+            raise ValueError("concept_min_coverage must lie in [0,1)")
+        self.concept_selector_sample_tokens = max(
+            256, int(concept_selector_sample_tokens)
+        )
+        self.concept_logdet_gamma = float(concept_logdet_gamma)
+        if self.concept_logdet_gamma <= 0:
+            raise ValueError("concept_logdet_gamma must be > 0")
         self.feature_growth = bool(feature_growth)
         self.prefix_mixing = bool(prefix_mixing)
         self.feature_dtype = str(feature_dtype)
@@ -1682,6 +2017,14 @@ class DeepTokenForestClassifier:
             self.threshold_n_jobs = max(1, min(8, int(os.cpu_count() or 1)))
         self.cache_stage_on_gpu = bool(cache_stage_on_gpu)
         self.gpu_cache_fraction = float(gpu_cache_fraction)
+        self.direction_geometry = str(direction_geometry).lower()
+        if self.direction_geometry not in ("euclidean", "covariance"):
+            raise ValueError(
+                "direction_geometry must be one of: euclidean, covariance"
+            )
+        self.direction_geometry_rcond = float(direction_geometry_rcond)
+        if self.direction_geometry_rcond < 0:
+            raise ValueError("direction_geometry_rcond must be >= 0")
         if not (0.0 < self.gpu_cache_fraction < 0.90):
             raise ValueError("gpu_cache_fraction must lie in (0, 0.90)")
         self.transform_block_rows = int(transform_block_rows)
@@ -1718,7 +2061,13 @@ class DeepTokenForestClassifier:
         h = p * (1.0 - p)
         return g.astype(np.float32), h.astype(np.float32)
 
-    def _tree_kwargs(self, token_dim: int, stage: int, tree: int) -> dict:
+    def _tree_kwargs(
+        self,
+        token_dim: int,
+        stage: int,
+        tree: int,
+        direction_geometry: DirectionGeometry,
+    ) -> dict:
         return {
             "token_dim": token_dim,
             "output_dim": self.output_dim,
@@ -1745,24 +2094,85 @@ class DeepTokenForestClassifier:
             "direction_chunk_size": self.direction_chunk_size,
             "tree_device": self.tree_device,
             "threshold_n_jobs": self.threshold_n_jobs,
+            "direction_geometry": direction_geometry,
             "random_state": self.random_state + 100003 * stage + 1009 * tree,
             "stage_index": stage,
             "tree_index": tree,
         }
+
+    def _sample_valid_token_matrix(
+        self,
+        X_tokens: Array,
+        attention_mask: Array,
+        *,
+        max_tokens: int,
+        random_state: int,
+    ) -> Array:
+        """
+        Sample valid train-token rows from the current H^(s).
+        Used only for concept-selection geometry.
+        """
+        rng = np.random.default_rng(random_state)
+        n, T, _ = X_tokens.shape
+        target_rows = min(
+            n,
+            max(64, int(math.ceil(max_tokens / max(T, 1))) * 3),
+        )
+        rows = (
+            np.arange(n, dtype=np.int64)
+            if target_rows >= n
+            else rng.choice(
+                n, size=target_rows, replace=False
+            ).astype(np.int64)
+        )
+        xb = np.asarray(X_tokens[rows], dtype=np.float32)
+        mb = np.asarray(attention_mask[rows], dtype=bool)
+        vals = xb[mb]
+        if len(vals) == 0:
+            raise RuntimeError("concept selector sampled no valid tokens")
+        if len(vals) > max_tokens:
+            take = rng.choice(
+                len(vals), size=max_tokens, replace=False
+            ).astype(np.int64)
+            vals = vals[take]
+        return np.asarray(vals, dtype=np.float32)
 
     def _select_concepts(
         self,
         trees: Sequence[ProjectionDistributionNewtonTree],
         stage: int,
         total_rows: int,
+        X_tokens: Optional[Array] = None,
+        attention_mask: Optional[Array] = None,
     ) -> List[TokenConcept]:
+        """
+        Select token concepts from fitted internal nodes.
+
+        legacy:
+            effective_gain * sqrt(node_coverage), exactly the old rule.
+
+        gain_only:
+            effective_gain only. This removes the extra coverage factor.
+
+        activation_logdet:
+            Uses only current TRAIN features and fitted-node metadata.
+            Candidates below concept_min_coverage are filtered.
+            Candidate tanh activations are residualized against the affine
+            span of current H. Greedy weighted log-det selection then favors
+            high-gain concepts that add genuinely new nonlinear activation
+            directions instead of duplicates.
+        """
         candidates: List[TokenConcept] = []
         for tree_idx, tree in enumerate(trees):
             for node in tree.internal_nodes():
                 candidates.append(
                     TokenConcept(
-                        w=np.asarray(node["w"], dtype=np.float32).copy(),
-                        token_threshold=float(node["token_threshold"]),
+                        w=np.asarray(
+                            node["w"], dtype=np.float32
+                        ).copy(),
+                        token_threshold=float(
+                            node["token_threshold"]
+                        ),
                         temperature=self.concept_temperature,
                         stage=stage,
                         tree=tree_idx,
@@ -1771,19 +2181,234 @@ class DeepTokenForestClassifier:
                         n_samples=int(node["n_samples"]),
                         search_gain=float(node["search_gain"]),
                         honest_gain=float(node["honest_gain"]),
-                        effective_gain=float(node["effective_gain"]),
+                        effective_gain=float(
+                            node["effective_gain"]
+                        ),
                         doc_threshold=float(node["doc_threshold"]),
                     )
                 )
 
-        # Effective gain already incorporates node sample count. A tiny coverage
-        # preference prevents very small leaves with noisy gains from dominating.
-        def utility(c: TokenConcept) -> float:
-            coverage = c.n_samples / max(total_rows, 1)
-            return c.effective_gain * math.sqrt(max(coverage, 1e-12))
+        if not candidates:
+            return []
 
-        candidates.sort(key=utility, reverse=True)
-        return candidates[: self.concepts_per_stage]
+        if self.concept_selector == "legacy":
+            def legacy_utility(c: TokenConcept) -> float:
+                coverage = c.n_samples / max(total_rows, 1)
+                return c.effective_gain * math.sqrt(
+                    max(coverage, 1e-12)
+                )
+
+            candidates.sort(
+                key=legacy_utility, reverse=True
+            )
+            out = candidates[: self.concepts_per_stage]
+            for c in out:
+                c.selector_quality = float(
+                    legacy_utility(c)
+                )
+            return out
+
+        if self.concept_selector == "gain_only":
+            candidates.sort(
+                key=lambda c: c.effective_gain,
+                reverse=True,
+            )
+            out = candidates[: self.concepts_per_stage]
+            max_gain = max(
+                max(c.effective_gain, 0.0)
+                for c in candidates
+            )
+            for c in out:
+                c.selector_quality = float(
+                    max(c.effective_gain, 0.0)
+                    / max(max_gain, 1e-12)
+                )
+            return out
+
+        if X_tokens is None or attention_mask is None:
+            raise ValueError(
+                "activation_logdet requires X_tokens and attention_mask"
+            )
+
+        min_rows = int(
+            math.ceil(
+                self.concept_min_coverage * total_rows
+            )
+        )
+        pool = [
+            c for c in candidates
+            if c.n_samples >= min_rows
+            and np.isfinite(c.effective_gain)
+            and c.effective_gain > 0
+        ]
+        if len(pool) < self.concepts_per_stage:
+            pool = [
+                c for c in candidates
+                if np.isfinite(c.effective_gain)
+                and c.effective_gain > 0
+            ]
+        if not pool:
+            return []
+
+        H = self._sample_valid_token_matrix(
+            X_tokens,
+            attention_mask,
+            max_tokens=self.concept_selector_sample_tokens,
+            random_state=(
+                self.random_state
+                + 104729 * (stage + 1)
+            ),
+        )
+
+        # Center+scale current H only to condition the span computation.
+        # This does not change its centered linear span.
+        Hc = H.astype(np.float64)
+        Hc -= Hc.mean(axis=0, keepdims=True)
+        Hc /= np.maximum(
+            Hc.std(axis=0, keepdims=True),
+            1e-8,
+        )
+
+        # Actual numerical column span, robust to rank deficiency.
+        U, sv, _ = np.linalg.svd(
+            Hc, full_matrices=False
+        )
+        if len(sv):
+            tol = (
+                max(Hc.shape)
+                * np.finfo(np.float64).eps
+                * sv[0]
+            )
+            Q = U[:, sv > tol]
+        else:
+            Q = np.empty(
+                (len(Hc), 0),
+                dtype=np.float64,
+            )
+
+        W = np.stack(
+            [
+                np.asarray(c.w, dtype=np.float32)
+                for c in pool
+            ],
+            axis=1,
+        )
+        bvec = np.asarray(
+            [c.token_threshold for c in pool],
+            dtype=np.float32,
+        )
+        temp = np.asarray(
+            [c.temperature for c in pool],
+            dtype=np.float32,
+        )
+
+        P = H.astype(np.float32) @ W
+        proj_scale = np.std(
+            P.astype(np.float64), axis=0, ddof=0
+        )
+        proj_scale = np.maximum(proj_scale, 1e-6)
+        for j, c in enumerate(pool):
+            c.projection_scale = float(proj_scale[j])
+
+        A = np.tanh(
+            (
+                P - bvec[None, :]
+            ) / (
+                temp * proj_scale.astype(np.float32)
+            )[None, :]
+        ).astype(np.float64)
+        A -= A.mean(axis=0, keepdims=True)
+        anorm = np.linalg.norm(A, axis=0)
+        valid = anorm > 1e-10
+
+        if Q.shape[1]:
+            R = A - Q @ (Q.T @ A)
+        else:
+            R = A.copy()
+
+        # V norm squared = fraction of activation variance NOT linearly
+        # explained by current H on the train-token sample.
+        V = np.zeros_like(R)
+        V[:, valid] = (
+            R[:, valid]
+            / anorm[valid][None, :]
+        )
+        base_novelty = np.clip(
+            np.sum(V * V, axis=0),
+            0.0,
+            1.0,
+        )
+
+        gains = np.asarray(
+            [
+                max(c.effective_gain, 0.0)
+                for c in pool
+            ],
+            dtype=np.float64,
+        )
+        quality = gains / max(
+            float(np.max(gains)),
+            1e-12,
+        )
+
+        # Weighted residual activation Gram matrix.
+        # If a concept is affine/redundant w.r.t. H, its V column is ~0.
+        # If two candidates add the same residual direction, their Gram
+        # columns are nearly collinear and log-det penalizes selecting both.
+        B = V * np.sqrt(quality)[None, :]
+        K = B.T @ B
+        K = 0.5 * (K + K.T)
+
+        selected: List[int] = []
+        current_logdet = 0.0
+        target = min(
+            self.concepts_per_stage,
+            len(pool),
+        )
+
+        for _ in range(target):
+            best_i = None
+            best_logdet = -np.inf
+
+            for i in range(len(pool)):
+                if i in selected:
+                    continue
+                inds = selected + [i]
+                Ks = K[np.ix_(inds, inds)]
+                mat = (
+                    np.eye(
+                        len(inds),
+                        dtype=np.float64,
+                    )
+                    + self.concept_logdet_gamma
+                    * Ks
+                )
+                sign, ld = np.linalg.slogdet(mat)
+                if (
+                    sign > 0
+                    and np.isfinite(ld)
+                    and ld > best_logdet
+                ):
+                    best_logdet = float(ld)
+                    best_i = int(i)
+
+            if best_i is None:
+                break
+
+            selected.append(best_i)
+            c = pool[best_i]
+            c.selector_quality = float(
+                quality[best_i]
+            )
+            c.selector_base_novelty = float(
+                base_novelty[best_i]
+            )
+            c.selector_marginal = float(
+                best_logdet - current_logdet
+            )
+            current_logdet = best_logdet
+
+        return [pool[i] for i in selected]
 
     def _build_stage_gpu_cache(
         self,
@@ -1848,8 +2473,17 @@ class DeepTokenForestClassifier:
                 end = min(len(X), start + block)
                 xb = np.asarray(X[start:end])
                 mb = np.asarray(M[start:end], dtype=bool)
-                xt = torch.from_numpy(np.ascontiguousarray(xb))
-                mt = torch.from_numpy(np.ascontiguousarray(mb))
+                xt = torch.from_numpy(
+                    np.array(xb, copy=True, order="C")
+                )
+                mt = torch.from_numpy(
+                    np.array(
+                        mb,
+                        dtype=np.bool_,
+                        copy=True,
+                        order="C",
+                    )
+                )
                 Xg[start:end].copy_(
                     xt.to(device="cuda", dtype=tdtype)
                 )
@@ -1948,6 +2582,28 @@ class DeepTokenForestClassifier:
             doc_mean = masked_mean_tokens(
                 Xcur, Mcur, block_rows=self.score_block_rows
             )
+            stage_geometry = fit_direction_geometry_from_doc_mean(
+                doc_mean,
+                mode=self.direction_geometry,
+                rcond=self.direction_geometry_rcond,
+                device=self.tree_device,
+            )
+            if verbose:
+                gm = stage_geometry.metadata()
+                print(
+                    f"[geometry stage {stage+1}] mode={gm['mode']} "
+                    f"rank={gm['effective_rank']}/{gm['dimension']} "
+                    f"cond={gm['condition_number']:.3e} "
+                    f"rcond={gm['rcond']:.1e}",
+                    flush=True,
+                )
+            if self.diagnostics_dir is not None:
+                self._write_json(
+                    self.diagnostics_dir
+                    / f"direction_geometry_stage_{stage:02d}.json",
+                    stage_geometry.metadata(),
+                )
+
             stage_trees: List[ProjectionDistributionNewtonTree] = []
 
             stage_train_gpu_cache = None
@@ -1984,7 +2640,9 @@ class DeepTokenForestClassifier:
 
                 g, h = self._gradient_hessian(y, train_logits)
                 tree = ProjectionDistributionNewtonTree(
-                    **self._tree_kwargs(input_dim, stage, tree_idx)
+                    **self._tree_kwargs(
+                        input_dim, stage, tree_idx, stage_geometry
+                    )
                 )
                 tree.fit(
                     Xcur,
@@ -2120,7 +2778,11 @@ class DeepTokenForestClassifier:
                 and self.concepts_per_stage > 0
             ):
                 concepts = self._select_concepts(
-                    stage_trees, stage, len(Xcur)
+                    stage_trees,
+                    stage,
+                    len(Xcur),
+                    X_tokens=Xcur,
+                    attention_mask=Mcur,
                 )
                 fit_concept_standardization(
                     Xcur,
@@ -2170,6 +2832,7 @@ class DeepTokenForestClassifier:
                     "input_dim": input_dim,
                     "trees": stage_trees,
                     "concepts": concepts,
+                    "direction_geometry": stage_geometry.metadata(),
                 }
             )
 
@@ -2287,6 +2950,9 @@ class DeepTokenForestClassifier:
                         c.metadata(include_w=include_w)
                         for c in s["concepts"]
                     ],
+                    "direction_geometry": s.get(
+                        "direction_geometry", None
+                    ),
                 }
             )
         return {
@@ -2298,10 +2964,16 @@ class DeepTokenForestClassifier:
             "trees_per_stage": self.trees_per_stage,
             "feature_growth": self.feature_growth,
             "prefix_mixing": self.prefix_mixing,
+            "concept_selector": self.concept_selector,
+            "concept_min_coverage": self.concept_min_coverage,
+            "concept_selector_sample_tokens": self.concept_selector_sample_tokens,
+            "concept_logdet_gamma": self.concept_logdet_gamma,
             "tree_device": self.tree_device,
             "threshold_n_jobs": self.threshold_n_jobs,
             "cache_stage_on_gpu": self.cache_stage_on_gpu,
             "gpu_cache_fraction": self.gpu_cache_fraction,
+            "direction_geometry": self.direction_geometry,
+            "direction_geometry_rcond": self.direction_geometry_rcond,
             "base_logits": (
                 None
                 if self.base_logits_ is None

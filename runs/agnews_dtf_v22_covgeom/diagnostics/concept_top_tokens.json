@@ -1,0 +1,8102 @@
+[
+  {
+    "stage": 0,
+    "concept_index": 0,
+    "source_tree": 0,
+    "source_node_id": 0,
+    "effective_gain": 55201.064966394864,
+    "token_threshold": -0.115012526512146,
+    "examples": [
+      {
+        "sample_row": 32933,
+        "token_position": 17,
+        "token_id": 7015,
+        "token": " chief",
+        "margin": 2.5118026733398438
+      },
+      {
+        "sample_row": 14710,
+        "token_position": 2,
+        "token_id": 11731,
+        "token": " CEO",
+        "margin": 2.3878374099731445
+      },
+      {
+        "sample_row": 45758,
+        "token_position": 26,
+        "token_id": 13425,
+        "token": "General",
+        "margin": 2.3113832473754883
+      },
+      {
+        "sample_row": 15026,
+        "token_position": 1,
+        "token_id": 11731,
+        "token": " CEO",
+        "margin": 2.2465944290161133
+      },
+      {
+        "sample_row": 53758,
+        "token_position": 1,
+        "token_id": 11731,
+        "token": " CEO",
+        "margin": 2.2166175842285156
+      },
+      {
+        "sample_row": 52682,
+        "token_position": 5,
+        "token_id": 7015,
+        "token": " chief",
+        "margin": 2.1916255950927734
+      },
+      {
+        "sample_row": 101402,
+        "token_position": 48,
+        "token_id": 13425,
+        "token": "General",
+        "margin": 2.1721296310424805
+      },
+      {
+        "sample_row": 92855,
+        "token_position": 42,
+        "token_id": 13425,
+        "token": "General",
+        "margin": 2.1670784950256348
+      },
+      {
+        "sample_row": 270,
+        "token_position": 5,
+        "token_id": 11731,
+        "token": " CEO",
+        "margin": 2.1288914680480957
+      },
+      {
+        "sample_row": 94874,
+        "token_position": 3,
+        "token_id": 27464,
+        "token": " Revenue",
+        "margin": 2.1190690994262695
+      },
+      {
+        "sample_row": 29284,
+        "token_position": 2,
+        "token_id": 11731,
+        "token": " CEO",
+        "margin": 2.100648880004883
+      },
+      {
+        "sample_row": 2667,
+        "token_position": 51,
+        "token_id": 7015,
+        "token": " chief",
+        "margin": 2.0870630741119385
+      },
+      {
+        "sample_row": 18979,
+        "token_position": 12,
+        "token_id": 4214,
+        "token": " General",
+        "margin": 2.0730905532836914
+      },
+      {
+        "sample_row": 2643,
+        "token_position": 3,
+        "token_id": 13841,
+        "token": " stake",
+        "margin": 2.059110164642334
+      },
+      {
+        "sample_row": 73353,
+        "token_position": 26,
+        "token_id": 16782,
+        "token": " chairman",
+        "margin": 2.0452404022216797
+      },
+      {
+        "sample_row": 95635,
+        "token_position": 51,
+        "token_id": 4214,
+        "token": " General",
+        "margin": 2.041123628616333
+      },
+      {
+        "sample_row": 75979,
+        "token_position": 22,
+        "token_id": 9526,
+        "token": " Secretary",
+        "margin": 2.0272064208984375
+      },
+      {
+        "sample_row": 94817,
+        "token_position": 6,
+        "token_id": 8308,
+        "token": " Minister",
+        "margin": 2.0098040103912354
+      },
+      {
+        "sample_row": 89747,
+        "token_position": 44,
+        "token_id": 2208,
+        "token": " government",
+        "margin": 2.006192207336426
+      },
+      {
+        "sample_row": 67004,
+        "token_position": 10,
+        "token_id": 11731,
+        "token": " CEO",
+        "margin": 1.9917616844177246
+      }
+    ]
+  },
+  {
+    "stage": 0,
+    "concept_index": 1,
+    "source_tree": 0,
+    "source_node_id": 2,
+    "effective_gain": 45414.22426713263,
+    "token_threshold": -0.04230501502752304,
+    "examples": [
+      {
+        "sample_row": 103468,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.571829319000244
+      },
+      {
+        "sample_row": 64304,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.543022632598877
+      },
+      {
+        "sample_row": 49175,
+        "token_position": 2,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.3646514415740967
+      },
+      {
+        "sample_row": 102492,
+        "token_position": 6,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.3540003299713135
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 35,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.3277359008789062
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.3177974224090576
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 42,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.309654951095581
+      },
+      {
+        "sample_row": 89634,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.3014774322509766
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.2946648597717285
+      },
+      {
+        "sample_row": 31045,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.2569875717163086
+      },
+      {
+        "sample_row": 53148,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.232090950012207
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 23,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.2271206378936768
+      },
+      {
+        "sample_row": 52668,
+        "token_position": 32,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.2170355319976807
+      },
+      {
+        "sample_row": 36202,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.201634407043457
+      },
+      {
+        "sample_row": 13198,
+        "token_position": 54,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.199195384979248
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 11,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.193355083465576
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.193207263946533
+      },
+      {
+        "sample_row": 41176,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.192415714263916
+      },
+      {
+        "sample_row": 56660,
+        "token_position": 21,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.178255558013916
+      },
+      {
+        "sample_row": 37286,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.1626644134521484
+      }
+    ]
+  },
+  {
+    "stage": 0,
+    "concept_index": 2,
+    "source_tree": 0,
+    "source_node_id": 3,
+    "effective_gain": 30779.410544179,
+    "token_threshold": 0.2797028422355652,
+    "examples": [
+      {
+        "sample_row": 64025,
+        "token_position": 21,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.9223864078521729
+      },
+      {
+        "sample_row": 42785,
+        "token_position": 11,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.8710272312164307
+      },
+      {
+        "sample_row": 42785,
+        "token_position": 15,
+        "token_id": 8573,
+        "token": " internet",
+        "margin": 1.8203420639038086
+      },
+      {
+        "sample_row": 103565,
+        "token_position": 1,
+        "token_id": 3694,
+        "token": " software",
+        "margin": 1.8194897174835205
+      },
+      {
+        "sample_row": 68137,
+        "token_position": 15,
+        "token_id": 3694,
+        "token": " software",
+        "margin": 1.8179051876068115
+      },
+      {
+        "sample_row": 97128,
+        "token_position": 7,
+        "token_id": 3694,
+        "token": " software",
+        "margin": 1.802112340927124
+      },
+      {
+        "sample_row": 28930,
+        "token_position": 22,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.788578748703003
+      },
+      {
+        "sample_row": 68050,
+        "token_position": 36,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.7854740619659424
+      },
+      {
+        "sample_row": 6444,
+        "token_position": 0,
+        "token_id": 41051,
+        "token": "Computer",
+        "margin": 1.7789676189422607
+      },
+      {
+        "sample_row": 26389,
+        "token_position": 0,
+        "token_id": 41051,
+        "token": "Computer",
+        "margin": 1.7789676189422607
+      },
+      {
+        "sample_row": 93196,
+        "token_position": 0,
+        "token_id": 41051,
+        "token": "Computer",
+        "margin": 1.7789676189422607
+      },
+      {
+        "sample_row": 28982,
+        "token_position": 16,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.7748429775238037
+      },
+      {
+        "sample_row": 69380,
+        "token_position": 25,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.773376703262329
+      },
+      {
+        "sample_row": 24080,
+        "token_position": 19,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.7637970447540283
+      },
+      {
+        "sample_row": 77677,
+        "token_position": 33,
+        "token_id": 26040,
+        "token": " Firefox",
+        "margin": 1.7622637748718262
+      },
+      {
+        "sample_row": 37912,
+        "token_position": 3,
+        "token_id": 7464,
+        "token": " Windows",
+        "margin": 1.760925531387329
+      },
+      {
+        "sample_row": 93977,
+        "token_position": 33,
+        "token_id": 4382,
+        "token": " computer",
+        "margin": 1.757659673690796
+      },
+      {
+        "sample_row": 51272,
+        "token_position": 2,
+        "token_id": 3492,
+        "token": " video",
+        "margin": 1.756157636642456
+      },
+      {
+        "sample_row": 51961,
+        "token_position": 15,
+        "token_id": 3694,
+        "token": " software",
+        "margin": 1.7459638118743896
+      },
+      {
+        "sample_row": 49650,
+        "token_position": 3,
+        "token_id": 25750,
+        "token": " Virtual",
+        "margin": 1.7309811115264893
+      }
+    ]
+  },
+  {
+    "stage": 0,
+    "concept_index": 3,
+    "source_tree": 1,
+    "source_node_id": 0,
+    "effective_gain": 39444.14620752969,
+    "token_threshold": 0.33832409977912903,
+    "examples": [
+      {
+        "sample_row": 40467,
+        "token_position": 30,
+        "token_id": 42894,
+        "token": " Sheffield",
+        "margin": 2.2037031650543213
+      },
+      {
+        "sample_row": 37978,
+        "token_position": 8,
+        "token_id": 17427,
+        "token": " Manchester",
+        "margin": 2.0434961318969727
+      },
+      {
+        "sample_row": 14843,
+        "token_position": 53,
+        "token_id": 13783,
+        "token": "ifiers",
+        "margin": 2.0343775749206543
+      },
+      {
+        "sample_row": 54990,
+        "token_position": 12,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 2.014896869659424
+      },
+      {
+        "sample_row": 60654,
+        "token_position": 15,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 1.9810261726379395
+      },
+      {
+        "sample_row": 59343,
+        "token_position": 8,
+        "token_id": 17427,
+        "token": " Manchester",
+        "margin": 1.9377436637878418
+      },
+      {
+        "sample_row": 37978,
+        "token_position": 20,
+        "token_id": 6884,
+        "token": " League",
+        "margin": 1.9215764999389648
+      },
+      {
+        "sample_row": 29204,
+        "token_position": 9,
+        "token_id": 9167,
+        "token": " Cup",
+        "margin": 1.9091897010803223
+      },
+      {
+        "sample_row": 90296,
+        "token_position": 6,
+        "token_id": 25154,
+        "token": " cricket",
+        "margin": 1.9081144332885742
+      },
+      {
+        "sample_row": 86223,
+        "token_position": 30,
+        "token_id": 2205,
+        "token": "ley",
+        "margin": 1.9039740562438965
+      },
+      {
+        "sample_row": 37978,
+        "token_position": 9,
+        "token_id": 1986,
+        "token": " United",
+        "margin": 1.8772261142730713
+      },
+      {
+        "sample_row": 1251,
+        "token_position": 25,
+        "token_id": 42894,
+        "token": " Sheffield",
+        "margin": 1.876807689666748
+      },
+      {
+        "sample_row": 5752,
+        "token_position": 5,
+        "token_id": 19971,
+        "token": " hockey",
+        "margin": 1.8760344982147217
+      },
+      {
+        "sample_row": 55513,
+        "token_position": 40,
+        "token_id": 9167,
+        "token": " Cup",
+        "margin": 1.872626781463623
+      },
+      {
+        "sample_row": 59343,
+        "token_position": 14,
+        "token_id": 17427,
+        "token": " Manchester",
+        "margin": 1.8613321781158447
+      },
+      {
+        "sample_row": 39541,
+        "token_position": 16,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 1.8569467067718506
+      },
+      {
+        "sample_row": 34104,
+        "token_position": 42,
+        "token_id": 38295,
+        "token": " Torres",
+        "margin": 1.8569190502166748
+      },
+      {
+        "sample_row": 32552,
+        "token_position": 53,
+        "token_id": 6884,
+        "token": " League",
+        "margin": 1.8557889461517334
+      },
+      {
+        "sample_row": 69903,
+        "token_position": 26,
+        "token_id": 3958,
+        "token": " games",
+        "margin": 1.8308320045471191
+      },
+      {
+        "sample_row": 101685,
+        "token_position": 38,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.8306150436401367
+      }
+    ]
+  },
+  {
+    "stage": 0,
+    "concept_index": 4,
+    "source_tree": 1,
+    "source_node_id": 1,
+    "effective_gain": 30963.288764999874,
+    "token_threshold": -0.25598713755607605,
+    "examples": [
+      {
+        "sample_row": 76112,
+        "token_position": 22,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.1565518379211426
+      },
+      {
+        "sample_row": 11803,
+        "token_position": 44,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.1277379989624023
+      },
+      {
+        "sample_row": 93196,
+        "token_position": 7,
+        "token_id": 20910,
+        "token": " pricing",
+        "margin": 2.1223933696746826
+      },
+      {
+        "sample_row": 76206,
+        "token_position": 24,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.1121065616607666
+      },
+      {
+        "sample_row": 79092,
+        "token_position": 10,
+        "token_id": 18819,
+        "token": " speeds",
+        "margin": 2.0941855907440186
+      },
+      {
+        "sample_row": 77087,
+        "token_position": 22,
+        "token_id": 3096,
+        "token": " Ge",
+        "margin": 2.0867583751678467
+      },
+      {
+        "sample_row": 67841,
+        "token_position": 42,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.080674886703491
+      },
+      {
+        "sample_row": 77087,
+        "token_position": 4,
+        "token_id": 3096,
+        "token": " Ge",
+        "margin": 2.065645456314087
+      },
+      {
+        "sample_row": 93005,
+        "token_position": 34,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.063413619995117
+      },
+      {
+        "sample_row": 71906,
+        "token_position": 37,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.055309534072876
+      },
+      {
+        "sample_row": 48406,
+        "token_position": 48,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.049163579940796
+      },
+      {
+        "sample_row": 78819,
+        "token_position": 46,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.047794818878174
+      },
+      {
+        "sample_row": 30258,
+        "token_position": 43,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.045919418334961
+      },
+      {
+        "sample_row": 89375,
+        "token_position": 39,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.0444583892822266
+      },
+      {
+        "sample_row": 3575,
+        "token_position": 37,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.030649185180664
+      },
+      {
+        "sample_row": 66040,
+        "token_position": 34,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.028704881668091
+      },
+      {
+        "sample_row": 13168,
+        "token_position": 34,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.0278384685516357
+      },
+      {
+        "sample_row": 83707,
+        "token_position": 27,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.0222666263580322
+      },
+      {
+        "sample_row": 107576,
+        "token_position": 6,
+        "token_id": 25486,
+        "token": " \\$",
+        "margin": 2.0020840167999268
+      },
+      {
+        "sample_row": 100956,
+        "token_position": 13,
+        "token_id": 38368,
+        "token": "Soft",
+        "margin": 1.9957894086837769
+      }
+    ]
+  },
+  {
+    "stage": 0,
+    "concept_index": 5,
+    "source_tree": 3,
+    "source_node_id": 4,
+    "effective_gain": 9499.61189122976,
+    "token_threshold": -0.7487878799438477,
+    "examples": [
+      {
+        "sample_row": 71659,
+        "token_position": 12,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4797282218933105
+      },
+      {
+        "sample_row": 90976,
+        "token_position": 9,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4668850898742676
+      },
+      {
+        "sample_row": 100492,
+        "token_position": 15,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.466531991958618
+      },
+      {
+        "sample_row": 83384,
+        "token_position": 16,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4660277366638184
+      },
+      {
+        "sample_row": 24387,
+        "token_position": 9,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.459315776824951
+      },
+      {
+        "sample_row": 57621,
+        "token_position": 11,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4561574459075928
+      },
+      {
+        "sample_row": 12465,
+        "token_position": 11,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.442624807357788
+      },
+      {
+        "sample_row": 51149,
+        "token_position": 16,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.431364059448242
+      },
+      {
+        "sample_row": 16879,
+        "token_position": 12,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.430044651031494
+      },
+      {
+        "sample_row": 74614,
+        "token_position": 14,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4269893169403076
+      },
+      {
+        "sample_row": 26157,
+        "token_position": 13,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4202542304992676
+      },
+      {
+        "sample_row": 27302,
+        "token_position": 14,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.419931411743164
+      },
+      {
+        "sample_row": 61046,
+        "token_position": 15,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4185867309570312
+      },
+      {
+        "sample_row": 32552,
+        "token_position": 17,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4121768474578857
+      },
+      {
+        "sample_row": 50663,
+        "token_position": 15,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.411073684692383
+      },
+      {
+        "sample_row": 1212,
+        "token_position": 3,
+        "token_id": 27873,
+        "token": " Benef",
+        "margin": 2.410487413406372
+      },
+      {
+        "sample_row": 72926,
+        "token_position": 14,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.4039418697357178
+      },
+      {
+        "sample_row": 64756,
+        "token_position": 15,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.3967556953430176
+      },
+      {
+        "sample_row": 62085,
+        "token_position": 15,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.3920602798461914
+      },
+      {
+        "sample_row": 45419,
+        "token_position": 14,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 2.390625476837158
+      }
+    ]
+  },
+  {
+    "stage": 1,
+    "concept_index": 0,
+    "source_tree": 4,
+    "source_node_id": 0,
+    "effective_gain": 2061.16066052511,
+    "token_threshold": 0.741937518119812,
+    "examples": [
+      {
+        "sample_row": 19686,
+        "token_position": 19,
+        "token_id": 10020,
+        "token": " semi",
+        "margin": 1.6371620893478394
+      },
+      {
+        "sample_row": 60654,
+        "token_position": 15,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 1.623097538948059
+      },
+      {
+        "sample_row": 43403,
+        "token_position": 9,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.5209425687789917
+      },
+      {
+        "sample_row": 52947,
+        "token_position": 8,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.5161000490188599
+      },
+      {
+        "sample_row": 101685,
+        "token_position": 38,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4640775918960571
+      },
+      {
+        "sample_row": 23179,
+        "token_position": 8,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4275649785995483
+      },
+      {
+        "sample_row": 93148,
+        "token_position": 19,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.4240168333053589
+      },
+      {
+        "sample_row": 101046,
+        "token_position": 9,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 1.4227031469345093
+      },
+      {
+        "sample_row": 75730,
+        "token_position": 33,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.4187060594558716
+      },
+      {
+        "sample_row": 54291,
+        "token_position": 30,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.3938251733779907
+      },
+      {
+        "sample_row": 6998,
+        "token_position": 8,
+        "token_id": 9167,
+        "token": " Cup",
+        "margin": 1.387626051902771
+      },
+      {
+        "sample_row": 7448,
+        "token_position": 33,
+        "token_id": 6926,
+        "token": " Sunday",
+        "margin": 1.3817063570022583
+      },
+      {
+        "sample_row": 88263,
+        "token_position": 35,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.3800550699234009
+      },
+      {
+        "sample_row": 51543,
+        "token_position": 23,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.3766742944717407
+      },
+      {
+        "sample_row": 64606,
+        "token_position": 15,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 1.3727329969406128
+      },
+      {
+        "sample_row": 71223,
+        "token_position": 21,
+        "token_id": 6926,
+        "token": " Sunday",
+        "margin": 1.3722635507583618
+      },
+      {
+        "sample_row": 65592,
+        "token_position": 19,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.3712157011032104
+      },
+      {
+        "sample_row": 54990,
+        "token_position": 14,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.3590468168258667
+      },
+      {
+        "sample_row": 29943,
+        "token_position": 19,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.3509992361068726
+      },
+      {
+        "sample_row": 79203,
+        "token_position": 37,
+        "token_id": 6926,
+        "token": " Sunday",
+        "margin": 1.3477376699447632
+      }
+    ]
+  },
+  {
+    "stage": 1,
+    "concept_index": 1,
+    "source_tree": 0,
+    "source_node_id": 0,
+    "effective_gain": 4808.312407402097,
+    "token_threshold": -0.3021927773952484,
+    "examples": [
+      {
+        "sample_row": 85843,
+        "token_position": 16,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.8971219062805176
+      },
+      {
+        "sample_row": 32490,
+        "token_position": 4,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.822772979736328
+      },
+      {
+        "sample_row": 58327,
+        "token_position": 2,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.771625518798828
+      },
+      {
+        "sample_row": 106177,
+        "token_position": 23,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.7670493125915527
+      },
+      {
+        "sample_row": 83489,
+        "token_position": 19,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.761383056640625
+      },
+      {
+        "sample_row": 5136,
+        "token_position": 42,
+        "token_id": 846,
+        "token": " after",
+        "margin": 2.752201795578003
+      },
+      {
+        "sample_row": 64917,
+        "token_position": 58,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.746777296066284
+      },
+      {
+        "sample_row": 13151,
+        "token_position": 44,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.74643874168396
+      },
+      {
+        "sample_row": 49834,
+        "token_position": 17,
+        "token_id": 1087,
+        "token": "pr",
+        "margin": 2.715956449508667
+      },
+      {
+        "sample_row": 19686,
+        "token_position": 19,
+        "token_id": 10020,
+        "token": " semi",
+        "margin": 2.7097184658050537
+      },
+      {
+        "sample_row": 76756,
+        "token_position": 7,
+        "token_id": 846,
+        "token": " after",
+        "margin": 2.7080349922180176
+      },
+      {
+        "sample_row": 61334,
+        "token_position": 6,
+        "token_id": 846,
+        "token": " after",
+        "margin": 2.703150987625122
+      },
+      {
+        "sample_row": 69633,
+        "token_position": 37,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.6986217498779297
+      },
+      {
+        "sample_row": 27621,
+        "token_position": 23,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.690552234649658
+      },
+      {
+        "sample_row": 49483,
+        "token_position": 49,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.682767391204834
+      },
+      {
+        "sample_row": 87917,
+        "token_position": 46,
+        "token_id": 846,
+        "token": " after",
+        "margin": 2.6823031902313232
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 13,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.6772966384887695
+      },
+      {
+        "sample_row": 17763,
+        "token_position": 39,
+        "token_id": 846,
+        "token": " after",
+        "margin": 2.676392078399658
+      },
+      {
+        "sample_row": 83905,
+        "token_position": 23,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.675710916519165
+      },
+      {
+        "sample_row": 40532,
+        "token_position": 28,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 2.669214963912964
+      }
+    ]
+  },
+  {
+    "stage": 1,
+    "concept_index": 2,
+    "source_tree": 0,
+    "source_node_id": 1,
+    "effective_gain": 2912.9179975192164,
+    "token_threshold": -0.03977195546030998,
+    "examples": [
+      {
+        "sample_row": 103468,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.9250998497009277
+      },
+      {
+        "sample_row": 64304,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.888604164123535
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.887911081314087
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.862030029296875
+      },
+      {
+        "sample_row": 53148,
+        "token_position": 53,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.8498246669769287
+      },
+      {
+        "sample_row": 41176,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.827641725540161
+      },
+      {
+        "sample_row": 102492,
+        "token_position": 6,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.8051605224609375
+      },
+      {
+        "sample_row": 52668,
+        "token_position": 32,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.800297737121582
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 56,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7954506874084473
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 42,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7900233268737793
+      },
+      {
+        "sample_row": 31045,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.787078857421875
+      },
+      {
+        "sample_row": 49175,
+        "token_position": 2,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7813804149627686
+      },
+      {
+        "sample_row": 13198,
+        "token_position": 54,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7780704498291016
+      },
+      {
+        "sample_row": 74074,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7762248516082764
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 23,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7711071968078613
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 11,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.761979103088379
+      },
+      {
+        "sample_row": 30726,
+        "token_position": 47,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.752075672149658
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 35,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7375338077545166
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7159228324890137
+      },
+      {
+        "sample_row": 37286,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.7102227210998535
+      }
+    ]
+  },
+  {
+    "stage": 1,
+    "concept_index": 3,
+    "source_tree": 3,
+    "source_node_id": 0,
+    "effective_gain": 2498.969680116903,
+    "token_threshold": -0.51123046875,
+    "examples": [
+      {
+        "sample_row": 93148,
+        "token_position": 19,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 3.0424578189849854
+      },
+      {
+        "sample_row": 51543,
+        "token_position": 23,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.992631196975708
+      },
+      {
+        "sample_row": 64606,
+        "token_position": 53,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.9536588191986084
+      },
+      {
+        "sample_row": 27675,
+        "token_position": 29,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.9349491596221924
+      },
+      {
+        "sample_row": 19686,
+        "token_position": 19,
+        "token_id": 10020,
+        "token": " semi",
+        "margin": 2.92476749420166
+      },
+      {
+        "sample_row": 13838,
+        "token_position": 19,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.8964169025421143
+      },
+      {
+        "sample_row": 35808,
+        "token_position": 39,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.872321128845215
+      },
+      {
+        "sample_row": 50140,
+        "token_position": 29,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.8304498195648193
+      },
+      {
+        "sample_row": 33875,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 2.7654905319213867
+      },
+      {
+        "sample_row": 71626,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 2.7654905319213867
+      },
+      {
+        "sample_row": 91377,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 2.7654905319213867
+      },
+      {
+        "sample_row": 23179,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 2.7654905319213867
+      },
+      {
+        "sample_row": 21096,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 2.7654905319213867
+      },
+      {
+        "sample_row": 87917,
+        "token_position": 25,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.760594129562378
+      },
+      {
+        "sample_row": 58021,
+        "token_position": 24,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.7376654148101807
+      },
+      {
+        "sample_row": 68959,
+        "token_position": 12,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.698248863220215
+      },
+      {
+        "sample_row": 60654,
+        "token_position": 15,
+        "token_id": 5842,
+        "token": " football",
+        "margin": 2.6920807361602783
+      },
+      {
+        "sample_row": 84561,
+        "token_position": 25,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.6912899017333984
+      },
+      {
+        "sample_row": 100706,
+        "token_position": 28,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.6907155513763428
+      },
+      {
+        "sample_row": 96116,
+        "token_position": 30,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 2.689556837081909
+      }
+    ]
+  },
+  {
+    "stage": 1,
+    "concept_index": 4,
+    "source_tree": 4,
+    "source_node_id": 1,
+    "effective_gain": 1297.3479501524178,
+    "token_threshold": 0.4480900168418884,
+    "examples": [
+      {
+        "sample_row": 64304,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.8124959468841553
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.8074352741241455
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.706674575805664
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.696117877960205
+      },
+      {
+        "sample_row": 49175,
+        "token_position": 2,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.647488832473755
+      },
+      {
+        "sample_row": 102492,
+        "token_position": 6,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.6292636394500732
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 35,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.6234018802642822
+      },
+      {
+        "sample_row": 13198,
+        "token_position": 54,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.613494396209717
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.6020395755767822
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 42,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5895602703094482
+      },
+      {
+        "sample_row": 53148,
+        "token_position": 53,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5774309635162354
+      },
+      {
+        "sample_row": 36202,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5755398273468018
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 11,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.555910587310791
+      },
+      {
+        "sample_row": 41176,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5445547103881836
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 23,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5392563343048096
+      },
+      {
+        "sample_row": 23542,
+        "token_position": 39,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5325353145599365
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 56,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5116870403289795
+      },
+      {
+        "sample_row": 31045,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5049877166748047
+      },
+      {
+        "sample_row": 49175,
+        "token_position": 15,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.503514289855957
+      },
+      {
+        "sample_row": 52668,
+        "token_position": 32,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 2.5007951259613037
+      }
+    ]
+  },
+  {
+    "stage": 1,
+    "concept_index": 5,
+    "source_tree": 1,
+    "source_node_id": 1,
+    "effective_gain": 2412.8322595874247,
+    "token_threshold": -0.10955990850925446,
+    "examples": [
+      {
+        "sample_row": 64304,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.286318778991699
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.283812999725342
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.1916563510894775
+      },
+      {
+        "sample_row": 49175,
+        "token_position": 2,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.1420249938964844
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.1360628604888916
+      },
+      {
+        "sample_row": 41176,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.107456922531128
+      },
+      {
+        "sample_row": 52668,
+        "token_position": 32,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.1014480590820312
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 42,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.0998482704162598
+      },
+      {
+        "sample_row": 53148,
+        "token_position": 53,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.086677312850952
+      },
+      {
+        "sample_row": 102492,
+        "token_position": 6,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.0681560039520264
+      },
+      {
+        "sample_row": 13198,
+        "token_position": 54,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.0627429485321045
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 56,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.061516284942627
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 35,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.05578351020813
+      },
+      {
+        "sample_row": 74074,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.045212507247925
+      },
+      {
+        "sample_row": 31045,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.044208288192749
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 23,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.0381877422332764
+      },
+      {
+        "sample_row": 36202,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.037975311279297
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 11,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.0371334552764893
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.0238451957702637
+      },
+      {
+        "sample_row": 37286,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 3.020881414413452
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "concept_index": 0,
+    "source_tree": 1,
+    "source_node_id": 0,
+    "effective_gain": 532.8167496195032,
+    "token_threshold": -0.38037556409835815,
+    "examples": [
+      {
+        "sample_row": 38167,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.7315418720245361
+      },
+      {
+        "sample_row": 72981,
+        "token_position": 13,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.618882417678833
+      },
+      {
+        "sample_row": 67841,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.612748146057129
+      },
+      {
+        "sample_row": 24670,
+        "token_position": 19,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.6018145084381104
+      },
+      {
+        "sample_row": 26152,
+        "token_position": 46,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5956456661224365
+      },
+      {
+        "sample_row": 52969,
+        "token_position": 41,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5932199954986572
+      },
+      {
+        "sample_row": 57723,
+        "token_position": 18,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5835051536560059
+      },
+      {
+        "sample_row": 10415,
+        "token_position": 13,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5796518325805664
+      },
+      {
+        "sample_row": 22808,
+        "token_position": 10,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5795159339904785
+      },
+      {
+        "sample_row": 85171,
+        "token_position": 14,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5781960487365723
+      },
+      {
+        "sample_row": 9363,
+        "token_position": 15,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5589048862457275
+      },
+      {
+        "sample_row": 58049,
+        "token_position": 14,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5549585819244385
+      },
+      {
+        "sample_row": 102934,
+        "token_position": 16,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5540008544921875
+      },
+      {
+        "sample_row": 92239,
+        "token_position": 37,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5491235256195068
+      },
+      {
+        "sample_row": 45357,
+        "token_position": 25,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5454356670379639
+      },
+      {
+        "sample_row": 48589,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5435774326324463
+      },
+      {
+        "sample_row": 52821,
+        "token_position": 24,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.543351411819458
+      },
+      {
+        "sample_row": 7839,
+        "token_position": 31,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5389480590820312
+      },
+      {
+        "sample_row": 106956,
+        "token_position": 18,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5348167419433594
+      },
+      {
+        "sample_row": 39858,
+        "token_position": 11,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5298101902008057
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "concept_index": 1,
+    "source_tree": 2,
+    "source_node_id": 0,
+    "effective_gain": 537.1665389748398,
+    "token_threshold": -0.5627468824386597,
+    "examples": [
+      {
+        "sample_row": 94620,
+        "token_position": 5,
+        "token_id": 29629,
+        "token": " Rangers",
+        "margin": 1.6394332647323608
+      },
+      {
+        "sample_row": 40467,
+        "token_position": 30,
+        "token_id": 42894,
+        "token": " Sheffield",
+        "margin": 1.6315958499908447
+      },
+      {
+        "sample_row": 90048,
+        "token_position": 8,
+        "token_id": 19358,
+        "token": " medal",
+        "margin": 1.6285452842712402
+      },
+      {
+        "sample_row": 55789,
+        "token_position": 56,
+        "token_id": 20159,
+        "token": " Orleans",
+        "margin": 1.6261039972305298
+      },
+      {
+        "sample_row": 48845,
+        "token_position": 37,
+        "token_id": 23991,
+        "token": " triumph",
+        "margin": 1.625636339187622
+      },
+      {
+        "sample_row": 51905,
+        "token_position": 63,
+        "token_id": 38188,
+        "token": " Ort",
+        "margin": 1.6219192743301392
+      },
+      {
+        "sample_row": 38836,
+        "token_position": 7,
+        "token_id": 8068,
+        "token": " Chicago",
+        "margin": 1.6173253059387207
+      },
+      {
+        "sample_row": 42817,
+        "token_position": 3,
+        "token_id": 48737,
+        "token": "deen",
+        "margin": 1.6050156354904175
+      },
+      {
+        "sample_row": 11304,
+        "token_position": 40,
+        "token_id": 17360,
+        "token": " Oklahoma",
+        "margin": 1.5967258214950562
+      },
+      {
+        "sample_row": 66682,
+        "token_position": 54,
+        "token_id": 46066,
+        "token": " Jacksonville",
+        "margin": 1.587090253829956
+      },
+      {
+        "sample_row": 18440,
+        "token_position": 32,
+        "token_id": 41991,
+        "token": " punt",
+        "margin": 1.5850664377212524
+      },
+      {
+        "sample_row": 12457,
+        "token_position": 26,
+        "token_id": 14755,
+        "token": " scoring",
+        "margin": 1.5839519500732422
+      },
+      {
+        "sample_row": 106796,
+        "token_position": 25,
+        "token_id": 23354,
+        "token": " tennis",
+        "margin": 1.5749820470809937
+      },
+      {
+        "sample_row": 75330,
+        "token_position": 53,
+        "token_id": 20159,
+        "token": " Orleans",
+        "margin": 1.5694092512130737
+      },
+      {
+        "sample_row": 9876,
+        "token_position": 20,
+        "token_id": 2457,
+        "token": " final",
+        "margin": 1.5689066648483276
+      },
+      {
+        "sample_row": 69075,
+        "token_position": 27,
+        "token_id": 35011,
+        "token": " qualification",
+        "margin": 1.5617200136184692
+      },
+      {
+        "sample_row": 72459,
+        "token_position": 37,
+        "token_id": 16700,
+        "token": " Dallas",
+        "margin": 1.555243730545044
+      },
+      {
+        "sample_row": 50843,
+        "token_position": 31,
+        "token_id": 35459,
+        "token": " Newcastle",
+        "margin": 1.5541362762451172
+      },
+      {
+        "sample_row": 71860,
+        "token_position": 16,
+        "token_id": 24604,
+        "token": " Montreal",
+        "margin": 1.553201675415039
+      },
+      {
+        "sample_row": 87917,
+        "token_position": 62,
+        "token_id": 16700,
+        "token": " Dallas",
+        "margin": 1.5522346496582031
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "concept_index": 2,
+    "source_tree": 0,
+    "source_node_id": 0,
+    "effective_gain": 516.5390115091051,
+    "token_threshold": -0.35692307353019714,
+    "examples": [
+      {
+        "sample_row": 38167,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5685676336288452
+      },
+      {
+        "sample_row": 7839,
+        "token_position": 31,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5305204391479492
+      },
+      {
+        "sample_row": 86974,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4905909299850464
+      },
+      {
+        "sample_row": 85171,
+        "token_position": 14,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4841231107711792
+      },
+      {
+        "sample_row": 72981,
+        "token_position": 13,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4812870025634766
+      },
+      {
+        "sample_row": 22808,
+        "token_position": 10,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4809433221817017
+      },
+      {
+        "sample_row": 76587,
+        "token_position": 11,
+        "token_id": 28106,
+        "token": " supplying",
+        "margin": 1.4698455333709717
+      },
+      {
+        "sample_row": 67841,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.465075969696045
+      },
+      {
+        "sample_row": 31661,
+        "token_position": 28,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4534167051315308
+      },
+      {
+        "sample_row": 57723,
+        "token_position": 18,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4533048868179321
+      },
+      {
+        "sample_row": 84153,
+        "token_position": 0,
+        "token_id": 15293,
+        "token": "TI",
+        "margin": 1.4512019157409668
+      },
+      {
+        "sample_row": 9363,
+        "token_position": 15,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.450869083404541
+      },
+      {
+        "sample_row": 92239,
+        "token_position": 37,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4488576650619507
+      },
+      {
+        "sample_row": 102934,
+        "token_position": 16,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4479765892028809
+      },
+      {
+        "sample_row": 24670,
+        "token_position": 19,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4455124139785767
+      },
+      {
+        "sample_row": 10415,
+        "token_position": 13,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.441933035850525
+      },
+      {
+        "sample_row": 52969,
+        "token_position": 41,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4399232864379883
+      },
+      {
+        "sample_row": 48589,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4384039640426636
+      },
+      {
+        "sample_row": 26152,
+        "token_position": 46,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4372118711471558
+      },
+      {
+        "sample_row": 90837,
+        "token_position": 16,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4371774196624756
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "concept_index": 3,
+    "source_tree": 3,
+    "source_node_id": 0,
+    "effective_gain": 427.3039452372024,
+    "token_threshold": 0.5228165984153748,
+    "examples": [
+      {
+        "sample_row": 25595,
+        "token_position": 42,
+        "token_id": 4166,
+        "token": " oil",
+        "margin": 0.7928547263145447
+      },
+      {
+        "sample_row": 76980,
+        "token_position": 17,
+        "token_id": 37197,
+        "token": " multin",
+        "margin": 0.7408400177955627
+      },
+      {
+        "sample_row": 45419,
+        "token_position": 29,
+        "token_id": 4166,
+        "token": " oil",
+        "margin": 0.7368318438529968
+      },
+      {
+        "sample_row": 70983,
+        "token_position": 2,
+        "token_id": 5054,
+        "token": " economic",
+        "margin": 0.7218464016914368
+      },
+      {
+        "sample_row": 45172,
+        "token_position": 32,
+        "token_id": 557,
+        "token": " dis",
+        "margin": 0.72031170129776
+      },
+      {
+        "sample_row": 21904,
+        "token_position": 59,
+        "token_id": 4166,
+        "token": " oil",
+        "margin": 0.7179757952690125
+      },
+      {
+        "sample_row": 21926,
+        "token_position": 35,
+        "token_id": 557,
+        "token": " dis",
+        "margin": 0.7098298668861389
+      },
+      {
+        "sample_row": 9988,
+        "token_position": 11,
+        "token_id": 15723,
+        "token": "Fi",
+        "margin": 0.6980316042900085
+      },
+      {
+        "sample_row": 27344,
+        "token_position": 34,
+        "token_id": 4166,
+        "token": " oil",
+        "margin": 0.691684901714325
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 7,
+        "token_id": 500,
+        "token": " J",
+        "margin": 0.6800468564033508
+      },
+      {
+        "sample_row": 7376,
+        "token_position": 28,
+        "token_id": 13160,
+        "token": " Inf",
+        "margin": 0.6778605580329895
+      },
+      {
+        "sample_row": 69171,
+        "token_position": 51,
+        "token_id": 4166,
+        "token": " oil",
+        "margin": 0.67734295129776
+      },
+      {
+        "sample_row": 14320,
+        "token_position": 29,
+        "token_id": 942,
+        "token": "ments",
+        "margin": 0.6764844059944153
+      },
+      {
+        "sample_row": 92952,
+        "token_position": 38,
+        "token_id": 557,
+        "token": " dis",
+        "margin": 0.6761850714683533
+      },
+      {
+        "sample_row": 26456,
+        "token_position": 40,
+        "token_id": 5195,
+        "token": " spread",
+        "margin": 0.6606174111366272
+      },
+      {
+        "sample_row": 77069,
+        "token_position": 36,
+        "token_id": 5675,
+        "token": " growing",
+        "margin": 0.6592571139335632
+      },
+      {
+        "sample_row": 64597,
+        "token_position": 39,
+        "token_id": 398,
+        "token": "ers",
+        "margin": 0.6526959538459778
+      },
+      {
+        "sample_row": 99259,
+        "token_position": 38,
+        "token_id": 37081,
+        "token": " benefited",
+        "margin": 0.6520305275917053
+      },
+      {
+        "sample_row": 48680,
+        "token_position": 45,
+        "token_id": 3290,
+        "token": " quality",
+        "margin": 0.650502622127533
+      },
+      {
+        "sample_row": 79821,
+        "token_position": 42,
+        "token_id": 4166,
+        "token": " oil",
+        "margin": 0.6486256718635559
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "concept_index": 4,
+    "source_tree": 2,
+    "source_node_id": 1,
+    "effective_gain": 282.95836606093604,
+    "token_threshold": -0.33067765831947327,
+    "examples": [
+      {
+        "sample_row": 83489,
+        "token_position": 17,
+        "token_id": 9537,
+        "token": " Corp",
+        "margin": 1.8676263093948364
+      },
+      {
+        "sample_row": 47296,
+        "token_position": 8,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.8664462566375732
+      },
+      {
+        "sample_row": 55090,
+        "token_position": 6,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.852304458618164
+      },
+      {
+        "sample_row": 51069,
+        "token_position": 11,
+        "token_id": 23906,
+        "token": " vendor",
+        "margin": 1.852091670036316
+      },
+      {
+        "sample_row": 9618,
+        "token_position": 17,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.8382114171981812
+      },
+      {
+        "sample_row": 13438,
+        "token_position": 12,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.8250184059143066
+      },
+      {
+        "sample_row": 101510,
+        "token_position": 33,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.8235692977905273
+      },
+      {
+        "sample_row": 30258,
+        "token_position": 29,
+        "token_id": 16169,
+        "token": " LLC",
+        "margin": 1.8048384189605713
+      },
+      {
+        "sample_row": 62449,
+        "token_position": 12,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.7960901260375977
+      },
+      {
+        "sample_row": 19666,
+        "token_position": 3,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.7857632637023926
+      },
+      {
+        "sample_row": 99102,
+        "token_position": 15,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.7611407041549683
+      },
+      {
+        "sample_row": 15636,
+        "token_position": 18,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.7170478105545044
+      },
+      {
+        "sample_row": 7126,
+        "token_position": 4,
+        "token_id": 15439,
+        "token": " desktop",
+        "margin": 1.710837483406067
+      },
+      {
+        "sample_row": 73607,
+        "token_position": 14,
+        "token_id": 13722,
+        "token": " developer",
+        "margin": 1.7051564455032349
+      },
+      {
+        "sample_row": 83583,
+        "token_position": 0,
+        "token_id": 31495,
+        "token": "Software",
+        "margin": 1.6946923732757568
+      },
+      {
+        "sample_row": 62681,
+        "token_position": 0,
+        "token_id": 31495,
+        "token": "Software",
+        "margin": 1.6946923732757568
+      },
+      {
+        "sample_row": 30238,
+        "token_position": 17,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.6938005685806274
+      },
+      {
+        "sample_row": 39536,
+        "token_position": 26,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.686574101448059
+      },
+      {
+        "sample_row": 12465,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.6807116270065308
+      },
+      {
+        "sample_row": 85948,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.6807116270065308
+      }
+    ]
+  },
+  {
+    "stage": 2,
+    "concept_index": 5,
+    "source_tree": 4,
+    "source_node_id": 7,
+    "effective_gain": 169.70764954607364,
+    "token_threshold": -0.47578006982803345,
+    "examples": [
+      {
+        "sample_row": 16449,
+        "token_position": 11,
+        "token_id": 497,
+        "token": " were",
+        "margin": 1.708662986755371
+      },
+      {
+        "sample_row": 26464,
+        "token_position": 11,
+        "token_id": 497,
+        "token": " were",
+        "margin": 1.703789234161377
+      },
+      {
+        "sample_row": 79713,
+        "token_position": 13,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6993916034698486
+      },
+      {
+        "sample_row": 61718,
+        "token_position": 25,
+        "token_id": 497,
+        "token": " were",
+        "margin": 1.662771224975586
+      },
+      {
+        "sample_row": 18907,
+        "token_position": 28,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6570446491241455
+      },
+      {
+        "sample_row": 101103,
+        "token_position": 13,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6533889770507812
+      },
+      {
+        "sample_row": 98173,
+        "token_position": 12,
+        "token_id": 497,
+        "token": " were",
+        "margin": 1.6520202159881592
+      },
+      {
+        "sample_row": 39349,
+        "token_position": 10,
+        "token_id": 369,
+        "token": " was",
+        "margin": 1.6516718864440918
+      },
+      {
+        "sample_row": 57757,
+        "token_position": 11,
+        "token_id": 369,
+        "token": " was",
+        "margin": 1.639007329940796
+      },
+      {
+        "sample_row": 25824,
+        "token_position": 23,
+        "token_id": 369,
+        "token": " was",
+        "margin": 1.6374237537384033
+      },
+      {
+        "sample_row": 31602,
+        "token_position": 12,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.636688470840454
+      },
+      {
+        "sample_row": 27344,
+        "token_position": 29,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6322665214538574
+      },
+      {
+        "sample_row": 86495,
+        "token_position": 11,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6315536499023438
+      },
+      {
+        "sample_row": 33266,
+        "token_position": 22,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6276094913482666
+      },
+      {
+        "sample_row": 67989,
+        "token_position": 45,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6264913082122803
+      },
+      {
+        "sample_row": 26187,
+        "token_position": 22,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6233294010162354
+      },
+      {
+        "sample_row": 38755,
+        "token_position": 36,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6232719421386719
+      },
+      {
+        "sample_row": 84375,
+        "token_position": 7,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.619567632675171
+      },
+      {
+        "sample_row": 30726,
+        "token_position": 22,
+        "token_id": 320,
+        "token": " be",
+        "margin": 1.6190743446350098
+      },
+      {
+        "sample_row": 104846,
+        "token_position": 11,
+        "token_id": 28,
+        "token": ";",
+        "margin": 1.6187052726745605
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "concept_index": 0,
+    "source_tree": 5,
+    "source_node_id": 0,
+    "effective_gain": 148.96241810141714,
+    "token_threshold": -0.32641252875328064,
+    "examples": [
+      {
+        "sample_row": 89508,
+        "token_position": 8,
+        "token_id": 1679,
+        "token": " less",
+        "margin": 1.4671543836593628
+      },
+      {
+        "sample_row": 12515,
+        "token_position": 4,
+        "token_id": 2127,
+        "token": " code",
+        "margin": 1.2864974737167358
+      },
+      {
+        "sample_row": 49834,
+        "token_position": 7,
+        "token_id": 1612,
+        "token": " power",
+        "margin": 1.2759910821914673
+      },
+      {
+        "sample_row": 46019,
+        "token_position": 7,
+        "token_id": 41136,
+        "token": " Qaeda",
+        "margin": 1.274280071258545
+      },
+      {
+        "sample_row": 107726,
+        "token_position": 7,
+        "token_id": 17150,
+        "token": " terrorist",
+        "margin": 1.2705655097961426
+      },
+      {
+        "sample_row": 46647,
+        "token_position": 6,
+        "token_id": 11262,
+        "token": " Bu",
+        "margin": 1.2688838243484497
+      },
+      {
+        "sample_row": 39549,
+        "token_position": 3,
+        "token_id": 11262,
+        "token": " Bu",
+        "margin": 1.2682604789733887
+      },
+      {
+        "sample_row": 87772,
+        "token_position": 2,
+        "token_id": 11262,
+        "token": " Bu",
+        "margin": 1.2600338459014893
+      },
+      {
+        "sample_row": 28393,
+        "token_position": 46,
+        "token_id": 14520,
+        "token": "generation",
+        "margin": 1.257891058921814
+      },
+      {
+        "sample_row": 100201,
+        "token_position": 33,
+        "token_id": 17556,
+        "token": "tech",
+        "margin": 1.2577074766159058
+      },
+      {
+        "sample_row": 21392,
+        "token_position": 43,
+        "token_id": 9256,
+        "token": " Iraq",
+        "margin": 1.2553956508636475
+      },
+      {
+        "sample_row": 75403,
+        "token_position": 10,
+        "token_id": 9535,
+        "token": " Interest",
+        "margin": 1.2481967210769653
+      },
+      {
+        "sample_row": 33864,
+        "token_position": 23,
+        "token_id": 41136,
+        "token": " Qaeda",
+        "margin": 1.231953501701355
+      },
+      {
+        "sample_row": 44259,
+        "token_position": 57,
+        "token_id": 21987,
+        "token": " Nag",
+        "margin": 1.2285305261611938
+      },
+      {
+        "sample_row": 97127,
+        "token_position": 19,
+        "token_id": 3169,
+        "token": "based",
+        "margin": 1.224498987197876
+      },
+      {
+        "sample_row": 19898,
+        "token_position": 45,
+        "token_id": 42795,
+        "token": " Saddam",
+        "margin": 1.2233033180236816
+      },
+      {
+        "sample_row": 21392,
+        "token_position": 9,
+        "token_id": 9256,
+        "token": " Iraq",
+        "margin": 1.2224311828613281
+      },
+      {
+        "sample_row": 18352,
+        "token_position": 47,
+        "token_id": 9256,
+        "token": " Iraq",
+        "margin": 1.2210664749145508
+      },
+      {
+        "sample_row": 82284,
+        "token_position": 51,
+        "token_id": 8797,
+        "token": " Muslim",
+        "margin": 1.2207257747650146
+      },
+      {
+        "sample_row": 15454,
+        "token_position": 22,
+        "token_id": 3169,
+        "token": "based",
+        "margin": 1.2180671691894531
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "concept_index": 1,
+    "source_tree": 1,
+    "source_node_id": 0,
+    "effective_gain": 93.20137765507663,
+    "token_threshold": -0.2895565330982208,
+    "examples": [
+      {
+        "sample_row": 4628,
+        "token_position": 13,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.769876480102539
+      },
+      {
+        "sample_row": 47296,
+        "token_position": 8,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.7291918992996216
+      },
+      {
+        "sample_row": 30238,
+        "token_position": 17,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.7250258922576904
+      },
+      {
+        "sample_row": 9618,
+        "token_position": 17,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.6834014654159546
+      },
+      {
+        "sample_row": 39536,
+        "token_position": 26,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.6829112768173218
+      },
+      {
+        "sample_row": 20032,
+        "token_position": 6,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.609014630317688
+      },
+      {
+        "sample_row": 55090,
+        "token_position": 6,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.5567330121994019
+      },
+      {
+        "sample_row": 83583,
+        "token_position": 0,
+        "token_id": 31495,
+        "token": "Software",
+        "margin": 1.5534825325012207
+      },
+      {
+        "sample_row": 62681,
+        "token_position": 0,
+        "token_id": 31495,
+        "token": "Software",
+        "margin": 1.5534825325012207
+      },
+      {
+        "sample_row": 30258,
+        "token_position": 29,
+        "token_id": 16169,
+        "token": " LLC",
+        "margin": 1.5179600715637207
+      },
+      {
+        "sample_row": 13438,
+        "token_position": 12,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.507420539855957
+      },
+      {
+        "sample_row": 33986,
+        "token_position": 3,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.5016685724258423
+      },
+      {
+        "sample_row": 71757,
+        "token_position": 10,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.4963010549545288
+      },
+      {
+        "sample_row": 47979,
+        "token_position": 8,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.4961916208267212
+      },
+      {
+        "sample_row": 14913,
+        "token_position": 4,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.4950584173202515
+      },
+      {
+        "sample_row": 14083,
+        "token_position": 9,
+        "token_id": 3690,
+        "token": " Inc",
+        "margin": 1.4948375225067139
+      },
+      {
+        "sample_row": 46261,
+        "token_position": 9,
+        "token_id": 3690,
+        "token": " Inc",
+        "margin": 1.484567403793335
+      },
+      {
+        "sample_row": 15637,
+        "token_position": 17,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.4834972620010376
+      },
+      {
+        "sample_row": 67841,
+        "token_position": 16,
+        "token_id": 3690,
+        "token": " Inc",
+        "margin": 1.482117772102356
+      },
+      {
+        "sample_row": 101510,
+        "token_position": 33,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.4711558818817139
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "concept_index": 2,
+    "source_tree": 2,
+    "source_node_id": 2,
+    "effective_gain": 77.1135787960299,
+    "token_threshold": -0.32425934076309204,
+    "examples": [
+      {
+        "sample_row": 91377,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 1.971555233001709
+      },
+      {
+        "sample_row": 21096,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 1.971555233001709
+      },
+      {
+        "sample_row": 71626,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 1.971555233001709
+      },
+      {
+        "sample_row": 33875,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 1.971555233001709
+      },
+      {
+        "sample_row": 23179,
+        "token_position": 0,
+        "token_id": 33264,
+        "token": "Olymp",
+        "margin": 1.971555233001709
+      },
+      {
+        "sample_row": 17212,
+        "token_position": 0,
+        "token_id": 13614,
+        "token": "Ca",
+        "margin": 1.9022250175476074
+      },
+      {
+        "sample_row": 64304,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 66215,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 47887,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 52053,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 16725,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 9177,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 33878,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 67212,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 28348,
+        "token_position": 0,
+        "token_id": 25054,
+        "token": "Israel",
+        "margin": 1.8465542793273926
+      },
+      {
+        "sample_row": 65648,
+        "token_position": 0,
+        "token_id": 41946,
+        "token": "Brazil",
+        "margin": 1.8006525039672852
+      },
+      {
+        "sample_row": 17230,
+        "token_position": 0,
+        "token_id": 41946,
+        "token": "Brazil",
+        "margin": 1.8006525039672852
+      },
+      {
+        "sample_row": 36619,
+        "token_position": 0,
+        "token_id": 41946,
+        "token": "Brazil",
+        "margin": 1.8006525039672852
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "concept_index": 3,
+    "source_tree": 3,
+    "source_node_id": 0,
+    "effective_gain": 139.55781629367195,
+    "token_threshold": -0.2928553819656372,
+    "examples": [
+      {
+        "sample_row": 32426,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1958508491516113
+      },
+      {
+        "sample_row": 107726,
+        "token_position": 7,
+        "token_id": 17150,
+        "token": " terrorist",
+        "margin": 1.1888865232467651
+      },
+      {
+        "sample_row": 21536,
+        "token_position": 36,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1869843006134033
+      },
+      {
+        "sample_row": 31661,
+        "token_position": 28,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1763999462127686
+      },
+      {
+        "sample_row": 53598,
+        "token_position": 40,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.174368143081665
+      },
+      {
+        "sample_row": 63441,
+        "token_position": 29,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1739706993103027
+      },
+      {
+        "sample_row": 18520,
+        "token_position": 27,
+        "token_id": 17150,
+        "token": " terrorist",
+        "margin": 1.1390790939331055
+      },
+      {
+        "sample_row": 69582,
+        "token_position": 24,
+        "token_id": 45490,
+        "token": " Jed",
+        "margin": 1.133599042892456
+      },
+      {
+        "sample_row": 12737,
+        "token_position": 39,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1230359077453613
+      },
+      {
+        "sample_row": 15454,
+        "token_position": 44,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1217825412750244
+      },
+      {
+        "sample_row": 36239,
+        "token_position": 9,
+        "token_id": 47801,
+        "token": "Lost",
+        "margin": 1.1217663288116455
+      },
+      {
+        "sample_row": 89508,
+        "token_position": 8,
+        "token_id": 1679,
+        "token": " less",
+        "margin": 1.1172611713409424
+      },
+      {
+        "sample_row": 86974,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1124022006988525
+      },
+      {
+        "sample_row": 71640,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.111227035522461
+      },
+      {
+        "sample_row": 54828,
+        "token_position": 0,
+        "token_id": 26839,
+        "token": "Tele",
+        "margin": 1.1085047721862793
+      },
+      {
+        "sample_row": 75936,
+        "token_position": 51,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1054373979568481
+      },
+      {
+        "sample_row": 71102,
+        "token_position": 36,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.105351448059082
+      },
+      {
+        "sample_row": 82557,
+        "token_position": 38,
+        "token_id": 17150,
+        "token": " terrorist",
+        "margin": 1.0994597673416138
+      },
+      {
+        "sample_row": 92758,
+        "token_position": 35,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.098311424255371
+      },
+      {
+        "sample_row": 44259,
+        "token_position": 57,
+        "token_id": 21987,
+        "token": " Nag",
+        "margin": 1.0916448831558228
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "concept_index": 4,
+    "source_tree": 3,
+    "source_node_id": 1,
+    "effective_gain": 61.67582253316752,
+    "token_threshold": -0.44222766160964966,
+    "examples": [
+      {
+        "sample_row": 101950,
+        "token_position": 50,
+        "token_id": 24923,
+        "token": " Iraqi",
+        "margin": 1.8719263076782227
+      },
+      {
+        "sample_row": 51507,
+        "token_position": 16,
+        "token_id": 1460,
+        "token": " pur",
+        "margin": 1.8330512046813965
+      },
+      {
+        "sample_row": 23820,
+        "token_position": 5,
+        "token_id": 24923,
+        "token": " Iraqi",
+        "margin": 1.8216347694396973
+      },
+      {
+        "sample_row": 5752,
+        "token_position": 19,
+        "token_id": 35134,
+        "token": " Bent",
+        "margin": 1.7925362586975098
+      },
+      {
+        "sample_row": 62560,
+        "token_position": 9,
+        "token_id": 2296,
+        "token": " says",
+        "margin": 1.7903451919555664
+      },
+      {
+        "sample_row": 69352,
+        "token_position": 39,
+        "token_id": 11282,
+        "token": "adi",
+        "margin": 1.7801833152770996
+      },
+      {
+        "sample_row": 85261,
+        "token_position": 2,
+        "token_id": 49918,
+        "token": " Says",
+        "margin": 1.7756059169769287
+      },
+      {
+        "sample_row": 72268,
+        "token_position": 12,
+        "token_id": 37960,
+        "token": " temptation",
+        "margin": 1.7621071338653564
+      },
+      {
+        "sample_row": 66127,
+        "token_position": 13,
+        "token_id": 6743,
+        "token": " Franc",
+        "margin": 1.745185375213623
+      },
+      {
+        "sample_row": 78014,
+        "token_position": 2,
+        "token_id": 2296,
+        "token": " says",
+        "margin": 1.7410171031951904
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 42,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.7354788780212402
+      },
+      {
+        "sample_row": 35524,
+        "token_position": 14,
+        "token_id": 1460,
+        "token": " pur",
+        "margin": 1.7282752990722656
+      },
+      {
+        "sample_row": 14354,
+        "token_position": 12,
+        "token_id": 753,
+        "token": " said",
+        "margin": 1.7225854396820068
+      },
+      {
+        "sample_row": 83090,
+        "token_position": 10,
+        "token_id": 339,
+        "token": "se",
+        "margin": 1.7182021141052246
+      },
+      {
+        "sample_row": 70771,
+        "token_position": 5,
+        "token_id": 753,
+        "token": " said",
+        "margin": 1.7177481651306152
+      },
+      {
+        "sample_row": 30706,
+        "token_position": 12,
+        "token_id": 37342,
+        "token": " Yuk",
+        "margin": 1.717454195022583
+      },
+      {
+        "sample_row": 98656,
+        "token_position": 6,
+        "token_id": 23860,
+        "token": " Tol",
+        "margin": 1.7155945301055908
+      },
+      {
+        "sample_row": 28749,
+        "token_position": 19,
+        "token_id": 2296,
+        "token": " says",
+        "margin": 1.7148711681365967
+      },
+      {
+        "sample_row": 104660,
+        "token_position": 16,
+        "token_id": 24206,
+        "token": " Sri",
+        "margin": 1.7057466506958008
+      },
+      {
+        "sample_row": 28314,
+        "token_position": 2,
+        "token_id": 406,
+        "token": "oc",
+        "margin": 1.6879830360412598
+      }
+    ]
+  },
+  {
+    "stage": 3,
+    "concept_index": 5,
+    "source_tree": 4,
+    "source_node_id": 2,
+    "effective_gain": 55.00970798539204,
+    "token_threshold": -0.2879287898540497,
+    "examples": [
+      {
+        "sample_row": 65764,
+        "token_position": 0,
+        "token_id": 20480,
+        "token": "Scal",
+        "margin": 1.687505841255188
+      },
+      {
+        "sample_row": 32229,
+        "token_position": 1,
+        "token_id": 2870,
+        "token": " ste",
+        "margin": 1.685907244682312
+      },
+      {
+        "sample_row": 62681,
+        "token_position": 0,
+        "token_id": 31495,
+        "token": "Software",
+        "margin": 1.5934730768203735
+      },
+      {
+        "sample_row": 83583,
+        "token_position": 0,
+        "token_id": 31495,
+        "token": "Software",
+        "margin": 1.5934730768203735
+      },
+      {
+        "sample_row": 655,
+        "token_position": 0,
+        "token_id": 36092,
+        "token": "Cra",
+        "margin": 1.5820270776748657
+      },
+      {
+        "sample_row": 47296,
+        "token_position": 8,
+        "token_id": 2567,
+        "token": " company",
+        "margin": 1.5456486940383911
+      },
+      {
+        "sample_row": 77087,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 64015,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 12465,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 79141,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 45744,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 32229,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 85948,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 41688,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 89855,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 39858,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 101068,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 76932,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 31284,
+        "token_position": 0,
+        "token_id": 17664,
+        "token": "Google",
+        "margin": 1.5344511270523071
+      },
+      {
+        "sample_row": 21944,
+        "token_position": 0,
+        "token_id": 36516,
+        "token": "Digital",
+        "margin": 1.4910351037979126
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "concept_index": 0,
+    "source_tree": 0,
+    "source_node_id": 28,
+    "effective_gain": 46.15588194961821,
+    "token_threshold": -0.4270368218421936,
+    "examples": [
+      {
+        "sample_row": 33864,
+        "token_position": 14,
+        "token_id": 16158,
+        "token": " Saudi",
+        "margin": 1.7928745746612549
+      },
+      {
+        "sample_row": 8402,
+        "token_position": 4,
+        "token_id": 11605,
+        "token": " Ra",
+        "margin": 1.771639108657837
+      },
+      {
+        "sample_row": 106138,
+        "token_position": 11,
+        "token_id": 16158,
+        "token": " Saudi",
+        "margin": 1.7423927783966064
+      },
+      {
+        "sample_row": 54946,
+        "token_position": 39,
+        "token_id": 3918,
+        "token": " President",
+        "margin": 1.696986436843872
+      },
+      {
+        "sample_row": 82853,
+        "token_position": 59,
+        "token_id": 16158,
+        "token": " Saudi",
+        "margin": 1.6964936256408691
+      },
+      {
+        "sample_row": 78864,
+        "token_position": 13,
+        "token_id": 9526,
+        "token": " Secretary",
+        "margin": 1.6822562217712402
+      },
+      {
+        "sample_row": 80146,
+        "token_position": 0,
+        "token_id": 27748,
+        "token": "European",
+        "margin": 1.6813266277313232
+      },
+      {
+        "sample_row": 42571,
+        "token_position": 0,
+        "token_id": 27748,
+        "token": "European",
+        "margin": 1.6813266277313232
+      },
+      {
+        "sample_row": 80347,
+        "token_position": 35,
+        "token_id": 21240,
+        "token": " Chairman",
+        "margin": 1.6804370880126953
+      },
+      {
+        "sample_row": 25632,
+        "token_position": 27,
+        "token_id": 9526,
+        "token": " Secretary",
+        "margin": 1.6602232456207275
+      },
+      {
+        "sample_row": 21362,
+        "token_position": 2,
+        "token_id": 10826,
+        "token": " OK",
+        "margin": 1.644275188446045
+      },
+      {
+        "sample_row": 15738,
+        "token_position": 21,
+        "token_id": 17413,
+        "token": " Tokyo",
+        "margin": 1.631551742553711
+      },
+      {
+        "sample_row": 41750,
+        "token_position": 3,
+        "token_id": 25743,
+        "token": " Bear",
+        "margin": 1.6274948120117188
+      },
+      {
+        "sample_row": 14147,
+        "token_position": 0,
+        "token_id": 12501,
+        "token": "Put",
+        "margin": 1.6248793601989746
+      },
+      {
+        "sample_row": 20884,
+        "token_position": 0,
+        "token_id": 12501,
+        "token": "Put",
+        "margin": 1.6248793601989746
+      },
+      {
+        "sample_row": 94204,
+        "token_position": 0,
+        "token_id": 12501,
+        "token": "Put",
+        "margin": 1.6248793601989746
+      },
+      {
+        "sample_row": 97126,
+        "token_position": 0,
+        "token_id": 12501,
+        "token": "Put",
+        "margin": 1.6248793601989746
+      },
+      {
+        "sample_row": 100190,
+        "token_position": 0,
+        "token_id": 12501,
+        "token": "Put",
+        "margin": 1.6248793601989746
+      },
+      {
+        "sample_row": 60783,
+        "token_position": 0,
+        "token_id": 2775,
+        "token": "CH",
+        "margin": 1.6235041618347168
+      },
+      {
+        "sample_row": 76295,
+        "token_position": 0,
+        "token_id": 47548,
+        "token": "Asian",
+        "margin": 1.621462345123291
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "concept_index": 1,
+    "source_tree": 0,
+    "source_node_id": 0,
+    "effective_gain": 53.81219487839963,
+    "token_threshold": 0.22085228562355042,
+    "examples": [
+      {
+        "sample_row": 21379,
+        "token_position": 41,
+        "token_id": 36558,
+        "token": "unners",
+        "margin": 0.6105458736419678
+      },
+      {
+        "sample_row": 94336,
+        "token_position": 51,
+        "token_id": 19425,
+        "token": " Premier",
+        "margin": 0.5854932069778442
+      },
+      {
+        "sample_row": 49855,
+        "token_position": 44,
+        "token_id": 20915,
+        "token": " funeral",
+        "margin": 0.5849578380584717
+      },
+      {
+        "sample_row": 78911,
+        "token_position": 61,
+        "token_id": 30417,
+        "token": " decisive",
+        "margin": 0.5705066919326782
+      },
+      {
+        "sample_row": 37494,
+        "token_position": 35,
+        "token_id": 380,
+        "token": " The",
+        "margin": 0.5671217441558838
+      },
+      {
+        "sample_row": 61141,
+        "token_position": 35,
+        "token_id": 15435,
+        "token": " Patrick",
+        "margin": 0.5625084638595581
+      },
+      {
+        "sample_row": 14712,
+        "token_position": 42,
+        "token_id": 43841,
+        "token": " mourning",
+        "margin": 0.5584889650344849
+      },
+      {
+        "sample_row": 98657,
+        "token_position": 48,
+        "token_id": 253,
+        "token": " the",
+        "margin": 0.5501613616943359
+      },
+      {
+        "sample_row": 60091,
+        "token_position": 49,
+        "token_id": 21449,
+        "token": " defending",
+        "margin": 0.5478702783584595
+      },
+      {
+        "sample_row": 14452,
+        "token_position": 6,
+        "token_id": 9987,
+        "token": " coron",
+        "margin": 0.5406124591827393
+      },
+      {
+        "sample_row": 90629,
+        "token_position": 12,
+        "token_id": 22037,
+        "token": " NHL",
+        "margin": 0.5384900569915771
+      },
+      {
+        "sample_row": 62031,
+        "token_position": 23,
+        "token_id": 28515,
+        "token": "ophers",
+        "margin": 0.5355764627456665
+      },
+      {
+        "sample_row": 70822,
+        "token_position": 23,
+        "token_id": 380,
+        "token": " The",
+        "margin": 0.5301263332366943
+      },
+      {
+        "sample_row": 81634,
+        "token_position": 33,
+        "token_id": 6696,
+        "token": " Hall",
+        "margin": 0.5273599624633789
+      },
+      {
+        "sample_row": 43374,
+        "token_position": 12,
+        "token_id": 16928,
+        "token": " champion",
+        "margin": 0.524325966835022
+      },
+      {
+        "sample_row": 73706,
+        "token_position": 22,
+        "token_id": 253,
+        "token": " the",
+        "margin": 0.5227490663528442
+      },
+      {
+        "sample_row": 41679,
+        "token_position": 34,
+        "token_id": 27283,
+        "token": " Jamie",
+        "margin": 0.5224518775939941
+      },
+      {
+        "sample_row": 20100,
+        "token_position": 15,
+        "token_id": 380,
+        "token": " The",
+        "margin": 0.5220365524291992
+      },
+      {
+        "sample_row": 26116,
+        "token_position": 28,
+        "token_id": 31575,
+        "token": " Champion",
+        "margin": 0.5179848670959473
+      },
+      {
+        "sample_row": 94117,
+        "token_position": 21,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.513922929763794
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "concept_index": 2,
+    "source_tree": 0,
+    "source_node_id": 14,
+    "effective_gain": 74.32606698747523,
+    "token_threshold": -0.26737478375434875,
+    "examples": [
+      {
+        "sample_row": 32753,
+        "token_position": 49,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.2654201984405518
+      },
+      {
+        "sample_row": 53390,
+        "token_position": 28,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.245790481567383
+      },
+      {
+        "sample_row": 7415,
+        "token_position": 7,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.234142303466797
+      },
+      {
+        "sample_row": 67785,
+        "token_position": 58,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.2329459190368652
+      },
+      {
+        "sample_row": 14011,
+        "token_position": 53,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.199151039123535
+      },
+      {
+        "sample_row": 70822,
+        "token_position": 44,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.1983532905578613
+      },
+      {
+        "sample_row": 93518,
+        "token_position": 49,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.181584358215332
+      },
+      {
+        "sample_row": 86914,
+        "token_position": 6,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.1783406734466553
+      },
+      {
+        "sample_row": 27302,
+        "token_position": 32,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.1421289443969727
+      },
+      {
+        "sample_row": 29375,
+        "token_position": 53,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.1379575729370117
+      },
+      {
+        "sample_row": 13481,
+        "token_position": 20,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.116873025894165
+      },
+      {
+        "sample_row": 96531,
+        "token_position": 18,
+        "token_id": 428,
+        "token": " -",
+        "margin": 2.1048951148986816
+      },
+      {
+        "sample_row": 46748,
+        "token_position": 10,
+        "token_id": 428,
+        "token": " -",
+        "margin": 2.0973572731018066
+      },
+      {
+        "sample_row": 95970,
+        "token_position": 27,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.0891480445861816
+      },
+      {
+        "sample_row": 23903,
+        "token_position": 15,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.085966110229492
+      },
+      {
+        "sample_row": 55033,
+        "token_position": 11,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.076141119003296
+      },
+      {
+        "sample_row": 10423,
+        "token_position": 16,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.072577476501465
+      },
+      {
+        "sample_row": 58974,
+        "token_position": 22,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.0593974590301514
+      },
+      {
+        "sample_row": 90829,
+        "token_position": 14,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.058863878250122
+      },
+      {
+        "sample_row": 52902,
+        "token_position": 63,
+        "token_id": 14,
+        "token": "-",
+        "margin": 2.0543010234832764
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "concept_index": 3,
+    "source_tree": 1,
+    "source_node_id": 0,
+    "effective_gain": 51.526123338584526,
+    "token_threshold": 0.2235468029975891,
+    "examples": [
+      {
+        "sample_row": 23197,
+        "token_position": 28,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.732708752155304
+      },
+      {
+        "sample_row": 1074,
+        "token_position": 51,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.7186101675033569
+      },
+      {
+        "sample_row": 50927,
+        "token_position": 33,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.710676372051239
+      },
+      {
+        "sample_row": 96158,
+        "token_position": 59,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.7018882632255554
+      },
+      {
+        "sample_row": 102302,
+        "token_position": 32,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6982172727584839
+      },
+      {
+        "sample_row": 54551,
+        "token_position": 32,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6776884198188782
+      },
+      {
+        "sample_row": 29957,
+        "token_position": 49,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6634931564331055
+      },
+      {
+        "sample_row": 34166,
+        "token_position": 50,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6556858420372009
+      },
+      {
+        "sample_row": 60016,
+        "token_position": 54,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6498655676841736
+      },
+      {
+        "sample_row": 9119,
+        "token_position": 15,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6497316956520081
+      },
+      {
+        "sample_row": 58046,
+        "token_position": 21,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6470937132835388
+      },
+      {
+        "sample_row": 86154,
+        "token_position": 27,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6435180306434631
+      },
+      {
+        "sample_row": 90503,
+        "token_position": 30,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6406545042991638
+      },
+      {
+        "sample_row": 31046,
+        "token_position": 5,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6333746910095215
+      },
+      {
+        "sample_row": 62013,
+        "token_position": 59,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6278823018074036
+      },
+      {
+        "sample_row": 35314,
+        "token_position": 4,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6252340078353882
+      },
+      {
+        "sample_row": 29957,
+        "token_position": 11,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.624381959438324
+      },
+      {
+        "sample_row": 105426,
+        "token_position": 43,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6206875443458557
+      },
+      {
+        "sample_row": 50140,
+        "token_position": 46,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6127151846885681
+      },
+      {
+        "sample_row": 47824,
+        "token_position": 16,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.6114261746406555
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "concept_index": 4,
+    "source_tree": 4,
+    "source_node_id": 0,
+    "effective_gain": 57.97309333771149,
+    "token_threshold": -0.3352891206741333,
+    "examples": [
+      {
+        "sample_row": 39591,
+        "token_position": 40,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.5362447500228882
+      },
+      {
+        "sample_row": 94868,
+        "token_position": 42,
+        "token_id": 27218,
+        "token": " NL",
+        "margin": 1.4919017553329468
+      },
+      {
+        "sample_row": 29957,
+        "token_position": 49,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4676131010055542
+      },
+      {
+        "sample_row": 1074,
+        "token_position": 51,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4350438117980957
+      },
+      {
+        "sample_row": 96158,
+        "token_position": 59,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4115208387374878
+      },
+      {
+        "sample_row": 23197,
+        "token_position": 28,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4105998277664185
+      },
+      {
+        "sample_row": 62013,
+        "token_position": 59,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.404485821723938
+      },
+      {
+        "sample_row": 94117,
+        "token_position": 21,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4030475616455078
+      },
+      {
+        "sample_row": 29957,
+        "token_position": 11,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.4020572900772095
+      },
+      {
+        "sample_row": 76936,
+        "token_position": 29,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.3968368768692017
+      },
+      {
+        "sample_row": 34166,
+        "token_position": 50,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.3956178426742554
+      },
+      {
+        "sample_row": 6797,
+        "token_position": 16,
+        "token_id": 1390,
+        "token": " last",
+        "margin": 1.37954843044281
+      },
+      {
+        "sample_row": 33051,
+        "token_position": 12,
+        "token_id": 29774,
+        "token": " deserved",
+        "margin": 1.3776086568832397
+      },
+      {
+        "sample_row": 29943,
+        "token_position": 30,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.3749353885650635
+      },
+      {
+        "sample_row": 11014,
+        "token_position": 0,
+        "token_id": 21892,
+        "token": "Wil",
+        "margin": 1.3721165657043457
+      },
+      {
+        "sample_row": 59966,
+        "token_position": 0,
+        "token_id": 21892,
+        "token": "Wil",
+        "margin": 1.3721165657043457
+      },
+      {
+        "sample_row": 85018,
+        "token_position": 19,
+        "token_id": 27218,
+        "token": " NL",
+        "margin": 1.3719525337219238
+      },
+      {
+        "sample_row": 102302,
+        "token_position": 32,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.368045449256897
+      },
+      {
+        "sample_row": 101685,
+        "token_position": 38,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.3644887208938599
+      },
+      {
+        "sample_row": 74639,
+        "token_position": 28,
+        "token_id": 5003,
+        "token": " San",
+        "margin": 1.359800934791565
+      }
+    ]
+  },
+  {
+    "stage": 4,
+    "concept_index": 5,
+    "source_tree": 0,
+    "source_node_id": 1,
+    "effective_gain": 46.106337773182375,
+    "token_threshold": 0.344223290681839,
+    "examples": [
+      {
+        "sample_row": 53148,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.3419948816299438
+      },
+      {
+        "sample_row": 53148,
+        "token_position": 53,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.3333779573440552
+      },
+      {
+        "sample_row": 102492,
+        "token_position": 6,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.303202509880066
+      },
+      {
+        "sample_row": 64304,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.3022465705871582
+      },
+      {
+        "sample_row": 31045,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.2213636636734009
+      },
+      {
+        "sample_row": 30726,
+        "token_position": 47,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.2164572477340698
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.206967830657959
+      },
+      {
+        "sample_row": 13198,
+        "token_position": 54,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.19492769241333
+      },
+      {
+        "sample_row": 52668,
+        "token_position": 32,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1906877756118774
+      },
+      {
+        "sample_row": 41176,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1776823997497559
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 23,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1749885082244873
+      },
+      {
+        "sample_row": 11376,
+        "token_position": 5,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.166145920753479
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 56,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1620343923568726
+      },
+      {
+        "sample_row": 25884,
+        "token_position": 42,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.159775972366333
+      },
+      {
+        "sample_row": 34391,
+        "token_position": 24,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.151352882385254
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1282410621643066
+      },
+      {
+        "sample_row": 74074,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1238186359405518
+      },
+      {
+        "sample_row": 37286,
+        "token_position": 40,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.123618245124817
+      },
+      {
+        "sample_row": 56660,
+        "token_position": 21,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1179563999176025
+      },
+      {
+        "sample_row": 103468,
+        "token_position": 35,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 1.1143032312393188
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "concept_index": 0,
+    "source_tree": 0,
+    "source_node_id": 2,
+    "effective_gain": 50.25634750868499,
+    "token_threshold": 0.3578735291957855,
+    "examples": [
+      {
+        "sample_row": 29375,
+        "token_position": 53,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.9392775297164917
+      },
+      {
+        "sample_row": 67989,
+        "token_position": 30,
+        "token_id": 5339,
+        "token": " killed",
+        "margin": 0.9093784093856812
+      },
+      {
+        "sample_row": 88527,
+        "token_position": 44,
+        "token_id": 4200,
+        "token": " Mon",
+        "margin": 0.875421404838562
+      },
+      {
+        "sample_row": 39591,
+        "token_position": 7,
+        "token_id": 3886,
+        "token": "TH",
+        "margin": 0.8393433094024658
+      },
+      {
+        "sample_row": 91806,
+        "token_position": 24,
+        "token_id": 8937,
+        "token": " Old",
+        "margin": 0.836349368095398
+      },
+      {
+        "sample_row": 15850,
+        "token_position": 8,
+        "token_id": 1457,
+        "token": " New",
+        "margin": 0.824371337890625
+      },
+      {
+        "sample_row": 60450,
+        "token_position": 33,
+        "token_id": 18363,
+        "token": " Dal",
+        "margin": 0.8184069395065308
+      },
+      {
+        "sample_row": 29050,
+        "token_position": 7,
+        "token_id": 3886,
+        "token": "TH",
+        "margin": 0.8036458492279053
+      },
+      {
+        "sample_row": 35910,
+        "token_position": 12,
+        "token_id": 708,
+        "token": " &",
+        "margin": 0.7968250513076782
+      },
+      {
+        "sample_row": 16725,
+        "token_position": 24,
+        "token_id": 5339,
+        "token": " killed",
+        "margin": 0.795120120048523
+      },
+      {
+        "sample_row": 93698,
+        "token_position": 0,
+        "token_id": 12978,
+        "token": "Will",
+        "margin": 0.7862725257873535
+      },
+      {
+        "sample_row": 11576,
+        "token_position": 0,
+        "token_id": 12978,
+        "token": "Will",
+        "margin": 0.7862725257873535
+      },
+      {
+        "sample_row": 17673,
+        "token_position": 0,
+        "token_id": 12978,
+        "token": "Will",
+        "margin": 0.7862725257873535
+      },
+      {
+        "sample_row": 14532,
+        "token_position": 40,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.7749356031417847
+      },
+      {
+        "sample_row": 94559,
+        "token_position": 6,
+        "token_id": 953,
+        "token": "its",
+        "margin": 0.7709741592407227
+      },
+      {
+        "sample_row": 49399,
+        "token_position": 59,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.7683322429656982
+      },
+      {
+        "sample_row": 3940,
+        "token_position": 57,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.7670159339904785
+      },
+      {
+        "sample_row": 82557,
+        "token_position": 19,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.7649372816085815
+      },
+      {
+        "sample_row": 37488,
+        "token_position": 29,
+        "token_id": 347,
+        "token": " as",
+        "margin": 0.7635093927383423
+      },
+      {
+        "sample_row": 84885,
+        "token_position": 0,
+        "token_id": 27888,
+        "token": "Death",
+        "margin": 0.7629075050354004
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "concept_index": 1,
+    "source_tree": 4,
+    "source_node_id": 0,
+    "effective_gain": 68.34478394149379,
+    "token_threshold": 0.05061473324894905,
+    "examples": [
+      {
+        "sample_row": 34224,
+        "token_position": 4,
+        "token_id": 9256,
+        "token": " Iraq",
+        "margin": 1.0163403749465942
+      },
+      {
+        "sample_row": 59343,
+        "token_position": 17,
+        "token_id": 7948,
+        "token": " Tuesday",
+        "margin": 1.0008623600006104
+      },
+      {
+        "sample_row": 64886,
+        "token_position": 17,
+        "token_id": 7948,
+        "token": " Tuesday",
+        "margin": 0.9903074502944946
+      },
+      {
+        "sample_row": 67400,
+        "token_position": 33,
+        "token_id": 15352,
+        "token": "record",
+        "margin": 0.9823118448257446
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 28,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 0.9541349411010742
+      },
+      {
+        "sample_row": 79969,
+        "token_position": 35,
+        "token_id": 8216,
+        "token": " Thursday",
+        "margin": 0.949975848197937
+      },
+      {
+        "sample_row": 64304,
+        "token_position": 14,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 0.9263092279434204
+      },
+      {
+        "sample_row": 65902,
+        "token_position": 29,
+        "token_id": 7948,
+        "token": " Tuesday",
+        "margin": 0.9235146045684814
+      },
+      {
+        "sample_row": 43279,
+        "token_position": 20,
+        "token_id": 6794,
+        "token": " Friday",
+        "margin": 0.9208941459655762
+      },
+      {
+        "sample_row": 84491,
+        "token_position": 12,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 0.8991284370422363
+      },
+      {
+        "sample_row": 89909,
+        "token_position": 17,
+        "token_id": 7948,
+        "token": " Tuesday",
+        "margin": 0.8923815488815308
+      },
+      {
+        "sample_row": 101685,
+        "token_position": 27,
+        "token_id": 8216,
+        "token": " Thursday",
+        "margin": 0.8904056549072266
+      },
+      {
+        "sample_row": 3575,
+        "token_position": 24,
+        "token_id": 7216,
+        "token": " Monday",
+        "margin": 0.8837255239486694
+      },
+      {
+        "sample_row": 4143,
+        "token_position": 25,
+        "token_id": 423,
+        "token": "end",
+        "margin": 0.874602198600769
+      },
+      {
+        "sample_row": 39558,
+        "token_position": 37,
+        "token_id": 324,
+        "token": "ad",
+        "margin": 0.8730937242507935
+      },
+      {
+        "sample_row": 97081,
+        "token_position": 11,
+        "token_id": 7216,
+        "token": " Monday",
+        "margin": 0.8699682950973511
+      },
+      {
+        "sample_row": 23542,
+        "token_position": 15,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 0.86672043800354
+      },
+      {
+        "sample_row": 34391,
+        "token_position": 24,
+        "token_id": 19018,
+        "token": " Palestinian",
+        "margin": 0.861711859703064
+      },
+      {
+        "sample_row": 80347,
+        "token_position": 15,
+        "token_id": 13115,
+        "token": " Pakistan",
+        "margin": 0.857029914855957
+      },
+      {
+        "sample_row": 37270,
+        "token_position": 19,
+        "token_id": 34538,
+        "token": " Pakistani",
+        "margin": 0.8568600416183472
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "concept_index": 2,
+    "source_tree": 7,
+    "source_node_id": 18,
+    "effective_gain": 32.73752638694965,
+    "token_threshold": -0.34475836157798767,
+    "examples": [
+      {
+        "sample_row": 101103,
+        "token_position": 5,
+        "token_id": 378,
+        "token": " B",
+        "margin": 1.5942834615707397
+      },
+      {
+        "sample_row": 24387,
+        "token_position": 9,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.527202844619751
+      },
+      {
+        "sample_row": 25038,
+        "token_position": 54,
+        "token_id": 417,
+        "token": " not",
+        "margin": 1.4326753616333008
+      },
+      {
+        "sample_row": 13321,
+        "token_position": 9,
+        "token_id": 417,
+        "token": " not",
+        "margin": 1.4311190843582153
+      },
+      {
+        "sample_row": 29358,
+        "token_position": 38,
+        "token_id": 270,
+        "token": " b",
+        "margin": 1.427277684211731
+      },
+      {
+        "sample_row": 51149,
+        "token_position": 16,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.4030975103378296
+      },
+      {
+        "sample_row": 82320,
+        "token_position": 16,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.400797963142395
+      },
+      {
+        "sample_row": 14320,
+        "token_position": 17,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.3943846225738525
+      },
+      {
+        "sample_row": 64606,
+        "token_position": 13,
+        "token_id": 418,
+        "token": " L",
+        "margin": 1.3941891193389893
+      },
+      {
+        "sample_row": 29204,
+        "token_position": 17,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.3926259279251099
+      },
+      {
+        "sample_row": 32552,
+        "token_position": 17,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.391080617904663
+      },
+      {
+        "sample_row": 65290,
+        "token_position": 20,
+        "token_id": 399,
+        "token": " D",
+        "margin": 1.38581120967865
+      },
+      {
+        "sample_row": 18352,
+        "token_position": 15,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.3849780559539795
+      },
+      {
+        "sample_row": 94787,
+        "token_position": 10,
+        "token_id": 378,
+        "token": " B",
+        "margin": 1.3763982057571411
+      },
+      {
+        "sample_row": 57002,
+        "token_position": 32,
+        "token_id": 417,
+        "token": " not",
+        "margin": 1.3723303079605103
+      },
+      {
+        "sample_row": 18923,
+        "token_position": 18,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.365250825881958
+      },
+      {
+        "sample_row": 88714,
+        "token_position": 1,
+        "token_id": 388,
+        "token": " H",
+        "margin": 1.3495620489120483
+      },
+      {
+        "sample_row": 8884,
+        "token_position": 27,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.3490521907806396
+      },
+      {
+        "sample_row": 18028,
+        "token_position": 44,
+        "token_id": 417,
+        "token": " not",
+        "margin": 1.3434213399887085
+      },
+      {
+        "sample_row": 3826,
+        "token_position": 32,
+        "token_id": 32680,
+        "token": "Reuters",
+        "margin": 1.3301976919174194
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "concept_index": 3,
+    "source_tree": 9,
+    "source_node_id": 8,
+    "effective_gain": 28.53378375160269,
+    "token_threshold": 0.5112543702125549,
+    "examples": [
+      {
+        "sample_row": 54691,
+        "token_position": 16,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.38747239112854
+      },
+      {
+        "sample_row": 68157,
+        "token_position": 17,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.365459680557251
+      },
+      {
+        "sample_row": 84536,
+        "token_position": 7,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.3342466354370117
+      },
+      {
+        "sample_row": 38408,
+        "token_position": 20,
+        "token_id": 17509,
+        "token": " DVD",
+        "margin": 1.3232548236846924
+      },
+      {
+        "sample_row": 55762,
+        "token_position": 21,
+        "token_id": 28794,
+        "token": "Pack",
+        "margin": 1.3209986686706543
+      },
+      {
+        "sample_row": 8071,
+        "token_position": 21,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.2910213470458984
+      },
+      {
+        "sample_row": 62079,
+        "token_position": 13,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.2635912895202637
+      },
+      {
+        "sample_row": 2331,
+        "token_position": 17,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.2595908641815186
+      },
+      {
+        "sample_row": 60061,
+        "token_position": 25,
+        "token_id": 20807,
+        "token": " DS",
+        "margin": 1.244476318359375
+      },
+      {
+        "sample_row": 90548,
+        "token_position": 14,
+        "token_id": 20807,
+        "token": " DS",
+        "margin": 1.2149755954742432
+      },
+      {
+        "sample_row": 87550,
+        "token_position": 16,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.2142417430877686
+      },
+      {
+        "sample_row": 47840,
+        "token_position": 12,
+        "token_id": 16686,
+        "token": " Drug",
+        "margin": 1.2099876403808594
+      },
+      {
+        "sample_row": 73254,
+        "token_position": 39,
+        "token_id": 28794,
+        "token": "Pack",
+        "margin": 1.1868348121643066
+      },
+      {
+        "sample_row": 41760,
+        "token_position": 5,
+        "token_id": 17509,
+        "token": " DVD",
+        "margin": 1.1852004528045654
+      },
+      {
+        "sample_row": 6809,
+        "token_position": 14,
+        "token_id": 28794,
+        "token": "Pack",
+        "margin": 1.1737380027770996
+      },
+      {
+        "sample_row": 71951,
+        "token_position": 23,
+        "token_id": 17509,
+        "token": " DVD",
+        "margin": 1.1689870357513428
+      },
+      {
+        "sample_row": 71951,
+        "token_position": 6,
+        "token_id": 17509,
+        "token": " DVD",
+        "margin": 1.1655054092407227
+      },
+      {
+        "sample_row": 67443,
+        "token_position": 23,
+        "token_id": 6663,
+        "token": "PH",
+        "margin": 1.1647825241088867
+      },
+      {
+        "sample_row": 67295,
+        "token_position": 17,
+        "token_id": 42866,
+        "token": "CBS",
+        "margin": 1.1626007556915283
+      },
+      {
+        "sample_row": 92239,
+        "token_position": 13,
+        "token_id": 27856,
+        "token": " LCD",
+        "margin": 1.14615797996521
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "concept_index": 4,
+    "source_tree": 7,
+    "source_node_id": 2,
+    "effective_gain": 35.24299989558282,
+    "token_threshold": 0.3920429050922394,
+    "examples": [
+      {
+        "sample_row": 45691,
+        "token_position": 13,
+        "token_id": 33668,
+        "token": " Patriots",
+        "margin": 1.18172287940979
+      },
+      {
+        "sample_row": 35959,
+        "token_position": 10,
+        "token_id": 19571,
+        "token": " Ry",
+        "margin": 1.1676908731460571
+      },
+      {
+        "sample_row": 29922,
+        "token_position": 11,
+        "token_id": 37785,
+        "token": " Aer",
+        "margin": 1.1307072639465332
+      },
+      {
+        "sample_row": 98444,
+        "token_position": 28,
+        "token_id": 19571,
+        "token": " Ry",
+        "margin": 1.129254698753357
+      },
+      {
+        "sample_row": 28045,
+        "token_position": 54,
+        "token_id": 19571,
+        "token": " Ry",
+        "margin": 1.1192086935043335
+      },
+      {
+        "sample_row": 42817,
+        "token_position": 2,
+        "token_id": 29677,
+        "token": " Aber",
+        "margin": 1.1042659282684326
+      },
+      {
+        "sample_row": 23197,
+        "token_position": 28,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.0566786527633667
+      },
+      {
+        "sample_row": 39591,
+        "token_position": 40,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.0524652004241943
+      },
+      {
+        "sample_row": 39489,
+        "token_position": 14,
+        "token_id": 33538,
+        "token": " Rut",
+        "margin": 1.050911545753479
+      },
+      {
+        "sample_row": 50927,
+        "token_position": 33,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.0477581024169922
+      },
+      {
+        "sample_row": 96158,
+        "token_position": 59,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.0443487167358398
+      },
+      {
+        "sample_row": 94787,
+        "token_position": 29,
+        "token_id": 19571,
+        "token": " Ry",
+        "margin": 1.0439550876617432
+      },
+      {
+        "sample_row": 55812,
+        "token_position": 17,
+        "token_id": 33668,
+        "token": " Patriots",
+        "margin": 1.0415468215942383
+      },
+      {
+        "sample_row": 71811,
+        "token_position": 30,
+        "token_id": 19571,
+        "token": " Ry",
+        "margin": 1.0126315355300903
+      },
+      {
+        "sample_row": 9521,
+        "token_position": 3,
+        "token_id": 49536,
+        "token": " Sutton",
+        "margin": 1.005811095237732
+      },
+      {
+        "sample_row": 12269,
+        "token_position": 49,
+        "token_id": 42613,
+        "token": " Broncos",
+        "margin": 1.0015770196914673
+      },
+      {
+        "sample_row": 12470,
+        "token_position": 13,
+        "token_id": 43807,
+        "token": " Ski",
+        "margin": 1.0003410577774048
+      },
+      {
+        "sample_row": 54551,
+        "token_position": 32,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.9899647235870361
+      },
+      {
+        "sample_row": 39635,
+        "token_position": 26,
+        "token_id": 19571,
+        "token": " Ry",
+        "margin": 0.9883760213851929
+      },
+      {
+        "sample_row": 34166,
+        "token_position": 50,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.9831740856170654
+      }
+    ]
+  },
+  {
+    "stage": 5,
+    "concept_index": 5,
+    "source_tree": 6,
+    "source_node_id": 0,
+    "effective_gain": 62.2498102937294,
+    "token_threshold": -0.07503718137741089,
+    "examples": [
+      {
+        "sample_row": 71265,
+        "token_position": 10,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.3410048484802246
+      },
+      {
+        "sample_row": 21329,
+        "token_position": 17,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.2778041362762451
+      },
+      {
+        "sample_row": 73353,
+        "token_position": 20,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.2699573040008545
+      },
+      {
+        "sample_row": 49979,
+        "token_position": 9,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.2643063068389893
+      },
+      {
+        "sample_row": 44135,
+        "token_position": 22,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.2473113536834717
+      },
+      {
+        "sample_row": 75488,
+        "token_position": 10,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.2157461643218994
+      },
+      {
+        "sample_row": 40011,
+        "token_position": 8,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.2060964107513428
+      },
+      {
+        "sample_row": 44756,
+        "token_position": 11,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.2038640975952148
+      },
+      {
+        "sample_row": 82917,
+        "token_position": 8,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1791465282440186
+      },
+      {
+        "sample_row": 54876,
+        "token_position": 20,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1729354858398438
+      },
+      {
+        "sample_row": 56660,
+        "token_position": 11,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1574909687042236
+      },
+      {
+        "sample_row": 54832,
+        "token_position": 22,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1551225185394287
+      },
+      {
+        "sample_row": 82853,
+        "token_position": 12,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.152137279510498
+      },
+      {
+        "sample_row": 28748,
+        "token_position": 7,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.150322437286377
+      },
+      {
+        "sample_row": 91299,
+        "token_position": 9,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1502866744995117
+      },
+      {
+        "sample_row": 59736,
+        "token_position": 7,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.149742841720581
+      },
+      {
+        "sample_row": 19358,
+        "token_position": 11,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1484119892120361
+      },
+      {
+        "sample_row": 40358,
+        "token_position": 11,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.1478874683380127
+      },
+      {
+        "sample_row": 70513,
+        "token_position": 12,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.146763801574707
+      },
+      {
+        "sample_row": 27097,
+        "token_position": 17,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.14628267288208
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "concept_index": 0,
+    "source_tree": 8,
+    "source_node_id": 8,
+    "effective_gain": 55.27844110384152,
+    "token_threshold": 0.463876873254776,
+    "examples": [
+      {
+        "sample_row": 51905,
+        "token_position": 46,
+        "token_id": 15730,
+        "token": " championship",
+        "margin": 1.1083950996398926
+      },
+      {
+        "sample_row": 49454,
+        "token_position": 8,
+        "token_id": 753,
+        "token": " said",
+        "margin": 1.0728286504745483
+      },
+      {
+        "sample_row": 70771,
+        "token_position": 5,
+        "token_id": 753,
+        "token": " said",
+        "margin": 1.0632282495498657
+      },
+      {
+        "sample_row": 85018,
+        "token_position": 20,
+        "token_id": 11218,
+        "token": " Championship",
+        "margin": 1.0205641984939575
+      },
+      {
+        "sample_row": 2880,
+        "token_position": 38,
+        "token_id": 27608,
+        "token": " Venezuela",
+        "margin": 0.9804013967514038
+      },
+      {
+        "sample_row": 85492,
+        "token_position": 47,
+        "token_id": 27608,
+        "token": " Venezuela",
+        "margin": 0.9803186655044556
+      },
+      {
+        "sample_row": 93420,
+        "token_position": 11,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.9798284769058228
+      },
+      {
+        "sample_row": 14354,
+        "token_position": 12,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.9769816398620605
+      },
+      {
+        "sample_row": 60744,
+        "token_position": 24,
+        "token_id": 34410,
+        "token": " Guinea",
+        "margin": 0.9576634168624878
+      },
+      {
+        "sample_row": 30258,
+        "token_position": 17,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.9535561800003052
+      },
+      {
+        "sample_row": 79629,
+        "token_position": 17,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.9454602003097534
+      },
+      {
+        "sample_row": 5408,
+        "token_position": 7,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.9379640817642212
+      },
+      {
+        "sample_row": 24632,
+        "token_position": 0,
+        "token_id": 33460,
+        "token": "Cause",
+        "margin": 0.9291929006576538
+      },
+      {
+        "sample_row": 107070,
+        "token_position": 50,
+        "token_id": 1375,
+        "token": " state",
+        "margin": 0.9059238433837891
+      },
+      {
+        "sample_row": 54344,
+        "token_position": 22,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.8992363214492798
+      },
+      {
+        "sample_row": 65902,
+        "token_position": 50,
+        "token_id": 15730,
+        "token": " championship",
+        "margin": 0.8904236555099487
+      },
+      {
+        "sample_row": 53785,
+        "token_position": 17,
+        "token_id": 37781,
+        "token": " accusing",
+        "margin": 0.8864314556121826
+      },
+      {
+        "sample_row": 60061,
+        "token_position": 13,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.8825496435165405
+      },
+      {
+        "sample_row": 15921,
+        "token_position": 53,
+        "token_id": 8776,
+        "token": " sector",
+        "margin": 0.8771191835403442
+      },
+      {
+        "sample_row": 27343,
+        "token_position": 17,
+        "token_id": 753,
+        "token": " said",
+        "margin": 0.8721355199813843
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "concept_index": 1,
+    "source_tree": 4,
+    "source_node_id": 13,
+    "effective_gain": 48.58793564852343,
+    "token_threshold": 0.4360833764076233,
+    "examples": [
+      {
+        "sample_row": 23179,
+        "token_position": 8,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.297149658203125
+      },
+      {
+        "sample_row": 52519,
+        "token_position": 46,
+        "token_id": 5909,
+        "token": " opening",
+        "margin": 1.2071821689605713
+      },
+      {
+        "sample_row": 29943,
+        "token_position": 30,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.0922245979309082
+      },
+      {
+        "sample_row": 29943,
+        "token_position": 19,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.082859992980957
+      },
+      {
+        "sample_row": 20440,
+        "token_position": 3,
+        "token_id": 25426,
+        "token": " Complete",
+        "margin": 1.0540218353271484
+      },
+      {
+        "sample_row": 39591,
+        "token_position": 40,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 1.0454158782958984
+      },
+      {
+        "sample_row": 85018,
+        "token_position": 33,
+        "token_id": 12234,
+        "token": " Series",
+        "margin": 0.9736649394035339
+      },
+      {
+        "sample_row": 81678,
+        "token_position": 25,
+        "token_id": 12234,
+        "token": " Series",
+        "margin": 0.9297881722450256
+      },
+      {
+        "sample_row": 67212,
+        "token_position": 42,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.9102177023887634
+      },
+      {
+        "sample_row": 15180,
+        "token_position": 4,
+        "token_id": 7351,
+        "token": " bag",
+        "margin": 0.896878182888031
+      },
+      {
+        "sample_row": 30801,
+        "token_position": 22,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.8905450701713562
+      },
+      {
+        "sample_row": 101685,
+        "token_position": 38,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.8889607787132263
+      },
+      {
+        "sample_row": 65448,
+        "token_position": 38,
+        "token_id": 5909,
+        "token": " opening",
+        "margin": 0.8880040049552917
+      },
+      {
+        "sample_row": 5868,
+        "token_position": 54,
+        "token_id": 1909,
+        "token": "As",
+        "margin": 0.8859960436820984
+      },
+      {
+        "sample_row": 35314,
+        "token_position": 4,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.8858943581581116
+      },
+      {
+        "sample_row": 15465,
+        "token_position": 22,
+        "token_id": 5827,
+        "token": " plans",
+        "margin": 0.8843323588371277
+      },
+      {
+        "sample_row": 43374,
+        "token_position": 41,
+        "token_id": 5909,
+        "token": " opening",
+        "margin": 0.8803747296333313
+      },
+      {
+        "sample_row": 90941,
+        "token_position": 0,
+        "token_id": 9340,
+        "token": "Results",
+        "margin": 0.8731775879859924
+      },
+      {
+        "sample_row": 94117,
+        "token_position": 21,
+        "token_id": 19898,
+        "token": " Olympic",
+        "margin": 0.8713406920433044
+      },
+      {
+        "sample_row": 23820,
+        "token_position": 3,
+        "token_id": 19459,
+        "token": " slides",
+        "margin": 0.8667100071907043
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "concept_index": 2,
+    "source_tree": 3,
+    "source_node_id": 0,
+    "effective_gain": 55.58330203242383,
+    "token_threshold": 0.2501014471054077,
+    "examples": [
+      {
+        "sample_row": 101523,
+        "token_position": 59,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.2449947595596313
+      },
+      {
+        "sample_row": 99261,
+        "token_position": 28,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.2022515535354614
+      },
+      {
+        "sample_row": 75330,
+        "token_position": 59,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1862612962722778
+      },
+      {
+        "sample_row": 34408,
+        "token_position": 9,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1825894117355347
+      },
+      {
+        "sample_row": 11570,
+        "token_position": 50,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1568275690078735
+      },
+      {
+        "sample_row": 92758,
+        "token_position": 35,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.143404245376587
+      },
+      {
+        "sample_row": 46308,
+        "token_position": 32,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.141265630722046
+      },
+      {
+        "sample_row": 104516,
+        "token_position": 36,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.13833749294281
+      },
+      {
+        "sample_row": 32229,
+        "token_position": 49,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1336013078689575
+      },
+      {
+        "sample_row": 21246,
+        "token_position": 30,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1335564851760864
+      },
+      {
+        "sample_row": 35442,
+        "token_position": 50,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1286331415176392
+      },
+      {
+        "sample_row": 79956,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1203174591064453
+      },
+      {
+        "sample_row": 95715,
+        "token_position": 27,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.116580843925476
+      },
+      {
+        "sample_row": 68572,
+        "token_position": 36,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1061071157455444
+      },
+      {
+        "sample_row": 11045,
+        "token_position": 41,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.103951334953308
+      },
+      {
+        "sample_row": 103219,
+        "token_position": 60,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.1030961275100708
+      },
+      {
+        "sample_row": 71102,
+        "token_position": 36,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0990350246429443
+      },
+      {
+        "sample_row": 85074,
+        "token_position": 6,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0966074466705322
+      },
+      {
+        "sample_row": 54268,
+        "token_position": 37,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0956016778945923
+      },
+      {
+        "sample_row": 13509,
+        "token_position": 34,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.087100863456726
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "concept_index": 3,
+    "source_tree": 4,
+    "source_node_id": 7,
+    "effective_gain": 58.96676463125467,
+    "token_threshold": 0.2173081785440445,
+    "examples": [
+      {
+        "sample_row": 32753,
+        "token_position": 34,
+        "token_id": 1897,
+        "token": " days",
+        "margin": 1.4068479537963867
+      },
+      {
+        "sample_row": 91299,
+        "token_position": 29,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.3851141929626465
+      },
+      {
+        "sample_row": 70826,
+        "token_position": 23,
+        "token_id": 8685,
+        "token": " era",
+        "margin": 1.2841750383377075
+      },
+      {
+        "sample_row": 2324,
+        "token_position": 22,
+        "token_id": 366,
+        "token": "ate",
+        "margin": 1.2699538469314575
+      },
+      {
+        "sample_row": 59613,
+        "token_position": 10,
+        "token_id": 33457,
+        "token": "iked",
+        "margin": 1.2678743600845337
+      },
+      {
+        "sample_row": 76109,
+        "token_position": 31,
+        "token_id": 8685,
+        "token": " era",
+        "margin": 1.2614777088165283
+      },
+      {
+        "sample_row": 21944,
+        "token_position": 35,
+        "token_id": 14520,
+        "token": "generation",
+        "margin": 1.2464903593063354
+      },
+      {
+        "sample_row": 67843,
+        "token_position": 2,
+        "token_id": 42787,
+        "token": "jpeg",
+        "margin": 1.2238372564315796
+      },
+      {
+        "sample_row": 89855,
+        "token_position": 14,
+        "token_id": 6403,
+        "token": " aren",
+        "margin": 1.2101138830184937
+      },
+      {
+        "sample_row": 52411,
+        "token_position": 3,
+        "token_id": 36938,
+        "token": " Dell",
+        "margin": 1.1974118947982788
+      },
+      {
+        "sample_row": 55829,
+        "token_position": 52,
+        "token_id": 8685,
+        "token": " era",
+        "margin": 1.1832777261734009
+      },
+      {
+        "sample_row": 77355,
+        "token_position": 28,
+        "token_id": 1533,
+        "token": " world",
+        "margin": 1.1792643070220947
+      },
+      {
+        "sample_row": 19519,
+        "token_position": 32,
+        "token_id": 1533,
+        "token": " world",
+        "margin": 1.1785439252853394
+      },
+      {
+        "sample_row": 1810,
+        "token_position": 34,
+        "token_id": 1770,
+        "token": " month",
+        "margin": 1.1672929525375366
+      },
+      {
+        "sample_row": 5868,
+        "token_position": 37,
+        "token_id": 14520,
+        "token": "generation",
+        "margin": 1.1627694368362427
+      },
+      {
+        "sample_row": 14913,
+        "token_position": 4,
+        "token_id": 19792,
+        "token": " Oracle",
+        "margin": 1.1617647409439087
+      },
+      {
+        "sample_row": 61596,
+        "token_position": 21,
+        "token_id": 2496,
+        "token": "ude",
+        "margin": 1.1557527780532837
+      },
+      {
+        "sample_row": 102408,
+        "token_position": 21,
+        "token_id": 1533,
+        "token": " world",
+        "margin": 1.1514252424240112
+      },
+      {
+        "sample_row": 94294,
+        "token_position": 8,
+        "token_id": 2129,
+        "token": " week",
+        "margin": 1.1477268934249878
+      },
+      {
+        "sample_row": 105648,
+        "token_position": 40,
+        "token_id": 2182,
+        "token": "ising",
+        "margin": 1.142536997795105
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "concept_index": 4,
+    "source_tree": 8,
+    "source_node_id": 0,
+    "effective_gain": 46.27545978157716,
+    "token_threshold": -0.12495171278715134,
+    "examples": [
+      {
+        "sample_row": 101523,
+        "token_position": 59,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.13714599609375
+      },
+      {
+        "sample_row": 51554,
+        "token_position": 31,
+        "token_id": 40818,
+        "token": " vowed",
+        "margin": 1.0551643371582031
+      },
+      {
+        "sample_row": 21246,
+        "token_position": 30,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0449903011322021
+      },
+      {
+        "sample_row": 14965,
+        "token_position": 15,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0406253337860107
+      },
+      {
+        "sample_row": 75330,
+        "token_position": 59,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0387436151504517
+      },
+      {
+        "sample_row": 12737,
+        "token_position": 39,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0305944681167603
+      },
+      {
+        "sample_row": 11570,
+        "token_position": 50,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.030213713645935
+      },
+      {
+        "sample_row": 71640,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0191526412963867
+      },
+      {
+        "sample_row": 32229,
+        "token_position": 49,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0154861211776733
+      },
+      {
+        "sample_row": 9010,
+        "token_position": 38,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0154837369918823
+      },
+      {
+        "sample_row": 73762,
+        "token_position": 44,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0100177526474
+      },
+      {
+        "sample_row": 92758,
+        "token_position": 35,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0075030326843262
+      },
+      {
+        "sample_row": 35442,
+        "token_position": 50,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.0019032955169678
+      },
+      {
+        "sample_row": 20665,
+        "token_position": 36,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.993358850479126
+      },
+      {
+        "sample_row": 28045,
+        "token_position": 58,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.9925384521484375
+      },
+      {
+        "sample_row": 66416,
+        "token_position": 46,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.9901010990142822
+      },
+      {
+        "sample_row": 79956,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.9897500276565552
+      },
+      {
+        "sample_row": 7448,
+        "token_position": 46,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.9867649078369141
+      },
+      {
+        "sample_row": 51811,
+        "token_position": 24,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.9831745624542236
+      },
+      {
+        "sample_row": 82588,
+        "token_position": 46,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.9825951457023621
+      }
+    ]
+  },
+  {
+    "stage": 6,
+    "concept_index": 5,
+    "source_tree": 2,
+    "source_node_id": 5,
+    "effective_gain": 58.15177924528159,
+    "token_threshold": -0.18604601919651031,
+    "examples": [
+      {
+        "sample_row": 60444,
+        "token_position": 11,
+        "token_id": 17696,
+        "token": " Senior",
+        "margin": 1.6790579557418823
+      },
+      {
+        "sample_row": 12548,
+        "token_position": 16,
+        "token_id": 7015,
+        "token": " chief",
+        "margin": 1.5550426244735718
+      },
+      {
+        "sample_row": 40011,
+        "token_position": 29,
+        "token_id": 2952,
+        "token": " season",
+        "margin": 1.5263773202896118
+      },
+      {
+        "sample_row": 43209,
+        "token_position": 7,
+        "token_id": 16196,
+        "token": " discontin",
+        "margin": 1.5102688074111938
+      },
+      {
+        "sample_row": 94336,
+        "token_position": 0,
+        "token_id": 12456,
+        "token": "UP",
+        "margin": 1.4663910865783691
+      },
+      {
+        "sample_row": 106337,
+        "token_position": 3,
+        "token_id": 36546,
+        "token": " Seoul",
+        "margin": 1.4328569173812866
+      },
+      {
+        "sample_row": 33230,
+        "token_position": 11,
+        "token_id": 3565,
+        "token": " official",
+        "margin": 1.410225749015808
+      },
+      {
+        "sample_row": 11926,
+        "token_position": 2,
+        "token_id": 6381,
+        "token": " insp",
+        "margin": 1.3929790258407593
+      },
+      {
+        "sample_row": 83037,
+        "token_position": 17,
+        "token_id": 14,
+        "token": "-",
+        "margin": 1.3898676633834839
+      },
+      {
+        "sample_row": 49483,
+        "token_position": 4,
+        "token_id": 24051,
+        "token": "Getty",
+        "margin": 1.3833152055740356
+      },
+      {
+        "sample_row": 39590,
+        "token_position": 1,
+        "token_id": 656,
+        "token": "ys",
+        "margin": 1.3800691366195679
+      },
+      {
+        "sample_row": 100027,
+        "token_position": 17,
+        "token_id": 26252,
+        "token": " Xbox",
+        "margin": 1.3647739887237549
+      },
+      {
+        "sample_row": 92855,
+        "token_position": 41,
+        "token_id": 14,
+        "token": "-",
+        "margin": 1.3614985942840576
+      },
+      {
+        "sample_row": 1990,
+        "token_position": 28,
+        "token_id": 42382,
+        "token": "AFP",
+        "margin": 1.3527716398239136
+      },
+      {
+        "sample_row": 40915,
+        "token_position": 55,
+        "token_id": 44031,
+        "token": " slug",
+        "margin": 1.3427585363388062
+      },
+      {
+        "sample_row": 32854,
+        "token_position": 55,
+        "token_id": 35596,
+        "token": " gren",
+        "margin": 1.337082028388977
+      },
+      {
+        "sample_row": 12442,
+        "token_position": 26,
+        "token_id": 26252,
+        "token": " Xbox",
+        "margin": 1.3362340927124023
+      },
+      {
+        "sample_row": 82806,
+        "token_position": 16,
+        "token_id": 9526,
+        "token": " Secretary",
+        "margin": 1.3351657390594482
+      },
+      {
+        "sample_row": 52454,
+        "token_position": 4,
+        "token_id": 33622,
+        "token": " Nobel",
+        "margin": 1.3300431966781616
+      },
+      {
+        "sample_row": 60744,
+        "token_position": 27,
+        "token_id": 43258,
+        "token": " extrad",
+        "margin": 1.3296117782592773
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "concept_index": 0,
+    "source_tree": 3,
+    "source_node_id": 4,
+    "effective_gain": 43.12056509716076,
+    "token_threshold": 0.3835436999797821,
+    "examples": [
+      {
+        "sample_row": 46023,
+        "token_position": 0,
+        "token_id": 33770,
+        "token": "Eight",
+        "margin": 1.1391093730926514
+      },
+      {
+        "sample_row": 59510,
+        "token_position": 7,
+        "token_id": 17274,
+        "token": " Appro",
+        "margin": 1.0187840461730957
+      },
+      {
+        "sample_row": 30226,
+        "token_position": 2,
+        "token_id": 3060,
+        "token": " Europe",
+        "margin": 0.9770948886871338
+      },
+      {
+        "sample_row": 86292,
+        "token_position": 2,
+        "token_id": 3060,
+        "token": " Europe",
+        "margin": 0.9770948886871338
+      },
+      {
+        "sample_row": 61602,
+        "token_position": 0,
+        "token_id": 26256,
+        "token": "Adv",
+        "margin": 0.9637830257415771
+      },
+      {
+        "sample_row": 71692,
+        "token_position": 0,
+        "token_id": 26256,
+        "token": "Adv",
+        "margin": 0.9637830257415771
+      },
+      {
+        "sample_row": 101067,
+        "token_position": 2,
+        "token_id": 13533,
+        "token": " Toronto",
+        "margin": 0.9261544942855835
+      },
+      {
+        "sample_row": 29957,
+        "token_position": 0,
+        "token_id": 49348,
+        "token": "Spain",
+        "margin": 0.9041013717651367
+      },
+      {
+        "sample_row": 54656,
+        "token_position": 0,
+        "token_id": 49348,
+        "token": "Spain",
+        "margin": 0.9041013717651367
+      },
+      {
+        "sample_row": 43371,
+        "token_position": 0,
+        "token_id": 49348,
+        "token": "Spain",
+        "margin": 0.9041013717651367
+      },
+      {
+        "sample_row": 102237,
+        "token_position": 0,
+        "token_id": 49348,
+        "token": "Spain",
+        "margin": 0.9041013717651367
+      },
+      {
+        "sample_row": 14083,
+        "token_position": 1,
+        "token_id": 3315,
+        "token": " Dep",
+        "margin": 0.8951963186264038
+      },
+      {
+        "sample_row": 34594,
+        "token_position": 2,
+        "token_id": 9890,
+        "token": " Italian",
+        "margin": 0.8819025754928589
+      },
+      {
+        "sample_row": 6231,
+        "token_position": 11,
+        "token_id": 4376,
+        "token": " price",
+        "margin": 0.8773894309997559
+      },
+      {
+        "sample_row": 93420,
+        "token_position": 44,
+        "token_id": 29018,
+        "token": " issuing",
+        "margin": 0.8728166818618774
+      },
+      {
+        "sample_row": 95293,
+        "token_position": 0,
+        "token_id": 18142,
+        "token": "Aud",
+        "margin": 0.8590630292892456
+      },
+      {
+        "sample_row": 24348,
+        "token_position": 0,
+        "token_id": 35,
+        "token": "B",
+        "margin": 0.8472959995269775
+      },
+      {
+        "sample_row": 95171,
+        "token_position": 0,
+        "token_id": 35,
+        "token": "B",
+        "margin": 0.8472959995269775
+      },
+      {
+        "sample_row": 37286,
+        "token_position": 0,
+        "token_id": 35,
+        "token": "B",
+        "margin": 0.8472959995269775
+      },
+      {
+        "sample_row": 61141,
+        "token_position": 0,
+        "token_id": 35,
+        "token": "B",
+        "margin": 0.8472959995269775
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "concept_index": 1,
+    "source_tree": 8,
+    "source_node_id": 0,
+    "effective_gain": 46.73416619722837,
+    "token_threshold": -0.1656164824962616,
+    "examples": [
+      {
+        "sample_row": 83636,
+        "token_position": 4,
+        "token_id": 40615,
+        "token": " medals",
+        "margin": 1.3345608711242676
+      },
+      {
+        "sample_row": 76109,
+        "token_position": 40,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.3340797424316406
+      },
+      {
+        "sample_row": 47033,
+        "token_position": 10,
+        "token_id": 3761,
+        "token": " match",
+        "margin": 1.3143088817596436
+      },
+      {
+        "sample_row": 64831,
+        "token_position": 10,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.3043746948242188
+      },
+      {
+        "sample_row": 66395,
+        "token_position": 29,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.3027055263519287
+      },
+      {
+        "sample_row": 71265,
+        "token_position": 11,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.290507435798645
+      },
+      {
+        "sample_row": 4571,
+        "token_position": 13,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.266775131225586
+      },
+      {
+        "sample_row": 19969,
+        "token_position": 19,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.2608548402786255
+      },
+      {
+        "sample_row": 37270,
+        "token_position": 49,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.2593647241592407
+      },
+      {
+        "sample_row": 55265,
+        "token_position": 10,
+        "token_id": 3565,
+        "token": " official",
+        "margin": 1.255562424659729
+      },
+      {
+        "sample_row": 12345,
+        "token_position": 11,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.2518408298492432
+      },
+      {
+        "sample_row": 17223,
+        "token_position": 10,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.2445192337036133
+      },
+      {
+        "sample_row": 104834,
+        "token_position": 9,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.2405649423599243
+      },
+      {
+        "sample_row": 74074,
+        "token_position": 10,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.227881908416748
+      },
+      {
+        "sample_row": 14147,
+        "token_position": 9,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.22652006149292
+      },
+      {
+        "sample_row": 56470,
+        "token_position": 10,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.2247579097747803
+      },
+      {
+        "sample_row": 45376,
+        "token_position": 14,
+        "token_id": 14,
+        "token": "-",
+        "margin": 1.219059705734253
+      },
+      {
+        "sample_row": 15697,
+        "token_position": 11,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.2161192893981934
+      },
+      {
+        "sample_row": 3940,
+        "token_position": 13,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.2130405902862549
+      },
+      {
+        "sample_row": 99259,
+        "token_position": 13,
+        "token_id": 2088,
+        "token": "AP",
+        "margin": 1.212233543395996
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "concept_index": 2,
+    "source_tree": 1,
+    "source_node_id": 3,
+    "effective_gain": 66.97079806450203,
+    "token_threshold": 0.06265433877706528,
+    "examples": [
+      {
+        "sample_row": 31063,
+        "token_position": 20,
+        "token_id": 3894,
+        "token": " share",
+        "margin": 1.2326276302337646
+      },
+      {
+        "sample_row": 72926,
+        "token_position": 37,
+        "token_id": 5439,
+        "token": " raised",
+        "margin": 1.1735150814056396
+      },
+      {
+        "sample_row": 19919,
+        "token_position": 39,
+        "token_id": 3534,
+        "token": " gave",
+        "margin": 1.1576088666915894
+      },
+      {
+        "sample_row": 8003,
+        "token_position": 29,
+        "token_id": 30548,
+        "token": " ripped",
+        "margin": 1.1510133743286133
+      },
+      {
+        "sample_row": 59200,
+        "token_position": 4,
+        "token_id": 6680,
+        "token": " battle",
+        "margin": 1.115626573562622
+      },
+      {
+        "sample_row": 42494,
+        "token_position": 41,
+        "token_id": 556,
+        "token": " has",
+        "margin": 1.1049604415893555
+      },
+      {
+        "sample_row": 29204,
+        "token_position": 24,
+        "token_id": 28114,
+        "token": " cracked",
+        "margin": 1.0952889919281006
+      },
+      {
+        "sample_row": 95010,
+        "token_position": 31,
+        "token_id": 344,
+        "token": " he",
+        "margin": 1.086292028427124
+      },
+      {
+        "sample_row": 588,
+        "token_position": 10,
+        "token_id": 411,
+        "token": " W",
+        "margin": 1.0824459791183472
+      },
+      {
+        "sample_row": 104894,
+        "token_position": 2,
+        "token_id": 11359,
+        "token": " keeps",
+        "margin": 1.0773204565048218
+      },
+      {
+        "sample_row": 45357,
+        "token_position": 4,
+        "token_id": 19160,
+        "token": " Appeal",
+        "margin": 1.0757182836532593
+      },
+      {
+        "sample_row": 16697,
+        "token_position": 16,
+        "token_id": 574,
+        "token": " had",
+        "margin": 1.0682828426361084
+      },
+      {
+        "sample_row": 9908,
+        "token_position": 14,
+        "token_id": 556,
+        "token": " has",
+        "margin": 1.057600736618042
+      },
+      {
+        "sample_row": 35116,
+        "token_position": 17,
+        "token_id": 5365,
+        "token": " PM",
+        "margin": 1.0538095235824585
+      },
+      {
+        "sample_row": 46790,
+        "token_position": 37,
+        "token_id": 24294,
+        "token": " blew",
+        "margin": 1.0537232160568237
+      },
+      {
+        "sample_row": 35417,
+        "token_position": 23,
+        "token_id": 10170,
+        "token": " victory",
+        "margin": 1.044225811958313
+      },
+      {
+        "sample_row": 43293,
+        "token_position": 43,
+        "token_id": 651,
+        "token": " would",
+        "margin": 1.0421234369277954
+      },
+      {
+        "sample_row": 85375,
+        "token_position": 17,
+        "token_id": 46244,
+        "token": " deteriorated",
+        "margin": 1.0410963296890259
+      },
+      {
+        "sample_row": 25824,
+        "token_position": 3,
+        "token_id": 1644,
+        "token": "ives",
+        "margin": 1.0407122373580933
+      },
+      {
+        "sample_row": 23197,
+        "token_position": 19,
+        "token_id": 3534,
+        "token": " gave",
+        "margin": 1.0390355587005615
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "concept_index": 3,
+    "source_tree": 4,
+    "source_node_id": 3,
+    "effective_gain": 59.43632020876118,
+    "token_threshold": 0.04791392758488655,
+    "examples": [
+      {
+        "sample_row": 65275,
+        "token_position": 39,
+        "token_id": 6489,
+        "token": " identity",
+        "margin": 0.9309501647949219
+      },
+      {
+        "sample_row": 22510,
+        "token_position": 39,
+        "token_id": 46442,
+        "token": "abit",
+        "margin": 0.9013019800186157
+      },
+      {
+        "sample_row": 13151,
+        "token_position": 34,
+        "token_id": 3812,
+        "token": " draw",
+        "margin": 0.889479398727417
+      },
+      {
+        "sample_row": 92855,
+        "token_position": 46,
+        "token_id": 7359,
+        "token": " Ann",
+        "margin": 0.8790439367294312
+      },
+      {
+        "sample_row": 35597,
+        "token_position": 5,
+        "token_id": 13169,
+        "token": " Arizona",
+        "margin": 0.8667248487472534
+      },
+      {
+        "sample_row": 89748,
+        "token_position": 20,
+        "token_id": 4343,
+        "token": " countries",
+        "margin": 0.8666642904281616
+      },
+      {
+        "sample_row": 6645,
+        "token_position": 2,
+        "token_id": 10850,
+        "token": " Game",
+        "margin": 0.8641619086265564
+      },
+      {
+        "sample_row": 22510,
+        "token_position": 5,
+        "token_id": 46442,
+        "token": "abit",
+        "margin": 0.8560454249382019
+      },
+      {
+        "sample_row": 19519,
+        "token_position": 1,
+        "token_id": 5841,
+        "token": " calls",
+        "margin": 0.8513807654380798
+      },
+      {
+        "sample_row": 34085,
+        "token_position": 1,
+        "token_id": 20175,
+        "token": " Years",
+        "margin": 0.8447241187095642
+      },
+      {
+        "sample_row": 48333,
+        "token_position": 18,
+        "token_id": 2372,
+        "token": " bit",
+        "margin": 0.8374888896942139
+      },
+      {
+        "sample_row": 17223,
+        "token_position": 14,
+        "token_id": 40012,
+        "token": " Archae",
+        "margin": 0.8362863063812256
+      },
+      {
+        "sample_row": 33986,
+        "token_position": 35,
+        "token_id": 6491,
+        "token": " People",
+        "margin": 0.8282285332679749
+      },
+      {
+        "sample_row": 17960,
+        "token_position": 56,
+        "token_id": 6304,
+        "token": " Del",
+        "margin": 0.8274904489517212
+      },
+      {
+        "sample_row": 93896,
+        "token_position": 6,
+        "token_id": 1071,
+        "token": " test",
+        "margin": 0.8191953897476196
+      },
+      {
+        "sample_row": 46472,
+        "token_position": 33,
+        "token_id": 1407,
+        "token": " ed",
+        "margin": 0.8097705245018005
+      },
+      {
+        "sample_row": 49476,
+        "token_position": 15,
+        "token_id": 13564,
+        "token": "bian",
+        "margin": 0.7960798740386963
+      },
+      {
+        "sample_row": 8529,
+        "token_position": 12,
+        "token_id": 9025,
+        "token": " division",
+        "margin": 0.7935953736305237
+      },
+      {
+        "sample_row": 95635,
+        "token_position": 55,
+        "token_id": 7359,
+        "token": " Ann",
+        "margin": 0.7835595607757568
+      },
+      {
+        "sample_row": 38148,
+        "token_position": 47,
+        "token_id": 4046,
+        "token": "attle",
+        "margin": 0.7832614779472351
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "concept_index": 4,
+    "source_tree": 7,
+    "source_node_id": 0,
+    "effective_gain": 53.33600648523442,
+    "token_threshold": -0.05998227745294571,
+    "examples": [
+      {
+        "sample_row": 9618,
+        "token_position": 9,
+        "token_id": 313,
+        "token": " (",
+        "margin": 1.368838906288147
+      },
+      {
+        "sample_row": 23926,
+        "token_position": 40,
+        "token_id": 846,
+        "token": " after",
+        "margin": 1.3213247060775757
+      },
+      {
+        "sample_row": 26152,
+        "token_position": 12,
+        "token_id": 3077,
+        "token": "IL",
+        "margin": 1.3149136304855347
+      },
+      {
+        "sample_row": 48751,
+        "token_position": 38,
+        "token_id": 4815,
+        "token": " costs",
+        "margin": 1.3094253540039062
+      },
+      {
+        "sample_row": 97226,
+        "token_position": 22,
+        "token_id": 1852,
+        "token": " #",
+        "margin": 1.2966376543045044
+      },
+      {
+        "sample_row": 55263,
+        "token_position": 14,
+        "token_id": 14,
+        "token": "-",
+        "margin": 1.2951133251190186
+      },
+      {
+        "sample_row": 97608,
+        "token_position": 11,
+        "token_id": 2378,
+        "token": " once",
+        "margin": 1.2948588132858276
+      },
+      {
+        "sample_row": 40032,
+        "token_position": 14,
+        "token_id": 3077,
+        "token": "IL",
+        "margin": 1.2889498472213745
+      },
+      {
+        "sample_row": 49896,
+        "token_position": 20,
+        "token_id": 5827,
+        "token": " plans",
+        "margin": 1.2826316356658936
+      },
+      {
+        "sample_row": 90988,
+        "token_position": 20,
+        "token_id": 388,
+        "token": " H",
+        "margin": 1.2766011953353882
+      },
+      {
+        "sample_row": 106383,
+        "token_position": 10,
+        "token_id": 3694,
+        "token": " software",
+        "margin": 1.2675055265426636
+      },
+      {
+        "sample_row": 75650,
+        "token_position": 6,
+        "token_id": 14,
+        "token": "-",
+        "margin": 1.2660199403762817
+      },
+      {
+        "sample_row": 55983,
+        "token_position": 4,
+        "token_id": 8573,
+        "token": " internet",
+        "margin": 1.265670657157898
+      },
+      {
+        "sample_row": 68723,
+        "token_position": 32,
+        "token_id": 47263,
+        "token": "ricanes",
+        "margin": 1.263582468032837
+      },
+      {
+        "sample_row": 75936,
+        "token_position": 18,
+        "token_id": 46,
+        "token": "M",
+        "margin": 1.2610137462615967
+      },
+      {
+        "sample_row": 92855,
+        "token_position": 41,
+        "token_id": 14,
+        "token": "-",
+        "margin": 1.257425308227539
+      },
+      {
+        "sample_row": 29809,
+        "token_position": 3,
+        "token_id": 5706,
+        "token": " Att",
+        "margin": 1.2555433511734009
+      },
+      {
+        "sample_row": 37691,
+        "token_position": 0,
+        "token_id": 12486,
+        "token": "Long",
+        "margin": 1.2548667192459106
+      },
+      {
+        "sample_row": 87488,
+        "token_position": 0,
+        "token_id": 12486,
+        "token": "Long",
+        "margin": 1.2548667192459106
+      },
+      {
+        "sample_row": 67400,
+        "token_position": 0,
+        "token_id": 12486,
+        "token": "Long",
+        "margin": 1.2548667192459106
+      }
+    ]
+  },
+  {
+    "stage": 7,
+    "concept_index": 5,
+    "source_tree": 9,
+    "source_node_id": 28,
+    "effective_gain": 42.16492626571146,
+    "token_threshold": 0.22342802584171295,
+    "examples": [
+      {
+        "sample_row": 77334,
+        "token_position": 0,
+        "token_id": 31762,
+        "token": "BAR",
+        "margin": 1.8039746284484863
+      },
+      {
+        "sample_row": 83572,
+        "token_position": 0,
+        "token_id": 47698,
+        "token": "Joy",
+        "margin": 1.6976100206375122
+      },
+      {
+        "sample_row": 30916,
+        "token_position": 0,
+        "token_id": 7817,
+        "token": "BU",
+        "margin": 1.6933711767196655
+      },
+      {
+        "sample_row": 36804,
+        "token_position": 0,
+        "token_id": 23262,
+        "token": "Ray",
+        "margin": 1.6766942739486694
+      },
+      {
+        "sample_row": 40284,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 10144,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 54832,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 34989,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 51905,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 13438,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 1381,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 101824,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 85074,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 99102,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 8402,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 103720,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 96838,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 92015,
+        "token_position": 0,
+        "token_id": 58,
+        "token": "Y",
+        "margin": 1.5819849967956543
+      },
+      {
+        "sample_row": 78861,
+        "token_position": 0,
+        "token_id": 5039,
+        "token": "Ab",
+        "margin": 1.5806918144226074
+      },
+      {
+        "sample_row": 11110,
+        "token_position": 0,
+        "token_id": 42576,
+        "token": "Travel",
+        "margin": 1.5567426681518555
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "concept_index": 0,
+    "source_tree": 1,
+    "source_node_id": 0,
+    "effective_gain": 52.18949528620259,
+    "token_threshold": -0.20345348119735718,
+    "examples": [
+      {
+        "sample_row": 10057,
+        "token_position": 10,
+        "token_id": 26,
+        "token": "9",
+        "margin": 1.4053022861480713
+      },
+      {
+        "sample_row": 99264,
+        "token_position": 48,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.399627685546875
+      },
+      {
+        "sample_row": 31661,
+        "token_position": 28,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3972904682159424
+      },
+      {
+        "sample_row": 5885,
+        "token_position": 23,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3896400928497314
+      },
+      {
+        "sample_row": 14949,
+        "token_position": 35,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3754196166992188
+      },
+      {
+        "sample_row": 2871,
+        "token_position": 12,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3720827102661133
+      },
+      {
+        "sample_row": 67295,
+        "token_position": 45,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3714065551757812
+      },
+      {
+        "sample_row": 79956,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3634111881256104
+      },
+      {
+        "sample_row": 73353,
+        "token_position": 39,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3608243465423584
+      },
+      {
+        "sample_row": 9537,
+        "token_position": 22,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3562541007995605
+      },
+      {
+        "sample_row": 70822,
+        "token_position": 53,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3552954196929932
+      },
+      {
+        "sample_row": 29317,
+        "token_position": 45,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3515079021453857
+      },
+      {
+        "sample_row": 71022,
+        "token_position": 45,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.349731206893921
+      },
+      {
+        "sample_row": 79713,
+        "token_position": 50,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3488595485687256
+      },
+      {
+        "sample_row": 91821,
+        "token_position": 27,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3477210998535156
+      },
+      {
+        "sample_row": 107319,
+        "token_position": 42,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3474767208099365
+      },
+      {
+        "sample_row": 62408,
+        "token_position": 31,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3473172187805176
+      },
+      {
+        "sample_row": 86974,
+        "token_position": 33,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3432998657226562
+      },
+      {
+        "sample_row": 7175,
+        "token_position": 19,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3430962562561035
+      },
+      {
+        "sample_row": 73607,
+        "token_position": 30,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.3410670757293701
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "concept_index": 1,
+    "source_tree": 8,
+    "source_node_id": 12,
+    "effective_gain": 51.18794187825949,
+    "token_threshold": -0.17108404636383057,
+    "examples": [
+      {
+        "sample_row": 20003,
+        "token_position": 0,
+        "token_id": 1773,
+        "token": "Con",
+        "margin": 1.319484829902649
+      },
+      {
+        "sample_row": 53597,
+        "token_position": 0,
+        "token_id": 1773,
+        "token": "Con",
+        "margin": 1.319484829902649
+      },
+      {
+        "sample_row": 89473,
+        "token_position": 0,
+        "token_id": 1773,
+        "token": "Con",
+        "margin": 1.319484829902649
+      },
+      {
+        "sample_row": 100513,
+        "token_position": 0,
+        "token_id": 1773,
+        "token": "Con",
+        "margin": 1.319484829902649
+      },
+      {
+        "sample_row": 105850,
+        "token_position": 0,
+        "token_id": 1773,
+        "token": "Con",
+        "margin": 1.319484829902649
+      },
+      {
+        "sample_row": 65647,
+        "token_position": 0,
+        "token_id": 50,
+        "token": "Q",
+        "margin": 1.266576886177063
+      },
+      {
+        "sample_row": 102006,
+        "token_position": 0,
+        "token_id": 50,
+        "token": "Q",
+        "margin": 1.266576886177063
+      },
+      {
+        "sample_row": 51392,
+        "token_position": 0,
+        "token_id": 50,
+        "token": "Q",
+        "margin": 1.266576886177063
+      },
+      {
+        "sample_row": 69582,
+        "token_position": 0,
+        "token_id": 50,
+        "token": "Q",
+        "margin": 1.266576886177063
+      },
+      {
+        "sample_row": 93420,
+        "token_position": 17,
+        "token_id": 4176,
+        "token": " suit",
+        "margin": 1.245437741279602
+      },
+      {
+        "sample_row": 48965,
+        "token_position": 18,
+        "token_id": 1977,
+        "token": " away",
+        "margin": 1.2395120859146118
+      },
+      {
+        "sample_row": 62731,
+        "token_position": 6,
+        "token_id": 22020,
+        "token": " demo",
+        "margin": 1.2174605131149292
+      },
+      {
+        "sample_row": 103,
+        "token_position": 0,
+        "token_id": 34438,
+        "token": "Park",
+        "margin": 1.2079095840454102
+      },
+      {
+        "sample_row": 83489,
+        "token_position": 13,
+        "token_id": 3761,
+        "token": " match",
+        "margin": 1.2025269269943237
+      },
+      {
+        "sample_row": 81161,
+        "token_position": 0,
+        "token_id": 13689,
+        "token": "Wait",
+        "margin": 1.1705496311187744
+      },
+      {
+        "sample_row": 26360,
+        "token_position": 0,
+        "token_id": 13689,
+        "token": "Wait",
+        "margin": 1.1705496311187744
+      },
+      {
+        "sample_row": 45357,
+        "token_position": 4,
+        "token_id": 19160,
+        "token": " Appeal",
+        "margin": 1.1624488830566406
+      },
+      {
+        "sample_row": 96653,
+        "token_position": 8,
+        "token_id": 484,
+        "token": "up",
+        "margin": 1.159266471862793
+      },
+      {
+        "sample_row": 59715,
+        "token_position": 31,
+        "token_id": 29703,
+        "token": " rebel",
+        "margin": 1.146362543106079
+      },
+      {
+        "sample_row": 90359,
+        "token_position": 28,
+        "token_id": 11062,
+        "token": " injured",
+        "margin": 1.1350047588348389
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "concept_index": 2,
+    "source_tree": 6,
+    "source_node_id": 4,
+    "effective_gain": 30.79403355895704,
+    "token_threshold": 0.33456453680992126,
+    "examples": [
+      {
+        "sample_row": 8741,
+        "token_position": 15,
+        "token_id": 4350,
+        "token": "SP",
+        "margin": 0.8104978799819946
+      },
+      {
+        "sample_row": 22994,
+        "token_position": 28,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.7707886695861816
+      },
+      {
+        "sample_row": 12759,
+        "token_position": 0,
+        "token_id": 37837,
+        "token": "Scre",
+        "margin": 0.7311486005783081
+      },
+      {
+        "sample_row": 15180,
+        "token_position": 20,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.7227669954299927
+      },
+      {
+        "sample_row": 73762,
+        "token_position": 44,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.719573974609375
+      },
+      {
+        "sample_row": 35571,
+        "token_position": 22,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.7181301116943359
+      },
+      {
+        "sample_row": 97964,
+        "token_position": 22,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.7143983840942383
+      },
+      {
+        "sample_row": 42110,
+        "token_position": 18,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.7050830125808716
+      },
+      {
+        "sample_row": 99711,
+        "token_position": 27,
+        "token_id": 4350,
+        "token": "SP",
+        "margin": 0.7012354135513306
+      },
+      {
+        "sample_row": 1757,
+        "token_position": 26,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.7005866765975952
+      },
+      {
+        "sample_row": 92090,
+        "token_position": 22,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.7001007795333862
+      },
+      {
+        "sample_row": 20346,
+        "token_position": 29,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.6992638111114502
+      },
+      {
+        "sample_row": 46288,
+        "token_position": 27,
+        "token_id": 26121,
+        "token": " Nep",
+        "margin": 0.6990258693695068
+      },
+      {
+        "sample_row": 48419,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.695701003074646
+      },
+      {
+        "sample_row": 71223,
+        "token_position": 46,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.6955081224441528
+      },
+      {
+        "sample_row": 50843,
+        "token_position": 39,
+        "token_id": 14,
+        "token": "-",
+        "margin": 0.6951308250427246
+      },
+      {
+        "sample_row": 89077,
+        "token_position": 24,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.6931717395782471
+      },
+      {
+        "sample_row": 75330,
+        "token_position": 59,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.6925724744796753
+      },
+      {
+        "sample_row": 21338,
+        "token_position": 44,
+        "token_id": 15,
+        "token": ".",
+        "margin": 0.6907035112380981
+      },
+      {
+        "sample_row": 7464,
+        "token_position": 34,
+        "token_id": 4350,
+        "token": "SP",
+        "margin": 0.6878989934921265
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "concept_index": 3,
+    "source_tree": 8,
+    "source_node_id": 4,
+    "effective_gain": 61.58958043528573,
+    "token_threshold": -0.0575321763753891,
+    "examples": [
+      {
+        "sample_row": 78819,
+        "token_position": 20,
+        "token_id": 9461,
+        "token": " rose",
+        "margin": 1.2736705541610718
+      },
+      {
+        "sample_row": 25501,
+        "token_position": 17,
+        "token_id": 530,
+        "token": " U",
+        "margin": 1.270316243171692
+      },
+      {
+        "sample_row": 97616,
+        "token_position": 0,
+        "token_id": 34893,
+        "token": "UNC",
+        "margin": 1.2634272575378418
+      },
+      {
+        "sample_row": 85667,
+        "token_position": 28,
+        "token_id": 30394,
+        "token": " unse",
+        "margin": 1.2608165740966797
+      },
+      {
+        "sample_row": 90930,
+        "token_position": 4,
+        "token_id": 411,
+        "token": " W",
+        "margin": 1.241126537322998
+      },
+      {
+        "sample_row": 45998,
+        "token_position": 15,
+        "token_id": 14212,
+        "token": " 800",
+        "margin": 1.2403069734573364
+      },
+      {
+        "sample_row": 28388,
+        "token_position": 61,
+        "token_id": 7469,
+        "token": " 300",
+        "margin": 1.2351514101028442
+      },
+      {
+        "sample_row": 77541,
+        "token_position": 1,
+        "token_id": 50276,
+        "token": "  ",
+        "margin": 1.1616255044937134
+      },
+      {
+        "sample_row": 107086,
+        "token_position": 36,
+        "token_id": 530,
+        "token": " U",
+        "margin": 1.1570998430252075
+      },
+      {
+        "sample_row": 58364,
+        "token_position": 38,
+        "token_id": 8721,
+        "token": " Equ",
+        "margin": 1.1464811563491821
+      },
+      {
+        "sample_row": 76980,
+        "token_position": 30,
+        "token_id": 7469,
+        "token": " 300",
+        "margin": 1.1347628831863403
+      },
+      {
+        "sample_row": 48568,
+        "token_position": 3,
+        "token_id": 1720,
+        "token": " Re",
+        "margin": 1.13070809841156
+      },
+      {
+        "sample_row": 14488,
+        "token_position": 7,
+        "token_id": 5439,
+        "token": " raised",
+        "margin": 1.1026315689086914
+      },
+      {
+        "sample_row": 25038,
+        "token_position": 49,
+        "token_id": 714,
+        "token": " Y",
+        "margin": 1.102105736732483
+      },
+      {
+        "sample_row": 20446,
+        "token_position": 57,
+        "token_id": 884,
+        "token": " 10",
+        "margin": 1.0948377847671509
+      },
+      {
+        "sample_row": 7679,
+        "token_position": 25,
+        "token_id": 12891,
+        "token": " 600",
+        "margin": 1.087891697883606
+      },
+      {
+        "sample_row": 45691,
+        "token_position": 14,
+        "token_id": 294,
+        "token": " re",
+        "margin": 1.0805538892745972
+      },
+      {
+        "sample_row": 376,
+        "token_position": 2,
+        "token_id": 1107,
+        "token": " years",
+        "margin": 1.080188274383545
+      },
+      {
+        "sample_row": 41301,
+        "token_position": 42,
+        "token_id": 6982,
+        "token": " economy",
+        "margin": 1.0710214376449585
+      },
+      {
+        "sample_row": 40915,
+        "token_position": 30,
+        "token_id": 18450,
+        "token": " 700",
+        "margin": 1.0685349702835083
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "concept_index": 4,
+    "source_tree": 9,
+    "source_node_id": 28,
+    "effective_gain": 62.25624477261262,
+    "token_threshold": -0.010834640823304653,
+    "examples": [
+      {
+        "sample_row": 102257,
+        "token_position": 10,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.6889327764511108
+      },
+      {
+        "sample_row": 86282,
+        "token_position": 12,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.682412028312683
+      },
+      {
+        "sample_row": 49090,
+        "token_position": 18,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.673964262008667
+      },
+      {
+        "sample_row": 71832,
+        "token_position": 18,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.6154695749282837
+      },
+      {
+        "sample_row": 48419,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5966594219207764
+      },
+      {
+        "sample_row": 66682,
+        "token_position": 23,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5616358518600464
+      },
+      {
+        "sample_row": 61191,
+        "token_position": 31,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5573205947875977
+      },
+      {
+        "sample_row": 71578,
+        "token_position": 10,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.544631004333496
+      },
+      {
+        "sample_row": 37166,
+        "token_position": 7,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5201677083969116
+      },
+      {
+        "sample_row": 57123,
+        "token_position": 16,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5199397802352905
+      },
+      {
+        "sample_row": 15180,
+        "token_position": 20,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5192865133285522
+      },
+      {
+        "sample_row": 932,
+        "token_position": 17,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.517258882522583
+      },
+      {
+        "sample_row": 56974,
+        "token_position": 5,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5080022811889648
+      },
+      {
+        "sample_row": 72507,
+        "token_position": 3,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.5035879611968994
+      },
+      {
+        "sample_row": 20205,
+        "token_position": 31,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.495630145072937
+      },
+      {
+        "sample_row": 29352,
+        "token_position": 30,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.493371605873108
+      },
+      {
+        "sample_row": 61692,
+        "token_position": 15,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4907971620559692
+      },
+      {
+        "sample_row": 54946,
+        "token_position": 5,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4840511083602905
+      },
+      {
+        "sample_row": 89160,
+        "token_position": 49,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.482774019241333
+      },
+      {
+        "sample_row": 33098,
+        "token_position": 10,
+        "token_id": 15,
+        "token": ".",
+        "margin": 1.4752287864685059
+      }
+    ]
+  },
+  {
+    "stage": 8,
+    "concept_index": 5,
+    "source_tree": 7,
+    "source_node_id": 14,
+    "effective_gain": 59.03765262354392,
+    "token_threshold": 0.07075434923171997,
+    "examples": [
+      {
+        "sample_row": 59810,
+        "token_position": 2,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3817024230957031
+      },
+      {
+        "sample_row": 90048,
+        "token_position": 2,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3817024230957031
+      },
+      {
+        "sample_row": 60071,
+        "token_position": 2,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3817024230957031
+      },
+      {
+        "sample_row": 66733,
+        "token_position": 7,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3243136405944824
+      },
+      {
+        "sample_row": 82070,
+        "token_position": 5,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3182785511016846
+      },
+      {
+        "sample_row": 93989,
+        "token_position": 5,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.3056981563568115
+      },
+      {
+        "sample_row": 101496,
+        "token_position": 10,
+        "token_id": 502,
+        "token": " cl",
+        "margin": 1.2996973991394043
+      },
+      {
+        "sample_row": 43756,
+        "token_position": 5,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2891619205474854
+      },
+      {
+        "sample_row": 104169,
+        "token_position": 11,
+        "token_id": 1873,
+        "token": " file",
+        "margin": 1.2657861709594727
+      },
+      {
+        "sample_row": 26187,
+        "token_position": 27,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2547492980957031
+      },
+      {
+        "sample_row": 25439,
+        "token_position": 0,
+        "token_id": 23475,
+        "token": "Cat",
+        "margin": 1.248868465423584
+      },
+      {
+        "sample_row": 86624,
+        "token_position": 3,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2368519306182861
+      },
+      {
+        "sample_row": 65448,
+        "token_position": 2,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2312445640563965
+      },
+      {
+        "sample_row": 12995,
+        "token_position": 2,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2312445640563965
+      },
+      {
+        "sample_row": 57749,
+        "token_position": 2,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2312445640563965
+      },
+      {
+        "sample_row": 56660,
+        "token_position": 2,
+        "token_id": 39319,
+        "token": " Ara",
+        "margin": 1.2119262218475342
+      },
+      {
+        "sample_row": 24359,
+        "token_position": 2,
+        "token_id": 41929,
+        "token": " lunar",
+        "margin": 1.2116706371307373
+      },
+      {
+        "sample_row": 65835,
+        "token_position": 20,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2113902568817139
+      },
+      {
+        "sample_row": 52776,
+        "token_position": 3,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.2079401016235352
+      },
+      {
+        "sample_row": 89855,
+        "token_position": 8,
+        "token_id": 1867,
+        "token": "39",
+        "margin": 1.206294059753418
+      }
+    ]
+  }
+]
